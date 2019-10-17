@@ -1,22 +1,27 @@
 <div class="container">
   <div class="login mat-elevation-z10">
-    <div class="Logo">Logo</div>
+    <div class="logo">
+      <img src="../../../assets/images/Logos/escudo-policia_0.png" alt="Logo Policia Nacional">
+    </div>
     <div class="title">Login</div>
     <form>
-      <mat-form-field appearance="outline">
-        <mat-label>Outline form field</mat-label>
+      <mat-form-field color="accent" appearance="outline">
+        <mat-label>Usuario</mat-label>
         <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-icon matSuffix>person</mat-icon>        
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Outline form field</mat-label>
+      <mat-form-field color="accent" appearance="outline">
+        <mat-label>Contraseña</mat-label>
         <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-icon matSuffix>vpn_key</mat-icon>
       </mat-form-field>
-      <button mat-raised-button color="primary">Primary</button>
-      <p>Recordar</p>
+      <button mat-raised-button color="primary">Ingresar</button>
+      <a href="#">¿Olvido su contraseña?</a>
     </form>    
+  </div>
+  <div style="position: fixed; z-index: -99; width: 100%; height: 100%"> 
+    <video autoplay muted loop id="Video">
+      <source src="../../../assets/video/Video.mp4" type="video/mp4">
+    </video>
   </div>
 </div>
