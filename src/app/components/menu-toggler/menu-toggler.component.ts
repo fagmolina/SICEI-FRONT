@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-menu-toggler',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTogglerComponent implements OnInit {
   toggle = false;
-  constructor() { }
+  constructor(private componentService: ComponentsService) { }
 
   ngOnInit() {
   }
-
-}
+  toggleDrawer() {
+    this.toggle = !this.toggle;
+    this.componentService.toggleMainMenu.next(this.toggle);
+  }
+} 

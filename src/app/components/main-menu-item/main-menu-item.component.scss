@@ -1,0 +1,14 @@
+@import '../../../assets/css/variables';
+
+.menu {
+    &-item {
+        &__wrapper {
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+}

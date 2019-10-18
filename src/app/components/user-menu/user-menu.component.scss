@@ -1,0 +1,38 @@
+.user {
+  &-menu {
+    &__wrapper {
+      button {
+        & mat-icon {
+            margin-left: 10px;
+        }
+      }
+    }
+    &__name {
+      padding: 5px 0;
+      display: grid;
+      grid-template-columns: 1fr min-content;
+      grid-template-rows: min-content min-content;
+      grid-gap: 5px;
+      justify-items: center;
+      align-items: center;
+      & span {
+        line-height: normal;
+        font-size: 70%;
+        &:first-child, &:nth-child(2) {
+          grid-column: 1;
+          justify-self: end;
+        }
+        &:first-child {
+          grid-row: 1;
+        }
+        &:nth-child(2) {
+          grid-row: 2;
+        }
+        &:last-child {
+          grid-column: 2;
+          grid-row: 1 / -1;
+        }
+      }
+    }
+  }
+}
