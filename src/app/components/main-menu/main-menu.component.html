@@ -1,2 +1,10 @@
-<app-menu-toggler></app-menu-toggler>
-<app-main-menu-item></app-main-menu-item>
+<div class="menu-wrapper">
+  <span *ngFor="let item of items">
+    <app-main-menu-item
+      [icon]="item.icon"
+      [width]="item.width"
+      [heigth]="item.heigth"
+      [title]="item.title"
+    ></app-main-menu-item>
+  </span>
+</div>
