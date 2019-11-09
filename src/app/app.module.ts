@@ -18,7 +18,8 @@ import { MatCardModule,
          MatMenuModule,
          MatAutocompleteModule,
          MatDatepickerModule,
-         MatNativeDateModule} from '@angular/material';
+         MatNativeDateModule,
+         MatRadioModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 //#endregion Material
 
@@ -35,6 +36,7 @@ import { CarouselItemComponent } from './components/carousel/carousel-item/carou
 import { PrimerFormularioComponent } from './components/forms/primer-formulario/primer-formulario.component';
 import { SimpleInputComponent } from './components/commons/simple-input/simple-input.component';
 import { AutcompleteComponent } from './components/commons/autcomplete/autcomplete.component';
+import { ParticipacionFormComponent } from './components/participacion-form/participacion-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -51,7 +53,8 @@ import { AutcompleteComponent } from './components/commons/autcomplete/autcomple
     CarouselItemComponent,
     PrimerFormularioComponent,
     SimpleInputComponent,
-    AutcompleteComponent
+    AutcompleteComponent,
+    ParticipacionFormComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,9 @@ import { AutcompleteComponent } from './components/commons/autcomplete/autcomple
     MatMenuModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule, MatMomentDateModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatRadioModule,
 
     ReactiveFormsModule,
     FormsModule,

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { InputData } from 'src/app/interfaces/interfaces';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-simple-input',
@@ -8,10 +9,13 @@ import { InputData } from 'src/app/interfaces/interfaces';
 })
 export class SimpleInputComponent implements OnInit {
   @Input() data: InputData;
+  @Output() formReady = new EventEmitter<FormControl>()
+  formControl = new FormControl('', Validators.required);
 
   constructor() { }
 
   ngOnInit() {
+    this.formReady.emit(this.formControl);
   }
 
 }

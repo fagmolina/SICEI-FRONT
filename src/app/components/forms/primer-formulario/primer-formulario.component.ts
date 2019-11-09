@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as constantes from '../../../constantes';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-primer-formulario',
@@ -8,6 +9,7 @@ import * as constantes from '../../../constantes';
 })
 export class PrimerFormularioComponent implements OnInit {
   constantes = constantes;
+  primerForm: FormGroup;
   fakeData = [
       {
       'postId': 1,
@@ -42,7 +44,15 @@ export class PrimerFormularioComponent implements OnInit {
   }
   ];
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.primerForm = this.fb.group({
+      yearControl: new FormControl({value: '', disabled: false}, Validators.required),
+    });
+  }
+
+  formInitialized(name: string, form: FormControl) {
+    this.primerForm.setControl(name, form);
+  }
 }

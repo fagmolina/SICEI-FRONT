@@ -1,28 +1,27 @@
-<form>
+<form novalidate [formGroup]="primerForm">
 
     <!-- Titulo Investigación -->
-    <mat-form-field>
-        <app-simple-input [data]="{
-            placeholder: constantes.placeholders.tituloInvestigacion,
-            data: [],
-            icon: ''
-        }"></app-simple-input>
-    </mat-form-field>
+    <app-simple-input [data]="{
+        placeholder: constantes.placeholders.tituloInvestigacion,
+        data: fakeData,
+        icon: ''
+    }" (formReady)="formInitialized('tituloControl', $event)"></app-simple-input>
 
     <!-- Dirección Dueña -->
-    <mat-form-field>
-        <app-autcomplete [data]="{
-            placeholder: constantes.placeholders.direccionDuena,
-            data: fakeData,
-            icon: '',
-            argument: 'name'
-        }"></app-autcomplete>
-    </mat-form-field>
+    <app-autcomplete [data]="{
+        placeholder: constantes.placeholders.direccionDuena,
+        data: fakeData,
+        icon: '',
+        argument: 'name'
+    }" (formReady)="formInitialized('direccionControl', $event)"></app-autcomplete>
 
     <!-- Año -->
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.year}}">
+    <mat-form-field >
+        <input readonly matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.year}}" formControlName="yearControl">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <!-- Formulario de participación -->
+    <app-participacion-form></app-participacion-form>
 </form>

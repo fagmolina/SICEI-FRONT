@@ -1,5 +1,5 @@
-<mat-form-field>
-    <input matInput placeholder="{{data.placeholder}}">
+<mat-form-field class="max-width">
+    <input matInput placeholder="{{data.placeholder}}" [formControl]="formControl">
     <mat-icon matSuffix *ngIf="data.icon">
         {{data.icon}}
     </mat-icon>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -11,12 +11,14 @@ import { AutoCompleteData } from 'src/app/interfaces/interfaces';
 })
 export class AutcompleteComponent implements OnInit {
   @Input() data: AutoCompleteData;
+  @Output() formReady = new EventEmitter<FormControl>()
   filteredData: Observable<any>;
   dataControl = new FormControl('', Validators.required);
 
   constructor() { }
 
   ngOnInit() {
+    this.formReady.emit(this.dataControl);
     this.filteredData = this.dataControl.valueChanges
       .pipe(
         startWith(''),
