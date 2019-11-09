@@ -10,3 +10,16 @@ export interface CarouselItem {
     title: string;
     text: string;
 }
+
+export interface InputData {
+    placeholder: string;
+    data: any[];
+    icon: string;
+}
+
+export interface AutoCompleteData {
+    placeholder: string;
+    data: any[];
+    icon: string;
+    argument: string;
+}

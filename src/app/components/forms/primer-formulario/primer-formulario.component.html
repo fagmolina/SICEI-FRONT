@@ -1,0 +1,28 @@
+<form>
+
+    <!-- Titulo Investigación -->
+    <mat-form-field>
+        <app-simple-input [data]="{
+            placeholder: constantes.placeholders.tituloInvestigacion,
+            data: [],
+            icon: ''
+        }"></app-simple-input>
+    </mat-form-field>
+
+    <!-- Dirección Dueña -->
+    <mat-form-field>
+        <app-autcomplete [data]="{
+            placeholder: constantes.placeholders.direccionDuena,
+            data: fakeData,
+            icon: '',
+            argument: 'name'
+        }"></app-autcomplete>
+    </mat-form-field>
+
+    <!-- Año -->
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.year}}">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</form>

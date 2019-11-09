@@ -1,0 +1,8 @@
+<mat-form-field>
+    <input matInput placeholder="{{data.placeholder}}" aria-label="State" [matAutocomplete]="auto" [formControl]="dataControl">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="display">
+        <mat-option *ngFor="let item of filteredData | async" [value]="item">
+            {{item.name}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

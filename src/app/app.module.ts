@@ -6,14 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 
-// Angular Material
-import { MatCardModule, 
-         MatButtonModule, 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+//#region Material
+import { MatCardModule,
+         MatButtonModule,
          MatFormFieldModule,
          MatIconModule,
          MatInputModule,
          MatToolbarModule,
-         MatMenuModule} from '@angular/material';
+         MatMenuModule,
+         MatAutocompleteModule,
+         MatDatepickerModule,
+         MatNativeDateModule} from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+//#endregion Material
+
+//#region Components imports
 import { MainComponent } from './pages/main/main.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { MainMenuItemComponent } from './components/main-menu-item/main-menu-item.component';
@@ -22,7 +31,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { CarouselItemComponent } from './components/carousel/carousel-item/carousel-item.component'
+import { CarouselItemComponent } from './components/carousel/carousel-item/carousel-item.component';
+import { PrimerFormularioComponent } from './components/forms/primer-formulario/primer-formulario.component';
+import { SimpleInputComponent } from './components/commons/simple-input/simple-input.component';
+import { AutcompleteComponent } from './components/commons/autcomplete/autcomplete.component';
+//#endregion Components imports
 
 @NgModule({
   declarations: [
@@ -35,7 +48,10 @@ import { CarouselItemComponent } from './components/carousel/carousel-item/carou
     NavBarComponent,
     UserMenuComponent,
     CarouselComponent,
-    CarouselItemComponent
+    CarouselItemComponent,
+    PrimerFormularioComponent,
+    SimpleInputComponent,
+    AutcompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +66,12 @@ import { CarouselItemComponent } from './components/carousel/carousel-item/carou
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule, MatMomentDateModule,
+
+    ReactiveFormsModule,
+    FormsModule,
 
     AppRoutingModule
   ],
