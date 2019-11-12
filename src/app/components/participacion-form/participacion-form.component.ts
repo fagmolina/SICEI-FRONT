@@ -10,18 +10,19 @@ import * as constantes from '../../constantes';
 export class ParticipacionFormComponent implements OnInit {
   constantes = constantes;
   participacionForm: FormGroup;
-  cuales: boolean;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.participacionForm = this.fb.group({
-      participacion: new FormControl({value: false}, Validators.required),
-      // cuales: new FormControl({value: '', disabled: true}, Validators.required)
+      participacionControl: new FormControl(0, Validators.required),
     });
-    this.participacionForm.valueChanges.subscribe(a => this.cuales = a);
   }
-  formGroupInitialized(name: string, form: FormGroup) {
+
+  formGroupInitialized(name: string, form: FormGroup, disabled?: boolean) {
     this.participacionForm.setControl(name, form);
+    if (disabled) {
+      this.participacionForm.get(name).disable();
+    }
   }
 }

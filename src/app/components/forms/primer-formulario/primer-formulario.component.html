@@ -24,4 +24,12 @@
 
     <!-- Formulario de participación -->
     <app-participacion-form></app-participacion-form>
+
+    <!-- Participantes -->
+    <app-autcomplete [data]="{
+        placeholder: constantes.placeholders.cuales,
+        data: [],
+        icon: '',
+        argument: 'name'
+    }" (formReady)="formGroupInitialized('participantesControl', $event, true)" class="third"></app-autcomplete>
 </form>

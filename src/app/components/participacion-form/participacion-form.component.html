@@ -1,13 +1,13 @@
 <form [formGroup]="participacionForm">
     <h5 class="first">{{constantes.strings.participacion}}</h5>
-    <mat-radio-group aria-label="Select an option" class="second" formControlName="participacion">
-        <mat-radio-button value="true">{{constantes.strings.si}}</mat-radio-button>
-        <mat-radio-button value="false">{{constantes.strings.no}}</mat-radio-button>
+    <mat-radio-group aria-label="Select an option" class="second" formControlName="participacionControl">
+        <mat-radio-button value = 1>{{constantes.strings.si}}</mat-radio-button>
+        <mat-radio-button value = 0>{{constantes.strings.no}}</mat-radio-button>
     </mat-radio-group>
-    <app-autcomplete [data]="{
+    <!-- <app-autcomplete [data]="{
         placeholder: constantes.placeholders.cuales,
-        data: fakeData,
+        data: [],
         icon: '',
         argument: 'name'
-    }" (formReady)="formGroupInitialized('participantesControl', $event)" class="third" *ngIf="cuales"></app-autcomplete>
+    }" (formReady)="formGroupInitialized('participantesControl', $event, true)" class="third"></app-autcomplete> -->
 </form>

@@ -55,4 +55,11 @@ export class PrimerFormularioComponent implements OnInit {
   formInitialized(name: string, form: FormControl) {
     this.primerForm.setControl(name, form);
   }
+
+  formGroupInitialized(name: string, form: FormGroup, disabled?: boolean) {
+    this.primerForm.setControl(name, form);
+    if (disabled) {
+      this.primerForm.get(name).disable();
+    }
+  }
 }
