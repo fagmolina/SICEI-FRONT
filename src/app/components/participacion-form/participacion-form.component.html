@@ -1,8 +1,8 @@
 <form [formGroup]="participacionForm">
     <h5 class="first">{{constantes.strings.participacion}}</h5>
     <mat-radio-group aria-label="Select an option" class="second" formControlName="participacionControl">
-        <mat-radio-button value = 1>{{constantes.strings.si}}</mat-radio-button>
-        <mat-radio-button value = 0>{{constantes.strings.no}}</mat-radio-button>
+        <mat-radio-button value = 1 (change)="setParticipan($event)">{{constantes.strings.si}}</mat-radio-button>
+        <mat-radio-button value = 0 (change)="setParticipan($event)">{{constantes.strings.no}}</mat-radio-button>
     </mat-radio-group>
     <!-- <app-autcomplete [data]="{
         placeholder: constantes.placeholders.cuales,

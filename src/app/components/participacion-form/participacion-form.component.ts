@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import * as constantes from '../../constantes';
 
@@ -8,6 +8,7 @@ import * as constantes from '../../constantes';
   styleUrls: ['./participacion-form.component.scss']
 })
 export class ParticipacionFormComponent implements OnInit {
+  @Output() participan = new EventEmitter<boolean>();
   constantes = constantes;
   participacionForm: FormGroup;
 
@@ -24,5 +25,9 @@ export class ParticipacionFormComponent implements OnInit {
     if (disabled) {
       this.participacionForm.get(name).disable();
     }
+  }
+
+  setParticipan(evento) {
+    this.participan.emit(evento);
   }
 }

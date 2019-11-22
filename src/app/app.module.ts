@@ -19,7 +19,8 @@ import { MatCardModule,
          MatAutocompleteModule,
          MatDatepickerModule,
          MatNativeDateModule,
-         MatRadioModule} from '@angular/material';
+         MatRadioModule,
+         MatChipsModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 //#endregion Material
 
@@ -37,6 +38,7 @@ import { PrimerFormularioComponent } from './components/forms/primer-formulario/
 import { SimpleInputComponent } from './components/commons/simple-input/simple-input.component';
 import { AutcompleteComponent } from './components/commons/autcomplete/autcomplete.component';
 import { ParticipacionFormComponent } from './components/participacion-form/participacion-form.component';
+import { ChipAutocompleteComponent } from './components/commons/chip-autocomplete/chip-autocomplete.component';
 //#endregion Components imports
 
 @NgModule({
@@ -54,7 +56,8 @@ import { ParticipacionFormComponent } from './components/participacion-form/part
     PrimerFormularioComponent,
     SimpleInputComponent,
     AutcompleteComponent,
-    ParticipacionFormComponent
+    ParticipacionFormComponent,
+    ChipAutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { ParticipacionFormComponent } from './components/participacion-form/part
     MatNativeDateModule,
     MatMomentDateModule,
     MatRadioModule,
+    MatChipsModule,
 
     ReactiveFormsModule,
     FormsModule,

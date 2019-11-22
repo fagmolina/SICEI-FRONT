@@ -15,6 +15,14 @@
         argument: 'name'
     }" (formReady)="formInitialized('direccionControl', $event)"></app-autcomplete>
 
+    <!-- Escuelas -->
+    <app-autcomplete [data]="{
+        placeholder: constantes.placeholders.escuelas,
+        data: fakeData,
+        icon: '',
+        argument: 'name'
+    }" (formReady)="formInitialized('direccionControl', $event)"></app-autcomplete>
+
     <!-- Año -->
     <mat-form-field >
         <input readonly matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.year}}" formControlName="yearControl">
@@ -23,7 +31,7 @@
     </mat-form-field>
 
     <!-- Formulario de participación -->
-    <app-participacion-form></app-participacion-form>
+    <app-participacion-form (participan)="participantes($event)"></app-participacion-form>
 
     <!-- Participantes -->
     <app-autcomplete [data]="{
@@ -32,4 +40,20 @@
         icon: '',
         argument: 'name'
     }" (formReady)="formGroupInitialized('participantesControl', $event, true)" class="third"></app-autcomplete>
+
+    <!-- Areas -->
+    <app-chip-autocomplete [data]="{
+        placeholder: constantes.placeholders.areas,
+        data: fakeData,
+        icon: '',
+        argument: 'name'
+    }" (formReady)="formInitialized('direccionControl', $event)"></app-chip-autocomplete>
+
+    <!-- Lineas -->
+    <app-chip-autocomplete [data]="{
+        placeholder: constantes.placeholders.lineas,
+        data: fakeData,
+        icon: '',
+        argument: 'name'
+    }" (formReady)="formInitialized('direccionControl', $event)"></app-chip-autocomplete>
 </form>
