@@ -1,0 +1,8 @@
+.footer {
+    display: grid;
+    grid-template-columns: 1fr min-content min-content min-content;
+    grid-gap: 1rem;
+    & img {
+        width: 50px;
+    }
+}

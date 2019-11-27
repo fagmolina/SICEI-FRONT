@@ -20,8 +20,10 @@ import { MatCardModule,
          MatDatepickerModule,
          MatNativeDateModule,
          MatRadioModule,
-         MatChipsModule} from '@angular/material';
+         MatChipsModule,
+         MatStepperModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatTableModule} from '@angular/material/table';
 //#endregion Material
 
 //#region Components imports
@@ -39,6 +41,10 @@ import { SimpleInputComponent } from './components/commons/simple-input/simple-i
 import { AutcompleteComponent } from './components/commons/autcomplete/autcomplete.component';
 import { ParticipacionFormComponent } from './components/participacion-form/participacion-form.component';
 import { ChipAutocompleteComponent } from './components/commons/chip-autocomplete/chip-autocomplete.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { InvestigadoresComponent } from './components/investigadores/investigadores.component';
+import { InvestigadoresDialogComponent } from './components/dialogs/investigadores-dialog/investigadores-dialog.component';
+import { ProductoInvesFormComponent } from './components/forms/producto-inves-form/producto-inves-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -57,7 +63,11 @@ import { ChipAutocompleteComponent } from './components/commons/chip-autocomplet
     SimpleInputComponent,
     AutcompleteComponent,
     ParticipacionFormComponent,
-    ChipAutocompleteComponent
+    ChipAutocompleteComponent,
+    FooterComponent,
+    InvestigadoresComponent,
+    InvestigadoresDialogComponent,
+    ProductoInvesFormComponent
   ],
   imports: [
     BrowserModule,
@@ -78,12 +88,15 @@ import { ChipAutocompleteComponent } from './components/commons/chip-autocomplet
     MatMomentDateModule,
     MatRadioModule,
     MatChipsModule,
+    MatStepperModule,
+    MatTableModule,
 
     ReactiveFormsModule,
     FormsModule,
 
     AppRoutingModule
   ],
+  entryComponents: [InvestigadoresDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
