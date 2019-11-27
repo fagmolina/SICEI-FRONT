@@ -12,3 +12,13 @@
         }
     }
 }
+
+.no-data {
+    display: flex;
+    flex-flow: column nowrap;
+    & button {
+        margin-top: 1rem;
+        max-width: 150px;
+        align-self: flex-end;
+    }
+}

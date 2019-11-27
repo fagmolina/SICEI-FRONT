@@ -1,20 +1,32 @@
-<div class="wrapper">
+<div class="wrapper" [formGroup]="investigadorForm" *ngIf="!noInvestigadores; else noData">
     <app-autcomplete [data]="{
         placeholder: constantes.placeholders.direccionDuena,
         data: data,
         icon: '',
         argument: 'name'
-    }"></app-autcomplete>
+    }" (formReady)="formInitialized('investigadorControl', $event)"></app-autcomplete>
     <div class="buttons">
-        <button mat-mini-fab color="accent">
+        <button mat-mini-fab color="accent" (click)="close()">
             <mat-icon>
                 close
             </mat-icon>
         </button>
-        <button mat-mini-fab color="warn">
+        <button mat-mini-fab color="warn" (click)="close(investigadorForm.value.investigadorControl)"
+            [disabled]="investigadorForm.invalid">
             <mat-icon>
                 check
             </mat-icon>
         </button>
     </div>
 </div>
+
+<ng-template #noData>
+    <div class="no-data">
+        <span>
+            {{constantes.strings.noInvestigators}}
+        </span>
+        <button mat-raised-button color="primary" (click)="close()">
+            {{constantes.strings.close}}
+        </button>
+    </div>
+</ng-template>

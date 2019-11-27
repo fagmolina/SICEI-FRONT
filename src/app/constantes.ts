@@ -19,5 +19,12 @@ export const strings = {
   prototype: 'Prototipo',
   procedures: 'Procedimientos',
   article: 'Articulo',
+  noInvestigators: 'No quedan investigadores por agregar',
+  volver: 'Volver',
+  close: 'Cerrar',
   
 };
+
+export const tooltips = {
+  deleteInvestigator: 'Eliminar el investigador',
+}

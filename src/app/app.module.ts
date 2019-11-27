@@ -22,7 +22,8 @@ import { MatCardModule,
          MatRadioModule,
          MatChipsModule,
          MatStepperModule,
-         MatCheckboxModule} from '@angular/material';
+         MatCheckboxModule,
+         MatTooltipModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -92,6 +93,7 @@ import { ProductoInvesFormComponent } from './components/forms/producto-inves-fo
     MatStepperModule,
     MatTableModule,
     MatCheckboxModule,
+    MatTooltipModule,
 
     ReactiveFormsModule,
     FormsModule,

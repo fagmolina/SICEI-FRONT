@@ -24,3 +24,9 @@ export interface AutoCompleteData {
     argument: string;
 }
 
+export interface Investigador {
+    grade: string;
+    id: number;
+    name: string;
+}
+

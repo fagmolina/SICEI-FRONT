@@ -1,10 +1,10 @@
-<app-nav-bar></app-nav-bar>
 <mat-drawer-container class="drawer-container" autosize>
   <mat-drawer #drawer class="drawer-sidenav" mode="side" [opened]="toggle">
     <app-main-menu></app-main-menu>
   </mat-drawer>
 
   <div class="drawer-sidenav-content">
+    <app-nav-bar></app-nav-bar>
     <mat-horizontal-stepper>
       <mat-step>
         <app-carousel></app-carousel>
@@ -30,5 +30,5 @@
       </mat-step>
     </mat-horizontal-stepper>
   </div>
+  <app-footer></app-footer>
 </mat-drawer-container>
-<app-footer></app-footer>

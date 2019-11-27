@@ -1,5 +1,5 @@
 // tslint:disable: max-line-length
-import { MenuItem, CarouselItem } from '../interfaces/interfaces';
+import { MenuItem, CarouselItem, Investigador } from '../interfaces/interfaces';
 
 export const menuItems: MenuItem[] = [
 	{
@@ -176,3 +176,31 @@ export const ELEMENT_DATA = [
 	{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
 	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
+
+export const investigadores: Investigador[] = [
+	{
+		grade: "P+",
+		id: 123,
+		name: "Diego Ortiz"
+	},
+	{
+		grade: "P+",
+		id: 456,
+		name: "Fabian Gomez"
+	},
+	{
+		grade: "P+",
+		id: 789,
+		name: "Henry Corredor"
+	},
+	{
+		grade: "P+",
+		id: 101112,
+		name: "Jhonny Zapata"
+	},
+	{
+		grade: "P+",
+		id: 131415,
+		name: "Francisco Arleo"
+	}
+]
