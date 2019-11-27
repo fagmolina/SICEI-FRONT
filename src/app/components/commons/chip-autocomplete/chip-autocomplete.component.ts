@@ -38,7 +38,6 @@ export class ChipAutocompleteComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.data);
     this.formReady.emit(this.dataControl);
     this.filteredData = this.dataControl.valueChanges.pipe(
       startWith(null),

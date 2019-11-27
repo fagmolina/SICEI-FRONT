@@ -6,6 +6,7 @@ export const placeholders = {
   cuales: 'Cuáles',
   areas: 'Áreas',
   lineas: 'Lineas',
+  author: 'Autor',
 };
 
 export const strings = {
@@ -22,7 +23,9 @@ export const strings = {
   noInvestigators: 'No quedan investigadores por agregar',
   volver: 'Volver',
   close: 'Cerrar',
-  
+  book: 'Libro',
+  instructivos: 'Instructivos',
+  productInvestigation: 'Producto Investigación'
 };
 
 export const tooltips = {

@@ -1,3 +1,45 @@
-<form>
-    <mat-checkbox>Check me!</mat-checkbox>
+<h1>{{constantes.strings.productInvestigation}}</h1>
+<form [formGroup]="productoInvesForm">
+    <div class="cell">
+        <mat-checkbox formControlName="guiaControl">{{constantes.strings.guide}}</mat-checkbox>
+        <app-simple-input *ngIf="productoInvesForm.value.guiaControl" [data]="{
+            placeholder: constantes.placeholders.author,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('guiaInputControl', $event)"></app-simple-input>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="cartillaControl">{{constantes.strings.cartilla}}</mat-checkbox>
+        <app-simple-input *ngIf="productoInvesForm.value.cartillaControl" [data]="{
+            placeholder: constantes.placeholders.author,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('cartillaInputControl', $event)"></app-simple-input>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="prototipoControl">{{constantes.strings.prototype}}</mat-checkbox>
+        <app-simple-input *ngIf="productoInvesForm.value.prototipoControl" [data]="{
+            placeholder: constantes.placeholders.author,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('prototipoInputControl', $event)"></app-simple-input>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="articuloControl">{{constantes.strings.article}}</mat-checkbox>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="libroControl">{{constantes.strings.book}}</mat-checkbox>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="capituloControl">{{constantes.strings.bookChapter}}</mat-checkbox>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="manualesControl">{{constantes.strings.manuals}}</mat-checkbox>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="procedimientoControl">{{constantes.strings.procedures}}</mat-checkbox>
+    </div>
+    <div class="cell">
+        <mat-checkbox formControlName="instructivoControl">{{constantes.strings.instructivos}}</mat-checkbox>
+    </div>
 </form>
