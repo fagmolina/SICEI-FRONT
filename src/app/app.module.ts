@@ -49,6 +49,19 @@ import { InvestigadoresDialogComponent } from './components/dialogs/investigador
 import { ProductoInvesFormComponent } from './components/forms/producto-inves-form/producto-inves-form.component';
 import { ArticuloFormComponent } from './components/forms/articulo-form/articulo-form.component';
 import { LibroFormComponent } from './components/forms/libro-form/libro-form.component';
+import { GriftInvestigacionInstitucionalComponent } from './pages/grift-investigacion-institucional/grift-investigacion-institucional.component';
+import { GriftInvestigacionImplementadaComponent } from './pages/grift-investigacion-implementada/grift-investigacion-implementada.component';
+import { GriftCasoEmblematicoComponent } from './pages/grift-caso-emblematico/grift-caso-emblematico.component';
+import { GriftSemillerosInvestigacionComponent } from './pages/grift-semilleros-investigacion/grift-semilleros-investigacion.component';
+import { GriftRedesInvestigacionComponent } from './pages/grift-redes-investigacion/grift-redes-investigacion.component';
+import { GriftCategorizacionColcienciasComponent } from './pages/grift-categorizacion-colciencias/grift-categorizacion-colciencias.component';
+import { GreitPropiedadIntelectualComponent } from './pages/greit-propiedad-intelectual/greit-propiedad-intelectual.component';
+import { GreitInvestigacionInstitucionalComponent } from './pages/greit-investigacion-institucional/greit-investigacion-institucional.component';
+import { GreitInvestigacionImplementadaComponent } from './pages/greit-investigacion-implementada/greit-investigacion-implementada.component';
+import { GrindRLCTComponent } from './pages/grind-rlct/grind-rlct.component';
+import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
+import { AdministracionComponent } from './pages/administracion/administracion.component';
+import { HomeComponent } from './pages/home/home.component';
 //#endregion Components imports
 
 @NgModule({
@@ -73,7 +86,20 @@ import { LibroFormComponent } from './components/forms/libro-form/libro-form.com
     InvestigadoresDialogComponent,
     ProductoInvesFormComponent,
     ArticuloFormComponent,
-    LibroFormComponent
+    LibroFormComponent,
+    GriftInvestigacionInstitucionalComponent,
+    GriftInvestigacionImplementadaComponent,
+    GriftCasoEmblematicoComponent,
+    GriftSemillerosInvestigacionComponent,
+    GriftRedesInvestigacionComponent,
+    GriftCategorizacionColcienciasComponent,
+    GreitPropiedadIntelectualComponent,
+    GreitInvestigacionInstitucionalComponent,
+    GreitInvestigacionImplementadaComponent,
+    GrindRLCTComponent,
+    GrindLRIComponent,
+    AdministracionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

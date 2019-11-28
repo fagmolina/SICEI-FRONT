@@ -1,13 +1,13 @@
 import { MenuItem } from './interfaces/interfaces';
 
 export const REAL_MENU_ITEMS: MenuItem[] = [
-    {
-        title: 'Login',
-        heigth: 24,
-        icon: 'lock',
-        width: 24,
-        link: 'login'
-    },
+    // {
+    //     title: 'Login',
+    //     heigth: 24,
+    //     icon: 'lock',
+    //     width: 24,
+    //     link: 'login'
+    // },
     {
         title: 'Página principal',
         heigth: 24,
@@ -96,5 +96,6 @@ export const REAL_MENU_ITEMS: MenuItem[] = [
         heigth: 24,
         icon: 'settings_applications',
         width: 24,
+        link: 'administracion'
     }
 ]

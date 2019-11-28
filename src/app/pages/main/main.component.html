@@ -5,30 +5,7 @@
 
   <div class="drawer-sidenav-content">
     <app-nav-bar></app-nav-bar>
-    <mat-horizontal-stepper>
-      <mat-step>
-        <app-carousel></app-carousel>
-        <app-primer-formulario></app-primer-formulario>
-      </mat-step>
-      <mat-step>
-        <app-investigadores></app-investigadores>
-      </mat-step>
-      <mat-step>
-        <app-producto-inves-form></app-producto-inves-form>
-      </mat-step>
-      <mat-step>
-        Paso 4
-      </mat-step>
-      <mat-step>
-        Paso 5
-      </mat-step>
-      <mat-step>
-        Paso 6
-      </mat-step>
-      <mat-step>
-        Paso 7
-      </mat-step>
-    </mat-horizontal-stepper>
+    <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
 </mat-drawer-container>
