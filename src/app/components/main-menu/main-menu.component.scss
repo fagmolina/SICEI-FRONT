@@ -1,17 +1,12 @@
 @import '../../../assets/css/variables';
 
 .menu {
+    & * {
+        outline: none !important;
+    }
     &-wrapper {
-        display: grid;
-        // grid-template-rows: 50px repeat(auto-fit, minmax(16px, 30px));
-        justify-items: start;
-        & span {
-            z-index: 2;
-            position: relative;
-            padding: 10px 35px 10px 15px;
-            transition: .2s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            &::before {
+        height: 100%;
+        &::before {
                 z-index: 1;
                 position: absolute;
                 content: '';
@@ -22,18 +17,35 @@
                 background: $primario;
                 transition: .5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
-            &:hover {
-                &::after {
-                    position: absolute;
-                    content: '';
-                    top: 30%;
-                    left: 0;
-                    border: 10px solid $primario;
-                    border-top-color: transparent;
-                    border-bottom-color: transparent;
-                    border-right-color: transparent;
+        &__inner {
+            display: grid;
+            // grid-template-rows: 50px repeat(auto-fit, minmax(16px, 30px));
+            justify-items: start;
+            & span {
+                z-index: 2;
+                position: relative;
+                padding: 10px 35px 10px 15px;
+                transition: .2s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                cursor: pointer;
+                
+                &:hover {
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        top: 30%;
+                        left: 0;
+                        border: 10px solid $primario;
+                        border-top-color: transparent;
+                        border-bottom-color: transparent;
+                        border-right-color: transparent;
+                    }
                 }
             }
         }
     }
+}
+
+.active {
+    background: $primario;
+    color: $blanco;
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
+// import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GriftInvestigacionInstitucionalComponent } from './pages/grift-investigacion-institucional/grift-investigacion-institucional.component';
 import { GriftInvestigacionImplementadaComponent } from './pages/grift-investigacion-implementada/grift-investigacion-implementada.component';
@@ -17,7 +17,7 @@ import { AdministracionComponent } from './pages/administracion/administracion.c
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
   // { path: 'login', component: LoginComponent },
   { path: 'investigacion-institucional', component: GriftInvestigacionInstitucionalComponent },
   { path: 'investigacion-implementada', component: GriftInvestigacionImplementadaComponent },
@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'rlct', component: GrindRLCTComponent },
   { path: 'lri', component: GrindLRIComponent },
   { path: 'administracion', component: AdministracionComponent },
-  { path: '**', redirectTo: '/' }
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({

@@ -1,12 +1,14 @@
 <div class="menu-wrapper">
-  <span *ngFor="let item of items" [routerLink]="item.submenu === undefined ? item.link : null">
-    <app-main-menu-item
+  <div class="menu-wrapper__inner">
+    <span *ngFor="let item of items" [routerLink]="item.submenu === undefined ? item.link : null" >
+      <app-main-menu-item
       [icon]="item.icon"
       [width]="item.width"
       [heigth]="item.heigth"
       [title]="item.title"
       [link]="item.link"
       [submenu]="item.submenu"
-    ></app-main-menu-item>
-  </span>
+      ></app-main-menu-item>
+    </span>
+  </div>
 </div>
