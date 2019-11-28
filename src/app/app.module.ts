@@ -47,6 +47,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InvestigadoresComponent } from './components/investigadores/investigadores.component';
 import { InvestigadoresDialogComponent } from './components/dialogs/investigadores-dialog/investigadores-dialog.component';
 import { ProductoInvesFormComponent } from './components/forms/producto-inves-form/producto-inves-form.component';
+import { ArticuloFormComponent } from './components/forms/articulo-form/articulo-form.component';
+import { LibroFormComponent } from './components/forms/libro-form/libro-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -69,7 +71,9 @@ import { ProductoInvesFormComponent } from './components/forms/producto-inves-fo
     FooterComponent,
     InvestigadoresComponent,
     InvestigadoresDialogComponent,
-    ProductoInvesFormComponent
+    ProductoInvesFormComponent,
+    ArticuloFormComponent,
+    LibroFormComponent
   ],
   imports: [
     BrowserModule,

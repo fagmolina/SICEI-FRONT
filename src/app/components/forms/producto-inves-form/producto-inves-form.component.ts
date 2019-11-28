@@ -22,13 +22,21 @@ export class ProductoInvesFormComponent implements OnInit {
   });
   constructor() { }
 
-  ngOnInit() {
-    this.productoInvesForm.valueChanges
-      .subscribe(x => console.log(x))
-  }
+  ngOnInit() { }
 
   formInitialized(name: string, form: FormControl) {
     this.productoInvesForm.setControl(name, form);
+  }
+
+  formGroupInitialized(name: string, form: FormGroup, disabled?: boolean) {
+    this.productoInvesForm.setControl(name, form);
+    if (disabled) {
+      this.productoInvesForm.get(name).disable();
+    }
+  }
+
+  submit() {
+    console.log(JSON.stringify(this.productoInvesForm.value))
   }
 
 }

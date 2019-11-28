@@ -7,6 +7,15 @@ export const placeholders = {
   areas: 'Áreas',
   lineas: 'Lineas',
   author: 'Autor',
+  publishedMagazineName: 'Nombre de revista',
+  articleName: 'Nombre del artículo',
+  issnCode: 'Código ISSN',
+  bookName: 'Nombre libro',
+  startPage: 'Página de inicio',
+  endPage: 'Página final',
+  editorial: 'Editorial',
+  publishingDate: 'Fecha de publicación',
+  isbnCode: 'Código ISBN',
 };
 
 export const strings = {
@@ -16,7 +25,7 @@ export const strings = {
   guide: 'Guía',
   bookChapter: 'Cap. Libro',
   cartilla: 'Cartilla',
-  manuals: 'Manuals',
+  manuals: 'Manuales',
   prototype: 'Prototipo',
   procedures: 'Procedimientos',
   article: 'Articulo',
@@ -30,4 +39,5 @@ export const strings = {
 
 export const tooltips = {
   deleteInvestigator: 'Eliminar el investigador',
+  publishedMagazineName: 'Nombre de la revista en la que fue publicado.'
 }

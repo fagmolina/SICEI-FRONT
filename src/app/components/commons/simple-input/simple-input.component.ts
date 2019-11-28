@@ -9,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SimpleInputComponent implements OnInit {
   @Input() data: InputData;
-  @Output() formReady = new EventEmitter<FormControl>()
+  @Output() formReady = new EventEmitter<FormControl>();
   formControl = new FormControl('', Validators.required);
 
   constructor() { }
