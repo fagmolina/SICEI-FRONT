@@ -24,7 +24,8 @@ import { MatCardModule,
          MatStepperModule,
          MatCheckboxModule,
          MatTooltipModule,
-         MatDividerModule} from '@angular/material';
+         MatDividerModule,
+         MatExpansionModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -126,6 +127,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatCheckboxModule,
     MatTooltipModule,
     MatDividerModule,
+    MatExpansionModule,
 
     ReactiveFormsModule,
     FormsModule,
