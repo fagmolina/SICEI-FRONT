@@ -1,8 +1,11 @@
 .footer {
     display: grid;
-    grid-template-columns: 1fr min-content min-content min-content;
+    grid-template-columns: min-content min-content min-content;
     grid-gap: 1rem;
+    height: auto;
+    padding: 1rem;
+    justify-content: center;
     & img {
-        width: 50px;
+        width: 70px;
     }
 }

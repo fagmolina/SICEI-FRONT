@@ -39,5 +39,7 @@ export const strings = {
 
 export const tooltips = {
   deleteInvestigator: 'Eliminar el investigador',
-  publishedMagazineName: 'Nombre de la revista en la que fue publicado.'
+  publishedMagazineName: 'Nombre de la revista en la que fue publicado.',
+  userMenu: 'Menu de usuario',
+  logout: 'Cerrar sesión',
 }
