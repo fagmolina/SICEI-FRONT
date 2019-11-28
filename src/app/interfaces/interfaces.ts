@@ -1,8 +1,15 @@
+export interface Submenu {
+    title: string;
+    link: string;
+    external?: boolean;
+}
 export interface MenuItem {
     icon: string;
     title: string;
     width: number;
     heigth: number;
+    link?: string;
+    submenu?: Submenu[];
 }
 
 export interface CarouselItem {

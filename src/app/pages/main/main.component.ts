@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ComponentsService } from 'src/app/services/components.service';
 
-import { menuItems, carouselItems } from '../../mockData/mockData';
+import { carouselItems } from '../../mockData/mockData';
+import { REAL_MENU_ITEMS } from '../../menuItems';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,7 @@ export class MainComponent implements OnInit {
   constructor(private componentService: ComponentsService) {}
 
   ngOnInit() {
-    this.componentService.menuItems.next(menuItems);
+    this.componentService.menuItems.next(REAL_MENU_ITEMS);
     this.componentService.carouselItems.next(carouselItems);
     this.componentService.toggleMainMenu.subscribe(val => {
       this.toggle = val;
