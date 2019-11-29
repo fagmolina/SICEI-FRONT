@@ -16,6 +16,9 @@ export class CarouselComponent implements OnInit {
     this.componentService.carouselItems.subscribe(items => {
       this.items = items;
     });
+    window.setInterval(() => {
+      this.next();
+    } , 5000);
   }
 
   next() {
@@ -28,6 +31,6 @@ export class CarouselComponent implements OnInit {
   }
 
   gotoItem(bullet, index) {
-    debugger
+    this.active = index;
   }
 }
