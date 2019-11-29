@@ -1,3 +1,5 @@
+@import '../../../assets/css/variables';
+
 .carousel {
     &-wrapper {
         position: relative;
@@ -38,21 +40,24 @@
     }
     &-indicators {
         &-container {
+            z-index: 3000000;
             position: absolute;
             display: grid;
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fit, minmax(50px, 
-            50px));
+            grid-gap: 8px;
+            grid-template-columns: repeat(auto-fit, minmax(10px, 
+            10px));
             grid-auto-rows: 50px;
             width: 100%;
+            align-items: center;
             justify-content: center;
             bottom: 0;
         }
         &-bullet {
-            width: 16px;
-            height: 16px;
+            cursor: pointer;
+            width: 8px;
+            height: 8px;
             border-radius: 100%;
-            background: $gris-oscuro;
+            border: 1px solid $gris-claro;
             position: relative;
         }
     }
