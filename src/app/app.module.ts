@@ -64,6 +64,7 @@ import { GrindRLCTComponent } from './pages/grind-rlct/grind-rlct.component';
 import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PageTitleComponent } from './components/commons/page-title/page-title.component';
 //#endregion Components imports
 
 @NgModule({
@@ -101,7 +102,8 @@ import { HomeComponent } from './pages/home/home.component';
     GrindRLCTComponent,
     GrindLRIComponent,
     AdministracionComponent,
-    HomeComponent
+    HomeComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,
@@ -128,6 +130,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatTooltipModule,
     MatDividerModule,
     MatExpansionModule,
+    MatStepperModule,
 
     ReactiveFormsModule,
     FormsModule,

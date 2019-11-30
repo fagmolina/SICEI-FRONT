@@ -1,1 +1,9 @@
-<p>grift-investigacion-institucional works!</p>
+<app-page-title [title]="constantes.titles.instInvestigation"></app-page-title>
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <app-primer-formulario></app-primer-formulario>
+    </mat-step>
+    <mat-step>
+        <app-producto-inves-form></app-producto-inves-form>
+    </mat-step>
+</mat-horizontal-stepper>

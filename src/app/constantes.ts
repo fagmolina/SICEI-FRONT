@@ -43,3 +43,7 @@ export const tooltips = {
   userMenu: 'Menu de usuario',
   logout: 'Cerrar sesión',
 }
+
+export const titles = {
+  instInvestigation: 'Investigación Institucional',
+}
