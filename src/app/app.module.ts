@@ -65,6 +65,7 @@ import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageTitleComponent } from './components/commons/page-title/page-title.component';
+import { TableComponent } from './components/commons/table/table.component';
 //#endregion Components imports
 
 @NgModule({
@@ -103,7 +104,8 @@ import { PageTitleComponent } from './components/commons/page-title/page-title.c
     GrindLRIComponent,
     AdministracionComponent,
     HomeComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

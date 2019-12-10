@@ -16,8 +16,6 @@ export class MainMenuItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.link, this.submenu);
-  }
+  ngOnInit() {}
 
 }

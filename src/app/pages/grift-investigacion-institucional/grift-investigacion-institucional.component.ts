@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as constantes from '../../constantes';
+import { fakeTableData } from '../../mockData/mockData';
+import { FormGroup } from '@angular/forms';
+import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 
 @Component({
   selector: 'app-grift-investigacion-institucional',
@@ -7,11 +10,19 @@ import * as constantes from '../../constantes';
   styleUrls: ['./grift-investigacion-institucional.component.scss']
 })
 export class GriftInvestigacionInstitucionalComponent implements OnInit {
-  constantes = constantes;
+  public constantes = constantes;
+  public new = false;
+  public formularioGRIFT: FormGroup;
 
-  constructor() { }
+  public fakeTableData = fakeTableData;
 
-  ngOnInit() {
+  constructor(
+    private formService: FormularioGRIFTService
+  ) {
+    this.formularioGRIFT = new FormGroup({});
   }
 
+  ngOnInit() {
+    // this.formService.theForm.subscribe(x => console.log(x));
+  }
 }

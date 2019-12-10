@@ -24,6 +24,7 @@ export class AutcompleteComponent implements OnInit {
       map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.data.data.slice()))
     );
+    this.dataControl.valueChanges.subscribe(x => console.log(x));
   }
   display(data): string | undefined {
     return data ? data.name : undefined;

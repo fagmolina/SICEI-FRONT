@@ -1,30 +1,42 @@
-import { Component, OnInit } from "@angular/core";
-import * as constantes from "../../../constantes";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import * as constantes from '../../../constantes';
 import {
   FormGroup,
   FormControl,
   Validators,
   FormBuilder
-} from "@angular/forms";
+} from '@angular/forms';
 import { fakeData } from '../../../mockData/mockData';
+import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 
 @Component({
-  selector: "app-primer-formulario",
-  templateUrl: "./primer-formulario.component.html",
-  styleUrls: ["./primer-formulario.component.scss"]
+  selector: 'app-primer-formulario',
+  templateUrl: './primer-formulario.component.html',
+  styleUrls: ['./primer-formulario.component.scss']
 })
 export class PrimerFormularioComponent implements OnInit {
   constantes = constantes;
   primerForm: FormGroup;
   fakeData = fakeData;
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private formService: FormularioGRIFTService
+  ) {}
 
   ngOnInit() {
     this.primerForm = this.fb.group({
       yearControl: new FormControl(
-        { value: "", disabled: false },
+        { value: '', disabled: false },
         Validators.required
       )
+    });
+    this.formChanges();
+  }
+
+  formChanges() {
+    this.primerForm.valueChanges.subscribe(changes => {
+      console.log(changes);
+      this.formService.theForm.next(changes);
     });
   }
 
@@ -40,11 +52,10 @@ export class PrimerFormularioComponent implements OnInit {
   }
 
   participantes(evento) {
-    console.log(evento);
-    if (evento.value === "1") {
-      this.primerForm.get("participantesControl").enable();
+    if (evento.value === '1') {
+      this.primerForm.get('participantesControl').enable();
     } else {
-      this.primerForm.get("participantesControl").disable();
+      this.primerForm.get('participantesControl').disable();
     }
   }
 }
