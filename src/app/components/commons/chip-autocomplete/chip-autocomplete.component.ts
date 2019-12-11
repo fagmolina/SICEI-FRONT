@@ -61,7 +61,6 @@ export class ChipAutocompleteComponent implements OnInit {
       const input = event.input;
       const value = event.value;
 
-      // Add our fruit
       if ((value || '').trim()) {
         this.chips.push(value.trim());
       }
@@ -84,6 +83,6 @@ export class ChipAutocompleteComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     this.chips.push(event.option.viewValue);
     this.chipInput.nativeElement.value = '';
-    this.dataControl.setValue(null);
+    // this.dataControl.setValue(null);
   }
 }

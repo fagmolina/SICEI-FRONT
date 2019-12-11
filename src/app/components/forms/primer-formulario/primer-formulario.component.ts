@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as constantes from '../../../constantes';
 import {
   FormGroup,
@@ -14,7 +14,7 @@ import { FormularioGRIFTService } from 'src/app/services/formulario-grift.servic
   templateUrl: './primer-formulario.component.html',
   styleUrls: ['./primer-formulario.component.scss']
 })
-export class PrimerFormularioComponent implements OnInit {
+export class PrimerFormularioComponent implements OnInit, AfterViewInit {
   constantes = constantes;
   primerForm: FormGroup;
   fakeData = fakeData;
@@ -33,9 +33,22 @@ export class PrimerFormularioComponent implements OnInit {
     this.formChanges();
   }
 
+  ngAfterViewInit() {
+    this.formValid();
+  }
+
+  formValid() {
+    this.primerForm.statusChanges.subscribe(valid => {
+      console.log(valid);
+      this.formService.griftStepper.next({
+        ...this.formService.griftStepper.value,
+        stepOne: valid === 'VALID'
+      });
+    });
+  }
+
   formChanges() {
     this.primerForm.valueChanges.subscribe(changes => {
-      console.log(changes);
       this.formService.theForm.next(changes);
     });
   }

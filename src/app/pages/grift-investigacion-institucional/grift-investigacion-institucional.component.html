@@ -2,8 +2,13 @@
   <app-page-title
     [title]="constantes.titles.instInvestigation"
   ></app-page-title>
-  <button mat-raised-button color="primary" (click)="new = !new">
-    <mat-icon>add</mat-icon>Nueva investigación
+  <button
+    mat-raised-button
+    [color]="new ? 'warn' : 'primary'"
+    (click)="new = !new"
+  >
+    <mat-icon>{{ new ? 'close' : 'add' }}</mat-icon
+    >{{ new ? 'Cancelar' : 'Nueva investigación' }}
   </button>
 </div>
 <ng-container *ngIf="new; then form; else table"></ng-container>
@@ -19,8 +24,9 @@
   <app-table [data]="fakeTableData"></app-table>
 </ng-template>
 <ng-template #form>
-  <mat-horizontal-stepper #stepper>
-    <mat-step>
+  <mat-horizontal-stepper #stepper linear>
+    <!-- <mat-step [completed]="griftStepper.stepOne"> -->
+    <mat-step [completed]="true">
       <app-primer-formulario></app-primer-formulario>
       <div class="stepper-buttons__first">
         <button mat-mini-fab color="primary" matStepperNext>
@@ -28,7 +34,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="griftStepper.stepTwo">
       <app-investigadores></app-investigadores>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
@@ -39,7 +45,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="griftStepper.stepThree">
       <app-producto-inves-form></app-producto-inves-form>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>

@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AutoCompleteData } from 'src/app/interfaces/interfaces';
+import * as constantes from '../../../constantes';
 
 @Component({
   selector: 'app-autcomplete',
@@ -12,6 +13,7 @@ import { AutoCompleteData } from 'src/app/interfaces/interfaces';
 export class AutcompleteComponent implements OnInit {
   @Input() data: AutoCompleteData;
   @Output() formReady = new EventEmitter<FormControl>();
+  constantes = constantes;
   filteredData: Observable<any>;
   dataControl = new FormControl('', Validators.required);
 
@@ -24,7 +26,6 @@ export class AutcompleteComponent implements OnInit {
       map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.data.data.slice()))
     );
-    this.dataControl.valueChanges.subscribe(x => console.log(x));
   }
   display(data): string | undefined {
     return data ? data.name : undefined;

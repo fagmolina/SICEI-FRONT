@@ -206,34 +206,91 @@ export const investigadores: Investigador[] = [
 ];
 
 export const fakeTableData = [
-         {
-           id: 0,
-           title: 'Title 0',
-           category: 'Category 0'
-         },
-         {
-           id: 1,
-           title: 'Title 1',
-           category: 'Category 1'
-         },
-         {
-           id: 2,
-           title: 'Title 2',
-           category: 'Category 2'
-         },
-         {
-           id: 3,
-           title: 'Title 3',
-           category: 'Category 3'
-         },
-         {
-           id: 4,
-           title: 'Title 4',
-           category: 'Category 4'
-         },
-         {
-           id: 5,
-           title: 'Title 5',
-           category: 'Category 5'
-         }
-       ];
+  {
+    id: 0,
+    title: 'Title 0',
+    category: 'Category 0'
+  },
+  {
+    id: 1,
+    title: 'Title 1',
+    category: 'Category 1'
+  },
+  {
+    id: 2,
+    title: 'Title 2',
+    category: 'Category 2'
+  },
+  {
+    id: 3,
+    title: 'Title 3',
+    category: 'Category 3'
+  },
+  {
+    id: 4,
+    title: 'Title 4',
+    category: 'Category 4'
+  },
+  {
+    id: 5,
+    title: 'Title 5',
+    category: 'Category 5'
+  }
+];
+
+export const areasMock = [
+  {
+    id: 0,
+    name: 'Area 0',
+    lineas: [0, 1, 2]
+  },
+  {
+    id: 1,
+    name: 'Area 1',
+    lineas: [3, 4, 5]
+  },
+  {
+    id: 2,
+    name: 'Area 2',
+    lineas: [6, 7, 8]
+  }
+];
+
+export const lineasMock = [
+  {
+    id: 0,
+    name: 'Linea 0'
+  },
+  {
+    id: 1,
+    name: 'Linea 1'
+  },
+  {
+    id: 2,
+    name: 'Linea 2'
+  },
+  {
+    id: 3,
+    name: 'Linea 3'
+  },
+  {
+    id: 4,
+    name: 'Linea 4'
+  },
+  {
+    id: 5,
+    name: 'Linea 5'
+  },
+  {
+    id: 6,
+    name: 'Linea 6'
+  },
+  {
+    id: 7,
+    name: 'Linea 7'
+  },
+  {
+    id: 8,
+    name: 'Linea 8'
+  }
+];

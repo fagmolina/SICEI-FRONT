@@ -37,3 +37,20 @@ export interface Investigador {
     name: string;
 }
 
+export interface Area {
+    id: number;
+    name: string;
+    lineas: number[];
+}
+
+export interface Linea {
+    id: number;
+    name: string;
+}
+
+export interface GriftStepper {
+    stepOne: boolean;
+    stepTwo: boolean;
+    stepThree: boolean;
+    stepFour: boolean;
+}

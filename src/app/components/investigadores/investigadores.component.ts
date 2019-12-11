@@ -3,6 +3,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { investigadores } from '../../mockData/mockData';
 import * as constantes from '../../constantes';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 
 @Component({
   selector: 'app-investigadores',
@@ -19,31 +20,49 @@ export class InvestigadoresComponent implements OnInit {
   dataSource;
   tableData: any[] = [];
 
-  constructor(private dialogService: DialogService) { }
+  constructor(
+    private dialogService: DialogService,
+    private formService: FormularioGRIFTService
+  ) {}
 
   ngOnInit() {
     this.investigadores = investigadores;
     this.dataSource = new MatTableDataSource();
   }
 
+  checkDataValid(data) {
+    if (data) {
+      this.formService.griftStepper.next({
+        ...this.formService.griftStepper.value,
+        stepTwo: data.length > 0
+      });
+    }
+  }
+
   newInvestigator() {
     const data = {
-      data: this.tableData.length === 0 ? this.investigadores : this.investigadores.filter(s => !this.tableData.includes(s)),
+      data:
+        this.tableData.length === 0
+          ? this.investigadores
+          : this.investigadores.filter(s => !this.tableData.includes(s))
     };
     this.dialogService.openDialog(1, data).subscribe(dialogResponse => {
       if (dialogResponse) {
         this.tableData.push(dialogResponse);
         this.dataSource.data = this.tableData;
+        this.checkDataValid(this.dataSource.data);
       }
     });
   }
 
   remove(element, index) {
-    const tempArray = [...this.dataSource.data.filter((v, i) => {
-      return i !== index;
-    })];
+    const tempArray = [
+      ...this.dataSource.data.filter((v, i) => {
+        return i !== index;
+      })
+    ];
     this.dataSource.data = tempArray;
     this.tableData = tempArray;
+    this.checkDataValid(this.dataSource.data);
   }
-
 }

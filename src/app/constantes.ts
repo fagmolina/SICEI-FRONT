@@ -15,7 +15,7 @@ export const placeholders = {
   endPage: 'Página final',
   editorial: 'Editorial',
   publishingDate: 'Fecha de publicación',
-  isbnCode: 'Código ISBN',
+  isbnCode: 'Código ISBN'
 };
 
 export const strings = {
@@ -42,8 +42,13 @@ export const tooltips = {
   publishedMagazineName: 'Nombre de la revista en la que fue publicado.',
   userMenu: 'Menu de usuario',
   logout: 'Cerrar sesión',
-}
+  investigatorsAtLeastOne: 'Debe agregar minimo un investigador.'
+};
 
 export const titles = {
-  instInvestigation: 'Investigación Institucional',
-}
+  instInvestigation: 'Investigación Institucional'
+};
+
+export const errors = {
+  requiredField: 'Campo requerido'
+};

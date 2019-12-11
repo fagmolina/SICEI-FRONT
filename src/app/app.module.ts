@@ -25,7 +25,8 @@ import { MatCardModule,
          MatCheckboxModule,
          MatTooltipModule,
          MatDividerModule,
-         MatExpansionModule} from '@angular/material';
+         MatExpansionModule,
+         MatSelectModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -66,6 +67,8 @@ import { AdministracionComponent } from './pages/administracion/administracion.c
 import { HomeComponent } from './pages/home/home.component';
 import { PageTitleComponent } from './components/commons/page-title/page-title.component';
 import { TableComponent } from './components/commons/table/table.component';
+import { FormularioAreasLineasComponent } from './components/forms/formulario-areas-lineas/formulario-areas-lineas.component';
+import { ParticipantesTwoComponent } from './components/forms/participantes-two/participantes-two.component';
 //#endregion Components imports
 
 @NgModule({
@@ -105,7 +108,9 @@ import { TableComponent } from './components/commons/table/table.component';
     AdministracionComponent,
     HomeComponent,
     PageTitleComponent,
-    TableComponent
+    TableComponent,
+    FormularioAreasLineasComponent,
+    ParticipantesTwoComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +138,7 @@ import { TableComponent } from './components/commons/table/table.component';
     MatDividerModule,
     MatExpansionModule,
     MatStepperModule,
+    MatSelectModule,
 
     ReactiveFormsModule,
     FormsModule,
