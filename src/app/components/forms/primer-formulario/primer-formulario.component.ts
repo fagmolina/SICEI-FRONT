@@ -39,7 +39,6 @@ export class PrimerFormularioComponent implements OnInit, AfterViewInit {
 
   formValid() {
     this.primerForm.statusChanges.subscribe(valid => {
-      console.log(valid);
       this.formService.griftStepper.next({
         ...this.formService.griftStepper.value,
         stepOne: valid === 'VALID'
@@ -49,7 +48,10 @@ export class PrimerFormularioComponent implements OnInit, AfterViewInit {
 
   formChanges() {
     this.primerForm.valueChanges.subscribe(changes => {
-      this.formService.theForm.next(changes);
+      this.formService.theForm.next({
+        ...this.formService.theForm.value,
+        ...changes
+      });
     });
   }
 

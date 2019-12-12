@@ -36,6 +36,10 @@ export class InvestigadoresComponent implements OnInit {
         ...this.formService.griftStepper.value,
         stepTwo: data.length > 0
       });
+      this.formService.theForm.next({
+        ...this.formService.theForm.value,
+        investigadores: data.length > 0 ? this.dataSource.data : null
+      });
     }
   }
 

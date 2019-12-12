@@ -34,7 +34,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="griftStepper.stepTwo">
+    <mat-step [completed]="true">
       <app-investigadores></app-investigadores>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
@@ -45,7 +45,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="griftStepper.stepThree">
+    <mat-step [completed]="true">
       <app-producto-inves-form></app-producto-inves-form>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
@@ -55,6 +55,9 @@
           <mat-icon>chevron_right</mat-icon>
         </button>
       </div>
+    </mat-step>
+    <mat-step [completed]="true">
+      Step 4
     </mat-step>
   </mat-horizontal-stepper>
 </ng-template>
