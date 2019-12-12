@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Submenu } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-main-menu-item',
@@ -10,10 +11,11 @@ export class MainMenuItemComponent implements OnInit {
   @Input() title: 'string';
   @Input() width: 'number';
   @Input() heigth: 'number';
+  @Input() submenu: Submenu[];
+  @Input() link: string;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

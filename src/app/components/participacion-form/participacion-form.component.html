@@ -1,0 +1,16 @@
+<form [formGroup]="participacionForm">
+  <h5 class="first">{{ constantes.strings.participacion }}</h5>
+  <mat-radio-group
+    aria-label="Select an option"
+    class="second"
+    formControlName="participacionControl"
+  >
+    <mat-radio-button value="1" (change)="setParticipan($event)" #si>{{
+      constantes.strings.si
+    }}</mat-radio-button>
+    <mat-radio-button value="0" (change)="setParticipan($event)" #no>{{
+      constantes.strings.no
+    }}</mat-radio-button>
+  </mat-radio-group>
+  <mat-error *ngIf="!si.checked && !no.checked">{{ constantes.errors.requiredField }}</mat-error>
+</form>

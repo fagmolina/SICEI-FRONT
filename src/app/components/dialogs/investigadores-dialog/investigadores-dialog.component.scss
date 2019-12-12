@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    & .buttons {
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-gap: .5rem;
+        & button {
+            &:first-of-type {
+                justify-self: end;
+            }
+        }
+    }
+}
+
+.no-data {
+    display: flex;
+    flex-flow: column nowrap;
+    & button {
+        margin-top: 1rem;
+        max-width: 150px;
+        align-self: flex-end;
+    }
+}

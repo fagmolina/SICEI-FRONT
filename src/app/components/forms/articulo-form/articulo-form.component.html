@@ -1,0 +1,38 @@
+<form [formGroup]="articuloForm">
+    <!-- Nombre Revista -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.publishedMagazineName,
+            data: null,
+            icon: ''
+        }" [matTooltip]="constantes.tooltips.publishedMagazineName"
+        (formReady)="formInitialized('publishedMagazineNameControl', $event)"></app-simple-input>
+
+    <!-- Nombre Artículo -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.articleName,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('articleNameControl', $event)"></app-simple-input>
+
+    <!-- Año -->
+    <mat-form-field>
+        <input readonly matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.year}}"
+            formControlName="yearControl">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Código ISSN -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.issnCode,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('issnCodeControl', $event)"></app-simple-input>
+
+    <!-- Autor -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.author,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('authorControl', $event)"></app-simple-input>
+</form>

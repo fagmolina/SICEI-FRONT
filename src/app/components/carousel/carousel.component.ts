@@ -10,12 +10,15 @@ import { CarouselItem } from 'src/app/interfaces/interfaces';
 export class CarouselComponent implements OnInit {
   items: CarouselItem[] = [];
   active = 0;
-  constructor(private componentService: ComponentsService) {}
+  constructor(private componentService: ComponentsService) { }
 
   ngOnInit() {
     this.componentService.carouselItems.subscribe(items => {
       this.items = items;
     });
+    window.setInterval(() => {
+      this.next();
+    }, 5000);
   }
 
   next() {
@@ -25,5 +28,9 @@ export class CarouselComponent implements OnInit {
   prev() {
     console.log('prev');
     this.active = this.active > 0 ? this.active -= 1 : this.items.length - 1;
+  }
+
+  gotoItem(bullet, index) {
+    this.active = index;
   }
 }

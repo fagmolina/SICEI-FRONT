@@ -13,4 +13,7 @@
       <app-carousel-item [data]="item"></app-carousel-item>
     </div>
   </span>
+  <span class="carousel-indicators-container">
+    <span class="carousel-indicators-bullet" *ngFor="let bullet of items; let i = index" (click)="gotoItem(bullet, i)" [ngClass]="{ current: active === i }"></span>
+  </span>
 </div>

@@ -1,0 +1,51 @@
+<form [formGroup]="dataFormGroupName">
+    <!-- Nombre Libro -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.bookName,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('bookNameControl', $event)"></app-simple-input>
+
+    <!-- Página Inicio -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.startPage,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('startPageControl', $event)"></app-simple-input>
+
+    <!-- Página Fin -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.endPage,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('endPageControl', $event)"></app-simple-input>
+
+    <!-- Editorial -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.editorial,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('editorialControl', $event)"></app-simple-input>
+
+    <!-- Fecha de publicación -->
+    <mat-form-field>
+        <input readonly matInput [matDatepicker]="picker" placeholder="{{constantes.placeholders.publishingDate}}"
+            formControlName="yearControl">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Código ISBN -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.isbnCode,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('isbnCodeControl', $event)"></app-simple-input>
+
+    <!-- Código ISBN -->
+    <app-simple-input [data]="{
+            placeholder: constantes.placeholders.author,
+            data: null,
+            icon: ''
+        }" (formReady)="formInitialized('authorControl', $event)"></app-simple-input>
+</form>

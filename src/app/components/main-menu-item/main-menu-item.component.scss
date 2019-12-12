@@ -12,3 +12,36 @@
         }
     }
 }
+
+.panel {
+    & * {
+        outline: none !important;
+    }
+    box-shadow: none;
+    border: none;
+    &-header {
+        padding: 0;
+        margin: 0;
+        &:hover {
+            background: transparent !important;
+        }
+    }
+    &-submenu {
+        padding: 0;
+        margin: 0;
+        color: $gris-claro;
+        & li {
+            list-style: none;
+            padding: 10px 0;
+            transition: all .2s ease-in-out;
+            &:hover {
+                font-weight: bold;
+                color: $negro;
+            }
+        }
+    }
+}
+
+.active {
+    background: $primario;
+}
