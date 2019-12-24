@@ -22,7 +22,7 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formService.theForm.subscribe(x => console.log(x));
+    this.formService.theForm.subscribe(x => console.log(JSON.stringify(x)));
     this.formService.griftStepper.subscribe(steps => this.griftStepper = {...steps});
   }
 }

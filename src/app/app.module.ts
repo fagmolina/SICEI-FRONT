@@ -69,6 +69,8 @@ import { PageTitleComponent } from './components/commons/page-title/page-title.c
 import { TableComponent } from './components/commons/table/table.component';
 import { FormularioAreasLineasComponent } from './components/forms/formulario-areas-lineas/formulario-areas-lineas.component';
 import { ParticipantesTwoComponent } from './components/forms/participantes-two/participantes-two.component';
+import { DetallesFormComponent } from './components/forms/detalles-form/detalles-form.component';
+import { EstimulosformComponent } from './components/forms/estimulosform/estimulosform.component';
 //#endregion Components imports
 
 @NgModule({
@@ -110,7 +112,9 @@ import { ParticipantesTwoComponent } from './components/forms/participantes-two/
     PageTitleComponent,
     TableComponent,
     FormularioAreasLineasComponent,
-    ParticipantesTwoComponent
+    ParticipantesTwoComponent,
+    DetallesFormComponent,
+    EstimulosformComponent
   ],
   imports: [
     BrowserModule,

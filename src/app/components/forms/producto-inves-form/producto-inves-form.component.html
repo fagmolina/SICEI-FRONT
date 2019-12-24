@@ -2,68 +2,29 @@
 <form [formGroup]="productoInvesForm">
     <div class="cell">
         <mat-checkbox formControlName="guiaControl">{{constantes.strings.guide}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.guiaControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('guiaInputControl', $event)"></app-simple-input> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="cartillaControl">{{constantes.strings.cartilla}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.cartillaControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('cartillaInputControl', $event)"></app-simple-input> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="prototipoControl">{{constantes.strings.prototype}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.prototipoControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('prototipoInputControl', $event)"></app-simple-input> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="articuloControl">{{constantes.strings.article}}</mat-checkbox>
-        <!-- <app-articulo-form *ngIf="productoInvesForm.value.articuloControl"
-            (formReady)="formGroupInitialized('articuloFormGroupControl', $event)"></app-articulo-form> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="libroControl">{{constantes.strings.book}}</mat-checkbox>
-        <!-- <app-libro-form *ngIf="productoInvesForm.value.libroControl" [dataFormGroupName]="libroFormGroup"
-            (formReady)="formGroupInitialized('libroFormGroupControl', $event)"></app-libro-form> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="capituloControl">{{constantes.strings.bookChapter}}</mat-checkbox>
-        <!-- <app-libro-form *ngIf="productoInvesForm.value.capituloControl" [dataFormGroupName]="capituloLibroFormGroup"
-            (formReady)="formGroupInitialized('capituloFormGroupControl', $event)"></app-libro-form> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="manualesControl">{{constantes.strings.manuals}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.manualesControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('manualesInputControl', $event)"></app-simple-input> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="procedimientoControl">{{constantes.strings.procedures}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.procedimientoControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('procedimientoInputControl', $event)"></app-simple-input> -->
     </div>
     <div class="cell">
         <mat-checkbox formControlName="instructivoControl">{{constantes.strings.instructivos}}</mat-checkbox>
-        <!-- <app-simple-input *ngIf="productoInvesForm.value.instructivoControl" [data]="{
-            placeholder: constantes.placeholders.author,
-            data: null,
-            icon: ''
-        }" (formReady)="formInitialized('instructivoInputControl', $event)"></app-simple-input> -->
     </div>
 </form>
-<div>
-    <button mat-raised-button color="primary" (click)="submit()">Envíar</button>
-</div>

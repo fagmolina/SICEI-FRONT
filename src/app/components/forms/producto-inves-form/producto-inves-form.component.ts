@@ -42,19 +42,9 @@ export class ProductoInvesFormComponent implements OnInit, AfterViewInit {
 
   formChanges() {
     this.productoInvesForm.valueChanges.subscribe(changes => {
-      const keys = Object.keys(changes);
-      const values = Object.values(changes);
-      const result = [];
-      for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        const value = values[i];
-        const obj = {};
-        obj[key] = value && value !== '' ? value : false;
-        result.push(obj);
-      }
       this.formService.theForm.next({
         ...this.formService.theForm.value,
-        producInves: result
+        producInves: { ...changes }
       });
     });
   }
@@ -68,9 +58,5 @@ export class ProductoInvesFormComponent implements OnInit, AfterViewInit {
     if (disabled) {
       this.productoInvesForm.get(name).disable();
     }
-  }
-
-  submit() {
-    console.log(JSON.stringify(this.productoInvesForm.value));
   }
 }
