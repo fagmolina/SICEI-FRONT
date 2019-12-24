@@ -34,7 +34,8 @@ export const strings = {
   close: 'Cerrar',
   book: 'Libro',
   instructivos: 'Instructivos',
-  productInvestigation: 'Producto Investigación'
+  productInvestigation: 'Producto Investigación',
+  details: 'Detalles'
 };
 
 export const tooltips = {

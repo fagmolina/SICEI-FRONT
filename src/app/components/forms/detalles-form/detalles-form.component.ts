@@ -17,6 +17,8 @@ export class DetallesFormComponent implements OnInit {
   constructor(private formService: FormularioGRIFTService) {}
 
   ngOnInit() {
+    this.formValid();
+    this.formChanges();
     this.formService.theForm.subscribe((details: TheForm) => {
       this.detalles = details && details.producInves ? { ...details.producInves } : null;
     });
