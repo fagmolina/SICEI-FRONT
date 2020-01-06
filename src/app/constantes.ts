@@ -16,7 +16,9 @@ export const placeholders = {
   editorial: 'Editorial',
   publishingDate: 'Fecha de publicación',
   isbnCode: 'Código ISBN',
-  date: 'Fecha'
+  date: 'Fecha',
+  country: 'País',
+  city: 'Ciudad'
 };
 
 export const strings = {

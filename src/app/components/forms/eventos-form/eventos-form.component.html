@@ -1,35 +1,43 @@
 <form [formGroup]="eventosForm">
+    <div class="grid-form">
+        <!-- Tipo -->
+        <app-select [placeholder]="constantes.strings.type" [data]="tipo"
+            (formReady)="formInitialized('tipoControl', $event)"></app-select>
 
-    <!-- Tipo -->
-    <app-select [placeholder]="constantes.strings.type" [data]="tipo"
-        (formReady)="formInitialized('tipoControl', $event)"></app-select>
+        <!-- Participacion -->
+        <app-select [placeholder]="constantes.strings.participation" [data]="participacion"
+            (formReady)="formInitialized('participacionControl', $event)"></app-select>
 
-    <!-- Participacion -->
-    <app-select [placeholder]="constantes.strings.participation" [data]="participacion"
-        (formReady)="formInitialized('participacionControl', $event)"></app-select>
+        <!-- Fecha -->
+        <mat-form-field>
+            <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.date }}"
+                formControlName="fechaControl" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
 
     <!-- Lugar -->
-    <mat-slide-toggle formControlName="nationalControl" (change)="national = !national">{{national ? 'Internacional' : 'Nacional'}}</mat-slide-toggle>
-    <app-autcomplete [data]="{placeholder: constantes.strings.departments,
+    <div class="lugar">
+        <!-- Nacional -->
+        <mat-slide-toggle formControlName="nationalControl" (change)="national = !national">
+            {{national ? 'Internacional' : 'Nacional'}}</mat-slide-toggle>
+        <app-autcomplete *ngIf="!national" [data]="{placeholder: constantes.strings.departments,
         data: colombia,
         icon: 'string',
         argument: 'departamento'}" (formReady)="formInitialized('departamentosControl', $event)"></app-autcomplete>
 
-    <app-select [placeholder]="constantes.strings.cities" [data]="departamento"
-        (formReady)="formInitialized('ciudadControl', $event)"></app-select>
+        <app-select *ngIf="!national" [placeholder]="constantes.placeholders.city" [data]="departamento"
+            (formReady)="formInitialized('ciudadControl', $event)"></app-select>
 
-    <app-autcomplete [data]="{placeholder: constantes.strings.countries,
+        <!-- Internacional -->
+        <app-autcomplete *ngIf="national" [data]="{placeholder: constantes.placeholders.country,
         data: paises,
         icon: 'string',
         argument: 'nombre'}" (formReady)="formInitialized('paisesControl', $event)"></app-autcomplete>
-    
-    
 
-    <!-- Fecha -->
-    <mat-form-field>
-        <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.date }}"
-            formControlName="fechaControl" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+        <app-simple-input *ngIf="national" [data]="{
+        placeholder: constantes.placeholders.city
+    }" (formReady)="formInitialized('ciudadControl', $event)"></app-simple-input>
+    </div>
 </form>

@@ -78,6 +78,7 @@ export interface Eventos {
   ciudad: string;
   fecha: string;
   lugar: string;
+  pais: string;
 }
 
 export interface AreasLineasform {

@@ -57,7 +57,8 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
         eventos: {
           tipo: form.tipoControl.value,
           participacion: form.participacionControl.value,
-          departamento: form.departamentosControl.value.departamento,
+          departamento: this.national ? null : form.departamentosControl.value.departamento,
+          pais: this.national ? form.paisesControl.value.nombre : null,
           ciudad: form.ciudadControl.value,
           fecha: form.fechaControl.value,
           lugar: form.nationalControl.value ? 'Internacional' : 'Nacional'
