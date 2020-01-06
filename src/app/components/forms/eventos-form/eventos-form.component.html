@@ -1,0 +1,14 @@
+<form [formGroup]="eventosForm">
+    <app-autcomplete [data]="{placeholder: constantes.strings.departments,
+        data: colombia,
+        icon: 'string',
+        argument: 'departamento'}" (formReady)="formInitialized('departamentosControl', $event)"></app-autcomplete>
+
+    <app-select [placeholder]="constantes.strings.cities" [data]="departamento"
+        (formReady)="formInitialized('ciudadControl', $event)"></app-select>
+
+    <app-autcomplete [data]="{placeholder: constantes.strings.countries,
+        data: paises,
+        icon: 'string',
+        argument: 'nombre'}" (formReady)="formInitialized('paisesControl', $event)"></app-autcomplete>
+</form>

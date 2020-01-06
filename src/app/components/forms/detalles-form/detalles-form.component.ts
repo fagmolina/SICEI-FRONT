@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as constantes from '../../../constantes';
 import { ProducInves, TheForm } from '../../../interfaces/interfaces';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
@@ -9,19 +9,24 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './detalles-form.component.html',
   styleUrls: ['./detalles-form.component.scss']
 })
-export class DetallesFormComponent implements OnInit {
+export class DetallesFormComponent implements OnInit, AfterViewInit {
   constantes = constantes;
-  detalles: ProducInves;
+  detalles: ProducInves = null;
   detallesForm = new FormGroup({});
 
   constructor(private formService: FormularioGRIFTService) {}
 
   ngOnInit() {
     this.formValid();
-    this.formChanges();
     this.formService.theForm.subscribe((details: TheForm) => {
       this.detalles = details && details.producInves ? { ...details.producInves } : null;
     });
+
+    this.detallesForm.valueChanges.subscribe(() => console.log(this.detallesForm));
+  }
+
+  ngAfterViewInit() {
+    this.formChanges();
   }
 
   formValid() {
@@ -34,12 +39,14 @@ export class DetallesFormComponent implements OnInit {
   }
 
   formChanges() {
-    this.detallesForm.valueChanges.subscribe(changes => {
-      this.formService.theForm.next({
-        ...this.formService.theForm.value,
-        producInves: { ...changes }
+    if (this.detallesForm.controls) {
+      this.detallesForm.valueChanges.subscribe(changes => {
+        this.formService.theForm.next({
+          ...this.formService.theForm.value,
+          detalles: { ...changes }
+        });
       });
-    });
+    }
   }
 
   formInitialized(name: string, form: FormControl) {

@@ -66,7 +66,14 @@ export interface TheForm {
   areasLineasform: AreasLineasform;
   investigadores: Investigadore[];
   producInves: ProducInves;
+  detalles: Detalles;
   estimulos: Estimulos;
+  eventos: Eventos;
+}
+
+export interface Eventos {
+  departamento: string;
+  ciudad: string;
 }
 
 export interface AreasLineasform {
@@ -130,4 +137,39 @@ export interface DetallesCapacitaciones {
   diplomados: boolean;
   seminarios: boolean;
   cursos: boolean;
+}
+
+export interface Detalles {
+  procedimientoInputControl: string;
+  cartillaInputControl: string;
+  guiaInputControl: string;
+  manualesInputControl: string;
+  prototipoInputControl: string;
+  instructivoInputControl: string;
+  articuloFormGroupControl: ArticuloFormGroupControl;
+  libroFormGroupControl: LibroFormGroupControl;
+}
+
+export interface ArticuloFormGroupControl {
+  yearControl: string;
+  publishedMagazineNameControl: string;
+  articleNameControl: string;
+  issnCodeControl: string;
+  authorControl: string;
+}
+
+export interface LibroFormGroupControl {
+  yearControl: string;
+  bookNameControl: string;
+  startPageControl: string;
+  endPageControl: string;
+  editorialControl: string;
+  isbnCodeControl: string;
+  authorControl: string;
+}
+
+export interface Colombia {
+  id: number;
+  departamento: string;
+  ciudades: string[];
 }

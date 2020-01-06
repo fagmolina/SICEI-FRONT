@@ -6,9 +6,9 @@
     [matAutocomplete]="auto"
     [formControl]="dataControl"
   />
-  <mat-autocomplete #auto="matAutocomplete" [displayWith]="display">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="display.bind(this)">
     <mat-option *ngFor="let item of filteredData | async" [value]="item">
-      {{ item.name }}
+      {{ item[data.argument] }}
     </mat-option>
   </mat-autocomplete>
   <mat-error>{{ constantes.errors.requiredField }}</mat-error>

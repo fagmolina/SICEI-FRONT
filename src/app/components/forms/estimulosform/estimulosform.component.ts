@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import * as constantes from '../../../constantes';
 
 @Component({
   selector: 'app-estimulosform',
@@ -7,8 +8,17 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./estimulosform.component.scss']
 })
 export class EstimulosformComponent implements OnInit {
-  estimulosForm = new FormGroup({});
-  
+  constantes = constantes;
+  estimulosForm = new FormGroup({
+    condecoracionesControl: new FormControl(''),
+    felicitacionesControl: new FormControl(''),
+    personajeMesControl: new FormControl(''),
+    permisosControl: new FormControl(''),
+    estatuillasControl: new FormControl(''),
+    monedasControl: new FormControl(''),
+    capacitacionesControl: new FormControl('')
+  });
+
   constructor() {}
 
   ngOnInit() {}

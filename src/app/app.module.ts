@@ -71,6 +71,8 @@ import { FormularioAreasLineasComponent } from './components/forms/formulario-ar
 import { ParticipantesTwoComponent } from './components/forms/participantes-two/participantes-two.component';
 import { DetallesFormComponent } from './components/forms/detalles-form/detalles-form.component';
 import { EstimulosformComponent } from './components/forms/estimulosform/estimulosform.component';
+import { EventosFormComponent } from './components/forms/eventos-form/eventos-form.component';
+import { SelectComponent } from './components/commons/select/select.component';
 //#endregion Components imports
 
 @NgModule({
@@ -114,7 +116,9 @@ import { EstimulosformComponent } from './components/forms/estimulosform/estimul
     FormularioAreasLineasComponent,
     ParticipantesTwoComponent,
     DetallesFormComponent,
-    EstimulosformComponent
+    EstimulosformComponent,
+    EventosFormComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,18 @@ export const strings = {
   book: 'Libro',
   instructivos: 'Instructivos',
   productInvestigation: 'Producto Investigación',
-  details: 'Detalles'
+  details: 'Detalles',
+  encouragement: 'Estímulos',
+  condecorations: 'Condecoraciones',
+  congratulations: 'Felicitaciones',
+  personOfTheMonth: 'Personaje del mes',
+  permiso: 'Permiso',
+  statues: 'Estatuillas',
+  coin: 'Monedas',
+  trainings: 'Capacitaciones',
+  departments: 'Departamentos',
+  cities: 'Ciudades',
+  countries: 'Países'
 };
 
 export const tooltips = {
