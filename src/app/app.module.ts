@@ -75,6 +75,8 @@ import { EstimulosformComponent } from './components/forms/estimulosform/estimul
 import { EventosFormComponent } from './components/forms/eventos-form/eventos-form.component';
 import { SelectComponent } from './components/commons/select/select.component';
 import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asignado/presupuesto-asignado.component';
+import { GriftFormConfirmComponent } from './components/grift-form-confirm/grift-form-confirm.component';
+import { GriftSaveCancelComponent } from './components/dialogs/grift-save-cancel/grift-save-cancel.component';
 //#endregion Components imports
 
 @NgModule({
@@ -121,7 +123,9 @@ import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asi
     EstimulosformComponent,
     EventosFormComponent,
     SelectComponent,
-    PresupuestoAsignadoComponent
+    PresupuestoAsignadoComponent,
+    GriftFormConfirmComponent,
+    GriftSaveCancelComponent
   ],
   imports: [
     BrowserModule,
@@ -157,8 +161,8 @@ import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asi
 
     AppRoutingModule
   ],
-  entryComponents: [InvestigadoresDialogComponent],
+  entryComponents: [InvestigadoresDialogComponent, GriftSaveCancelComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
