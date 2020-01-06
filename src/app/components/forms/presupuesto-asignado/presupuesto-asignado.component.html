@@ -1,0 +1,118 @@
+<app-page-title [title]="'Presupuesto Asignado'"></app-page-title>
+
+<form class="card-wrapper" [formGroup]="presupuestoForm">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Externo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-checkbox formControlName="colcienciasCheck" >Convocatoria Colciencias</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Descripción" formControlName="colcienciasDescripcionControl">
+            </mat-form-field>
+            <mat-form-field  class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="colcienciasAporteControl">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="ministeriosCheck">Ministerios</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Descripción" formControlName="ministerioDescripcionControl">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="ministerioAporteControl">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="eIntCheck">Entes Internacionales</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Descripción" formControlName="eIntDescripcionControl">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="eIntAporteControl">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="oInstCheck">Otras Instituciones</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Descripción" formControlName="oInstDescripcionControl">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="oInstAporteControl">
+            </mat-form-field>
+
+            <div class="total">
+                <span>
+                    Total:
+                </span>
+                <span>
+                    {{totalExterno | number}}
+                </span>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Interno -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Interno</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-checkbox formControlName="OFPLACheck">Rubro Presupuestal (OFPLA)</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="OFPLAControl">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="DINAECheck">Convocatoria Interna (DINAE)</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="DINAEControl">
+            </mat-form-field>
+            <div class="total">
+                <span>
+                    Total:
+                </span>
+                <span>
+                    {{totalInterno | number}}
+                </span>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Gestionado -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Presupuesto Gestionado</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-checkbox formControlName="convExtCheck">Convenios Externos</mat-checkbox>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Descripción" formControlName="convenioExDescControl">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <span matPrefix>$</span>
+                <input type="number" matInput placeholder="Aporte" formControlName="convenioExAporteControl">
+            </mat-form-field>
+
+        </mat-card-content>
+    </mat-card>
+
+    <!-- TOTAL -->
+    <mat-card>
+        <div class="total-general">
+            <span>
+                TOTAL:
+            </span>
+            <span>
+                {{totalGeneral | number}}
+            </span>
+        </div>
+    </mat-card>
+</form>

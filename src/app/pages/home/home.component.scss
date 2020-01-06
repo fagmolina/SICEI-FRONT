@@ -1,8 +1,17 @@
 .info {
     padding: 2rem;
+    display: grid;
+    grid-gap: 2rem;
 }
 
 .mision, .vision {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+}
+.mision {
+    grid-template-columns: min-content 1fr;
+}
+.vision {
+    grid-template-columns: 1fr min-content;
 }

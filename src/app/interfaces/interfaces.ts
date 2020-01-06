@@ -69,6 +69,7 @@ export interface TheForm {
   detalles: Detalles;
   estimulos: Estimulos;
   eventos: Eventos;
+  presupuestoAsignado: any;
 }
 
 export interface Eventos {
@@ -79,6 +80,31 @@ export interface Eventos {
   fecha: string;
   lugar: string;
   pais: string;
+}
+
+export interface PresupuestoAsignado {
+  colcienciasCheck: boolean;
+  colcienciasDescripcionControl: string;
+  colcienciasAporteControl: number;
+  ministeriosCheck: boolean;
+  ministerioDescripcionControl: string;
+  ministerioAporteControl: number;
+  eIntCheck: boolean;
+  eIntDescripcionControl: string;
+  eIntAporteControl: number;
+  oInstCheck: boolean;
+  oInstDescripcionControl: string;
+  oInstAporteControl: number;
+  OFPLACheck: boolean;
+  OFPLAControl: number;
+  DINAECheck: boolean;
+  DINAEControl: number;
+  convExtCheck: boolean;
+  convenioExDescControl: string;
+  convenioExAporteControl: number;
+  totalExterno: number;
+  totalInterno: number;
+  totalGeneral: number;
 }
 
 export interface AreasLineasform {

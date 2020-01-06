@@ -74,6 +74,7 @@ import { DetallesFormComponent } from './components/forms/detalles-form/detalles
 import { EstimulosformComponent } from './components/forms/estimulosform/estimulosform.component';
 import { EventosFormComponent } from './components/forms/eventos-form/eventos-form.component';
 import { SelectComponent } from './components/commons/select/select.component';
+import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asignado/presupuesto-asignado.component';
 //#endregion Components imports
 
 @NgModule({
@@ -119,7 +120,8 @@ import { SelectComponent } from './components/commons/select/select.component';
     DetallesFormComponent,
     EstimulosformComponent,
     EventosFormComponent,
-    SelectComponent
+    SelectComponent,
+    PresupuestoAsignadoComponent
   ],
   imports: [
     BrowserModule,
