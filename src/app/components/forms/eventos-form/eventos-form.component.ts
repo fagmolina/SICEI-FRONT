@@ -16,13 +16,20 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
   paises = paises;
   eventosForm: FormGroup;
   departamento: string[];
+  tipo: string[] = ['Seminario', 'Simposio', 'Foro', 'Panel', 'Conversatorio', 'Encuentro'];
+  participacion: string[] = ['Asistente', 'Ponente', 'Organizador'];
+  national = false;
 
   constructor(private formService: FormularioGRIFTService) {}
 
   ngOnInit() {
     this.eventosForm = new FormGroup({
       departamentosControl: new FormControl('', Validators.required),
-      ciudadControl: new FormControl('', Validators.required)
+      ciudadControl: new FormControl('', Validators.required),
+      fechaControl: new FormControl('', Validators.required),
+      tipoControl: new FormControl('', Validators.required),
+      participacionControl: new FormControl('', Validators.required),
+      nationalControl: new FormControl('')
     });
     this.formChanges();
   }
@@ -43,13 +50,17 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
   formChanges() {
     this.eventosForm.valueChanges.subscribe(changes => {
       this.departamento = changes.departamentosControl.ciudades;
-
+      const form = this.eventosForm.controls;
       // Guardar datos en el form
       this.formService.theForm.next({
         ...this.formService.theForm.value,
         eventos: {
-          departamento: this.eventosForm.controls.departamentosControl.value.departamento,
-          ciudad: this.eventosForm.controls.ciudadControl.value
+          tipo: form.tipoControl.value,
+          participacion: form.participacionControl.value,
+          departamento: form.departamentosControl.value.departamento,
+          ciudad: form.ciudadControl.value,
+          fecha: form.fechaControl.value,
+          lugar: form.nationalControl.value ? 'Internacional' : 'Nacional'
         }
       });
     });
@@ -57,5 +68,9 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
 
   formInitialized(name: string, form: FormControl) {
     this.eventosForm.setControl(name, form);
+  }
+
+  test(event) {
+    console.log(event);
   }
 }

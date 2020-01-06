@@ -72,8 +72,12 @@ export interface TheForm {
 }
 
 export interface Eventos {
+  tipo: string;
+  participacion: string;
   departamento: string;
   ciudad: string;
+  fecha: string;
+  lugar: string;
 }
 
 export interface AreasLineasform {

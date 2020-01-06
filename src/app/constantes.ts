@@ -15,7 +15,8 @@ export const placeholders = {
   endPage: 'Página final',
   editorial: 'Editorial',
   publishingDate: 'Fecha de publicación',
-  isbnCode: 'Código ISBN'
+  isbnCode: 'Código ISBN',
+  date: 'Fecha'
 };
 
 export const strings = {
@@ -46,7 +47,9 @@ export const strings = {
   trainings: 'Capacitaciones',
   departments: 'Departamentos',
   cities: 'Ciudades',
-  countries: 'Países'
+  countries: 'Países',
+  type: 'Tipo',
+  participation: 'Participación'
 };
 
 export const tooltips = {

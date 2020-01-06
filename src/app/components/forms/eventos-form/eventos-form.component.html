@@ -1,4 +1,15 @@
 <form [formGroup]="eventosForm">
+
+    <!-- Tipo -->
+    <app-select [placeholder]="constantes.strings.type" [data]="tipo"
+        (formReady)="formInitialized('tipoControl', $event)"></app-select>
+
+    <!-- Participacion -->
+    <app-select [placeholder]="constantes.strings.participation" [data]="participacion"
+        (formReady)="formInitialized('participacionControl', $event)"></app-select>
+
+    <!-- Lugar -->
+    <mat-slide-toggle formControlName="nationalControl" (change)="national = !national">{{national ? 'Internacional' : 'Nacional'}}</mat-slide-toggle>
     <app-autcomplete [data]="{placeholder: constantes.strings.departments,
         data: colombia,
         icon: 'string',
@@ -11,4 +22,14 @@
         data: paises,
         icon: 'string',
         argument: 'nombre'}" (formReady)="formInitialized('paisesControl', $event)"></app-autcomplete>
+    
+    
+
+    <!-- Fecha -->
+    <mat-form-field>
+        <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.date }}"
+            formControlName="fechaControl" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 </form>

@@ -26,7 +26,8 @@ import { MatCardModule,
          MatTooltipModule,
          MatDividerModule,
          MatExpansionModule,
-         MatSelectModule} from '@angular/material';
+         MatSelectModule,
+         MatSlideToggleModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -147,6 +148,7 @@ import { SelectComponent } from './components/commons/select/select.component';
     MatExpansionModule,
     MatStepperModule,
     MatSelectModule,
+    MatSlideToggleModule,
 
     ReactiveFormsModule,
     FormsModule,
