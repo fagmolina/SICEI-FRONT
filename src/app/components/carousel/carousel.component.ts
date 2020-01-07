@@ -40,6 +40,10 @@ export class CarouselComponent implements OnInit {
   }
 
   gotoItem(bullet, index) {
+    window.clearInterval(this.timer);
     this.active = index;
+    this.timer = window.setInterval(() => {
+      this.next_automatic();
+    }, 4500);
   }
 }
