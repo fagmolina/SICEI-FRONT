@@ -1,1 +1,7 @@
-<p>grift-save-cancel works!</p>
+<div class="wrapper">
+    <p>{{data.message}}</p>
+    <div class="buttons">
+        <button mat-flat-button (click)="close(true)">No</button>
+        <button mat-raised-button (click)="close(false)">Si</button>
+    </div>
+</div>
