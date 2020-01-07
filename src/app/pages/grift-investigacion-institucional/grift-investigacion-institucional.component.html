@@ -24,9 +24,10 @@
   <app-table [data]="fakeTableData"></app-table>
 </ng-template>
 <ng-template #form>
-  <mat-horizontal-stepper #stepper linear>
+  <mat-horizontal-stepper #stepper linear labelPosition='bottom'>
     <!-- <mat-step [completed]="griftStepper.stepOne"> -->
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Información Base</ng-template>
       <app-primer-formulario></app-primer-formulario>
       <div class="stepper-buttons__first">
         <button mat-mini-fab color="primary" matStepperNext>
@@ -35,6 +36,7 @@
       </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Investigadores</ng-template>
       <app-investigadores></app-investigadores>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
@@ -46,6 +48,7 @@
       </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Producto Investigación</ng-template>
       <app-producto-inves-form></app-producto-inves-form>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
@@ -57,19 +60,61 @@
       </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Detalles</ng-template>
       <app-detalles-form></app-detalles-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Estímulos</ng-template>
       <app-estimulosform></app-estimulosform>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Eventos</ng-template>
       <app-eventos-form></app-eventos-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Presupuesto Asignado</ng-template>
       <app-presupuesto-asignado></app-presupuesto-asignado>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]="true">
+      <ng-template matStepLabel>Confirmación</ng-template>
       <app-grift-form-confirm></app-grift-form-confirm>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
     </mat-step>
   </mat-horizontal-stepper>
 </ng-template>
