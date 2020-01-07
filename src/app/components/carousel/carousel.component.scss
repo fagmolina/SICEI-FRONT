@@ -6,7 +6,7 @@
         perspective: 500px;
         background: black;
         width: 100%;
-        height: 400px;
+        height: 40vh;
         overflow: hidden;
     }
     &-buttons {
@@ -28,14 +28,18 @@
     }
     &-inner {
         position: absolute;
+        height: 100% !important;
     }
     &-items {
         transition: all .5s ease-in-out;
         overflow: hidden;
         position: relative;
         opacity: 0;
+        height: 100% !important;
         &.active {
             opacity: 1;
+            color: transparent !important;
+            background: transparent !important;
         }
     }
     &-indicators {
@@ -54,22 +58,6 @@
             bottom: 0;
         }
         &-bullet {
-            // cursor: pointer;
-            // width: 8px;
-            // height: 8px;
-            // border-radius: 100%;
-            // border: 1px solid $gris-claro;
-            // position: relative;
-            // &::after {
-            //     position: absolute;
-            //     content: '';
-            //     top: 0;
-            //     left: 0;
-            //     width: 100%;
-            //     height: 100%;
-            //     border-radius: 100%;
-            //     border: 2px solid red;
-            // }
             cursor: pointer;
             border-radius: 20px;
             width: 40px;

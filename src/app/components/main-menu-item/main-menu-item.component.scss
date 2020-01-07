@@ -1,15 +1,23 @@
 @import '../../../assets/css/variables';
 
+.heigth {
+    margin-left: 3px;
+    height: 48px;
+}
+
 .menu {
     &-item {
         &__wrapper {
             cursor: pointer;
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 45px 200px;
             grid-gap: 10px;
             justify-items: center;
             align-items: center;
-            padding: 10px;
+            // padding: 10px;
+            & span {
+                justify-self: start;
+            }
         }
     }
 }
@@ -50,7 +58,7 @@ mat-expansion-panel {
     background: transparent;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding: 0 5px !important;
+    padding: 0 !important;
     border-left: 3px solid $primario !important;
 }
 

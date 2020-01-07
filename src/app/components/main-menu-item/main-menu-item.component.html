@@ -1,15 +1,15 @@
-<div class="menu-item__wrapper" *ngIf="submenu === undefined">
-    <mat-icon color="primary" class="menu-item__icon">
-  {{ icon }}
+<div class="menu-item__wrapper" [ngClass]="{'heigth': submenu === undefined}" *ngIf="submenu === undefined">
+  <mat-icon color="primary" class="menu-item__icon">
+    {{ icon }}
   </mat-icon>
   <span class="menu-item__text">
     {{ title }}
   </span>
 </div>
 
-<mat-accordion *ngIf="submenu !== undefined" hideToggle>
+<mat-accordion *ngIf="submenu !== undefined" hideToggle [multi]="false">
   <mat-expansion-panel class="panel">
-    <mat-expansion-panel-header class="panel-header">
+    <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'" class="panel-header">
       <mat-panel-title>
         <div class="menu-item__wrapper">
           <mat-icon color="primary" class="menu-item__icon">
