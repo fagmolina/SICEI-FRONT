@@ -11,9 +11,9 @@ import { FormularioGRIFTService } from 'src/app/services/formulario-grift.servic
 })
 export class PresupuestoAsignadoComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
-  totalExterno = 0;
-  totalInterno = 0;
-  totalGeneral = 0;
+  totalExterno;
+  totalInterno;
+  totalGeneral;
   presupuestoForm: FormGroup;
 
   constructor(private formService: FormularioGRIFTService) {}
@@ -96,7 +96,7 @@ export class PresupuestoAsignadoComponent implements OnInit, OnDestroy {
         form.eIntAporteControl.value +
         form.oInstAporteControl.value;
       this.totalInterno = form.OFPLAControl.value + form.DINAEControl.value;
-      this.totalGeneral = this.totalExterno + this.totalInterno + form.convenioExAporteControl.value;
+      this.totalGeneral = this.calcTotal(this.totalExterno, this.totalInterno, form.convenioExAporteControl.value);
 
       // ASignación al formulario principal
       this.formService.theForm.next({
@@ -109,6 +109,13 @@ export class PresupuestoAsignadoComponent implements OnInit, OnDestroy {
         }
       });
     });
+  }
+
+  calcTotal(a, b, c) {
+    a = a === '' || a === null || a === undefined ? 0 : parseInt(a, 10);
+    b = b === '' || b === null || b === undefined ? 0 : parseInt(b, 10);
+    c = c === '' || c === null || c === undefined ? 0 : parseInt(c, 10);
+    return a + b + c;
   }
 
   fieldEnable(desc, aporte, check) {
