@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'src/app/interfaces/interfaces';
 import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.scss']
+  styleUrls: ['./main-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MainMenuComponent implements OnInit {
   items: MenuItem[] = [];

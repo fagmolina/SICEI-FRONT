@@ -9,6 +9,7 @@
             grid-gap: 10px;
             justify-items: center;
             align-items: center;
+            padding: 10px;
         }
     }
 }
@@ -35,7 +36,6 @@
             padding: 10px 0;
             transition: all .2s ease-in-out;
             &:hover {
-                font-weight: bold;
                 color: $negro;
             }
         }
@@ -44,4 +44,16 @@
 
 .active {
     background: $primario;
+}
+
+mat-expansion-panel {
+    background: transparent;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 5px !important;
+    border-left: 3px solid $primario !important;
+}
+
+mat-expansion-panel-header {
+    padding: 0 !important;
 }
