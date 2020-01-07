@@ -2,12 +2,17 @@
     padding: 2rem;
     display: grid;
     grid-gap: 2rem;
+    max-width: 800px;
+    margin: auto;
 }
 
 .mision, .vision {
     display: grid;
     grid-gap: 1rem;
     align-items: center;
+    & img {
+        width: 350px;
+    }
 }
 .mision {
     grid-template-columns: min-content 1fr;

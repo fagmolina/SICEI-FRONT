@@ -1,70 +1,50 @@
 <app-page-title [title]="'Información Base'"></app-page-title>
 <form novalidate [formGroup]="primerForm">
-  <!-- Titulo Investigación -->
-  <app-simple-input [data]="{
+  <div>
+
+
+    <!-- Titulo Investigación -->
+    <app-simple-input [data]="{
       placeholder: constantes.placeholders.tituloInvestigacion,
       data: fakeData,
       icon: ''
     }" (formReady)="formInitialized('tituloControl', $event)"></app-simple-input>
 
-  <!-- Dirección Dueña -->
-  <app-autcomplete [data]="{
+    <!-- Dirección Dueña -->
+    <app-autcomplete [data]="{
       placeholder: constantes.placeholders.direccionDuena,
       data: fakeData,
       icon: '',
       argument: 'name'
     }" (formReady)="formInitialized('direccionControl', $event)"></app-autcomplete>
 
-  <!-- Escuelas -->
-  <app-autcomplete [data]="{
+    <!-- Escuelas -->
+    <app-autcomplete [data]="{
       placeholder: constantes.placeholders.escuelas,
       data: fakeData,
       icon: '',
       argument: 'name'
     }" (formReady)="formInitialized('escuelasControl', $event)"></app-autcomplete>
 
-  <!-- Año -->
-  <mat-form-field>
-    <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.year }}"
-      formControlName="yearControl" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <!-- Año -->
+    <mat-form-field>
+      <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.year }}"
+        formControlName="yearControl" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-  <!-- Formulario de participación -->
-  <app-participantes-two [data]="{
+    <!-- Formulario de participación -->
+    <app-participantes-two [data]="{
       placeholder: constantes.placeholders.escuelas,
       data: fakeData,
       icon: '',
       argument: 'name'
     }" (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two>
-  <!-- <app-participacion-form (participan)="participantes($event)"></app-participacion-form> -->
-
-  <!-- Participantes -->
-  <!-- <app-autcomplete [data]="{
-        placeholder: constantes.placeholders.cuales,
-        data: [],
-        icon: '',
-        argument: 'name'
-    }" (formReady)="formGroupInitialized('participantesControl', $event, true)" class="third"></app-autcomplete> -->
-
-  <!-- Formulario Areas y Lineas -->
-  <app-formulario-areas-lineas (formReady)="formGroupInitialized('areasLineasform', $event, false)">
-  </app-formulario-areas-lineas>
-
-  <!-- Areas -->
-  <!-- <app-chip-autocomplete [data]="{
-        placeholder: constantes.placeholders.areas,
-        data: fakeData,
-        icon: '',
-        argument: 'name'
-    }" (formReady)="formInitialized('areasControl', $event)"></app-chip-autocomplete> -->
-
-  <!-- Lineas -->
-  <!-- <app-chip-autocomplete [data]="{
-        placeholder: constantes.placeholders.lineas,
-        data: fakeData,
-        icon: '',
-        argument: 'name'
-    }" (formReady)="formInitialized('lineasControl', $event)"></app-chip-autocomplete> -->
+  </div>
+  <div>
+    <!-- Formulario Areas y Lineas -->
+    <app-formulario-areas-lineas (formReady)="formGroupInitialized('areasLineasform', $event, false)">
+    </app-formulario-areas-lineas>
+  </div>
 </form>

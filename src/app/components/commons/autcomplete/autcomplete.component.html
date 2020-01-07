@@ -6,6 +6,8 @@
     [matAutocomplete]="auto"
     [formControl]="dataControl"
   />
+  <mat-icon matSuffix class="arrow-drop">arrow_drop_down
+</mat-icon>
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="display.bind(this)">
     <mat-option *ngFor="let item of filteredData | async" [value]="item">
       {{ item[data.argument] }}

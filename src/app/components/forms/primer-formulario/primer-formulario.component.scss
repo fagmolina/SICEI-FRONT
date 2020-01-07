@@ -1,8 +1,17 @@
 form {
     padding: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-gap: 1rem;
+    & div {
+        &:first-child {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-gap: 1rem;
+        }
+        &:last-child {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+    }
     & mat-form-field {
         width: 100%;
     }
