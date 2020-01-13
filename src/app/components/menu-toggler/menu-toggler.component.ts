@@ -11,6 +11,7 @@ export class MenuTogglerComponent implements OnInit {
   constructor(private componentService: ComponentsService) { }
 
   ngOnInit() {
+    this.componentService.toggleMainMenu.subscribe(value => this.toggle = value);
   }
   toggleDrawer() {
     this.toggle = !this.toggle;

@@ -135,4 +135,13 @@ export class PresupuestoAsignadoComponent implements OnInit, OnDestroy {
       form[aporte].disable();
     }
   }
+
+  formValid() {
+    this.presupuestoForm.statusChanges.subscribe(valid => {
+      this.formService.griftStepper.next({
+        ...this.formService.griftStepper.value,
+        stepSeven: valid === 'VALID'
+      });
+    });
+  }
 }

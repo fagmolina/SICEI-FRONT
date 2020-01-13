@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter, ViewChild, AfterViewInit } from '@angular/core';
 import { Submenu } from 'src/app/interfaces/interfaces';
+import { MatExpansionPanel } from '@angular/material';
 
 @Component({
   selector: 'app-main-menu-item',
@@ -7,15 +8,36 @@ import { Submenu } from 'src/app/interfaces/interfaces';
   styleUrls: ['./main-menu-item.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class MainMenuItemComponent implements OnInit {
+export class MainMenuItemComponent implements OnInit, AfterViewInit {
+  @Input()
+  index: number;
   @Input() icon: 'string';
   @Input() title: 'string';
   @Input() width: 'number';
   @Input() heigth: 'number';
   @Input() submenu: Submenu[];
   @Input() link: string;
+  @ViewChild(`expansion`, { static: false }) expansion: MatExpansionPanel;
+
+  @Output() expansionPanel = new EventEmitter<MatExpansionPanel>();
+  @Output() clicked = new EventEmitter<any>();
+  @Output() closeDrawer = new EventEmitter<boolean>();
+
+  close = false;
 
   constructor() {}
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.expansionPanel.emit(this.expansion);
+  }
+
+  emit() {
+    this.clicked.emit(this.expansion !== undefined ? this.expansion.id : null);
+  }
+
+  closeDrawerFunc() {
+    this.closeDrawer.emit(false);
+  }
 }

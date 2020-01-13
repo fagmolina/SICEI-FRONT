@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import * as constantes from '../../../constantes';
+import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 
 @Component({
   selector: 'app-estimulosform',
@@ -19,7 +20,18 @@ export class EstimulosformComponent implements OnInit {
     capacitacionesControl: new FormControl('')
   });
 
-  constructor() {}
+  constructor(private formService: FormularioGRIFTService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.formValid();
+  }
+
+  formValid() {
+    this.estimulosForm.statusChanges.subscribe(valid => {
+      this.formService.griftStepper.next({
+        ...this.formService.griftStepper.value,
+        stepFive: valid === 'VALID'
+      });
+    });
+  }
 }

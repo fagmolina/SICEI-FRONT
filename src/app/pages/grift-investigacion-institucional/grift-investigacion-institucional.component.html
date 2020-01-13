@@ -26,7 +26,7 @@
 <ng-template #form>
   <mat-horizontal-stepper #stepper linear labelPosition='bottom'>
     <!-- <mat-step [completed]="griftStepper.stepOne"> -->
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepOne">
       <ng-template matStepLabel>Información Base</ng-template>
       <app-primer-formulario></app-primer-formulario>
       <div class="stepper-buttons__first">
@@ -35,7 +35,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepTwo">
       <ng-template matStepLabel>Investigadores</ng-template>
       <app-investigadores></app-investigadores>
       <div class="stepper-buttons">
@@ -47,7 +47,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepThree">
       <ng-template matStepLabel>Producto Investigación</ng-template>
       <app-producto-inves-form></app-producto-inves-form>
       <div class="stepper-buttons">
@@ -59,7 +59,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepFour">
       <ng-template matStepLabel>Detalles</ng-template>
       <app-detalles-form></app-detalles-form>
       <div class="stepper-buttons">
@@ -71,7 +71,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepFive">
       <ng-template matStepLabel>Estímulos</ng-template>
       <app-estimulosform></app-estimulosform>
       <div class="stepper-buttons">
@@ -83,7 +83,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepSix">
       <ng-template matStepLabel>Eventos</ng-template>
       <app-eventos-form></app-eventos-form>
       <div class="stepper-buttons">
@@ -95,7 +95,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="true">
+    <mat-step [completed]="griftStepper.stepSeven">
       <ng-template matStepLabel>Presupuesto Asignado</ng-template>
       <app-presupuesto-asignado></app-presupuesto-asignado>
       <div class="stepper-buttons">

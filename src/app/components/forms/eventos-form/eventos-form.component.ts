@@ -42,7 +42,7 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
     this.eventosForm.statusChanges.subscribe(valid => {
       this.formService.griftStepper.next({
         ...this.formService.griftStepper.value,
-        stepOne: valid === 'VALID'
+        stepSix: valid === 'VALID'
       });
     });
   }

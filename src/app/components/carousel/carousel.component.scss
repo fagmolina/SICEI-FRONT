@@ -35,7 +35,7 @@
         overflow: hidden;
         position: relative;
         opacity: 0;
-        height: 100% !important;
+        width: 100%;
         &.active {
             opacity: 1;
             color: transparent !important;
