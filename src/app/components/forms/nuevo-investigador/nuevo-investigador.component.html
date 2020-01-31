@@ -1,0 +1,79 @@
+<form [formGroup]="newInvestigator">
+    <h3>Nuevo Investigador</h3>
+    <div class="group">
+        <!-- Número documento -->
+        <app-simple-input [data]="{
+                placeholder: 'Cédula de Ciudadanía',
+                data: null,
+                icon: null
+            }" [type]="'number'" (formReady)="formInitialized('numDocControl', $event)">
+        </app-simple-input>
+        <!-- Nombres -->
+        <app-simple-input [data]="{
+                placeholder: 'Nombres',
+                data: null,
+                icon: null
+            }" (formReady)="formInitialized('nombreControl', $event)">
+        </app-simple-input>
+
+        <!-- Apellidos -->
+        <app-simple-input [data]="{
+                placeholder: 'Apellidos',
+                data: null,
+                icon: null
+            }" (formReady)="formInitialized('apellidoControl', $event)">
+        </app-simple-input>
+    </div>
+
+    <div class="group">
+        <!-- Teléfono -->
+        <app-simple-input [data]="{
+                placeholder: 'Teléono',
+                data: null,
+                icon: 'local_phone'
+            }" (formReady)="formInitialized('telefonoControl', $event)">
+        </app-simple-input>
+
+        <!-- Dirección -->
+        <mat-form-field class="full-width">
+            <textarea matInput placeholder="Dirección" formControlName="direccionControl"></textarea>
+        </mat-form-field>
+
+        <!-- Email -->
+        <app-simple-input [data]="{
+                placeholder: 'Email',
+                data: null,
+                icon: 'local_post_office'
+            }" (formReady)="formInitialized('emailControl', $event)" [type]="'email'">
+        </app-simple-input>
+    </div>
+
+    <div class="group">
+        <!-- Grado -->
+        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('gradoControl', $event)">
+        </app-select>
+
+        <!-- Unidad -->
+        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('unidadControl', $event)">
+        </app-select>
+
+        <!-- Estudios -->
+        <mat-form-field>
+            <mat-label>Estudios Academicos</mat-label>
+            <mat-select formControlName="estudiosControl" multiple>
+                <mat-option *ngFor="let estudio of estudios" [value]="estudio">{{estudio}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Otros estudios -->
+        <mat-form-field *ngIf="!checkOthers()">
+            <input matInput placeholder="Otros estudios" formControlName="otrosEstudiosControls" [disabled]="checkOthers()">
+        </mat-form-field>
+
+    </div>
+
+    <div class="buttons">
+        <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="newInvestigator.invalid">Guardar</button>
+    </div>
+</form>

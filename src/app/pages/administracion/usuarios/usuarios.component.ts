@@ -19,7 +19,7 @@ export class UsuariosComponent implements OnInit {
   ngOnInit() {}
 
   closeTheForm() {
-    this.formService.newInvestigadorForm.next(null);
+    this.formService.newUsuarioForm.next(null);
     this.new = !this.new;
   }
 }

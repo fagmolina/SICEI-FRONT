@@ -8,6 +8,7 @@ import { NewUser } from '../interfaces/interfaces';
 export class FormularioNuevoUsuarioInvestigadorService {
   newUsuarioForm = new BehaviorSubject<NewUser>(null);
   newInvestigadorForm = new BehaviorSubject<any>(null);
+  newUnidadForm = new BehaviorSubject<any>(null);
 
   constructor() {}
 }

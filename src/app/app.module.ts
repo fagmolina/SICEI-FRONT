@@ -81,6 +81,8 @@ import { UsuariosComponent } from './pages/administracion/usuarios/usuarios.comp
 import { NuevoUsuarioComponent } from './components/forms/nuevo-usuario/nuevo-usuario.component';
 import { UnidadesComponent } from './pages/administracion/unidades/unidades.component';
 import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
+import { NuevoInvestigadorComponent } from './components/forms/nuevo-investigador/nuevo-investigador.component';
+import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unidad.component';
 //#endregion Components imports
 
 @NgModule({
@@ -133,7 +135,9 @@ import { NewInvestigadoresComponent } from './pages/administracion/new-investiga
     UsuariosComponent,
     NuevoUsuarioComponent,
     UnidadesComponent,
-    NewInvestigadoresComponent
+    NewInvestigadoresComponent,
+    NuevoInvestigadorComponent,
+    NuevaUnidadComponent
   ],
   imports: [
     BrowserModule,

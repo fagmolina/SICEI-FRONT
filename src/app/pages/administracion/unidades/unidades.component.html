@@ -1,1 +1,21 @@
-<p>unidades works!</p>
+<div class="title-wrapper">
+    <app-page-title [title]="'Unidades'"></app-page-title>
+    <button mat-raised-button [color]="new ? 'warn' : 'primary'" (click)="closeTheForm()">
+        <mat-icon>{{ new ? 'close' : 'add' }}</mat-icon>{{ new ? 'Cancelar' : 'Nueva Unidad' }}
+    </button>
+</div>
+<ng-container *ngIf="new; then form; else table"></ng-container>
+<ng-template #table>
+    <div>
+        <p class="main-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+            asperiores saepe quo culpa, veniam facilis at quae omnis laudantium
+            debitis aperiam, pariatur aliquam odio tenetur ad officia magni quisquam
+            quod.
+        </p>
+    </div>
+    <app-table [data]="fakeTableData"></app-table>
+</ng-template>
+<ng-template #form>
+    <app-nuevo-investigador (closeForm)="new = false"></app-nuevo-investigador>
+</ng-template>
