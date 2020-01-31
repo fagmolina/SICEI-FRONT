@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as constantes from '../../../constantes';
 import { fakeTableData } from 'src/app/mockData/mockData';
-import { FormularioNuevoUsuarioInvestigadorService } from 'src/app/services/formulario-nuevo-usuario-investigador.service';
 
 @Component({
   selector: 'app-unidades',
@@ -12,13 +11,13 @@ export class UnidadesComponent implements OnInit {
   public constantes = constantes;
   public new = false;
   public fakeTableData = fakeTableData;
+  public tableData = [];
 
-  constructor(private formService: FormularioNuevoUsuarioInvestigadorService) {}
+  constructor() {}
 
   ngOnInit() {}
 
-  closeTheForm() {
-    this.formService.newInvestigadorForm.next(null);
-    this.new = !this.new;
+  addTableData(data) {
+    this.tableData = [...this.tableData, data];
   }
 }

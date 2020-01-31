@@ -4,7 +4,7 @@
         <div class="doc-group">
             <!-- Tipo documento -->
             <app-select [placeholder]="'Tipo Doc.'" [data]="tipoDoc"
-                (formReady)="formInitialized('tipoDocControl', $event)">
+                (formReady)="formInitialized('Tipo_Doc', $event)">
             </app-select>
 
             <!-- Número documento -->
@@ -12,8 +12,8 @@
                     placeholder: 'Número de documento',
                     data: null,
                     icon: null
-                }" [type]="newUser.controls.tipoDocControl.value !== 'Pasaporte' ? 'number' : 'text'"
-                (formReady)="formInitialized('numDocControl', $event)">
+                }" [type]="newUser.controls.Tipo_Doc.value !== 'Pasaporte' ? 'number' : 'text'"
+                (formReady)="formInitialized('Documento', $event)">
             </app-simple-input>
         </div>
         <!-- Nombres -->
@@ -21,7 +21,7 @@
                 placeholder: 'Nombres',
                 data: null,
                 icon: null
-            }" (formReady)="formInitialized('nombreControl', $event)">
+            }" (formReady)="formInitialized('Nombres', $event)">
         </app-simple-input>
 
         <!-- Apellidos -->
@@ -29,7 +29,7 @@
                 placeholder: 'Apellidos',
                 data: null,
                 icon: null
-            }" (formReady)="formInitialized('apellidoControl', $event)">
+            }" (formReady)="formInitialized('Apellido', $event)">
         </app-simple-input>
     </div>
 
@@ -39,7 +39,7 @@
                 placeholder: 'Teléono',
                 data: null,
                 icon: 'local_phone'
-            }" (formReady)="formInitialized('telefonoControl', $event)">
+            }" (formReady)="formInitialized('Tlf', $event)">
         </app-simple-input>
 
         <!-- Email -->
@@ -47,17 +47,17 @@
                 placeholder: 'Email',
                 data: null,
                 icon: 'local_post_office'
-            }" (formReady)="formInitialized('emailControl', $event)" [type]="'email'">
+            }" (formReady)="formInitialized('Email', $event)" [type]="'email'">
         </app-simple-input>
     </div>
 
     <div class="group">
         <!-- Grado -->
-        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('gradoControl', $event)">
+        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('Grado', $event)">
         </app-select>
 
         <!-- Unidad -->
-        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('unidadControl', $event)">
+        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('Unidad', $event)">
         </app-select>
     </div>
 
@@ -67,11 +67,11 @@
                 placeholder: 'Usuario (PSI)',
                 data: null,
                 icon: 'account_box'
-            }" (formReady)="formInitialized('emailControl', $event)">
+            }" (formReady)="formInitialized('PSI', $event)">
         </app-simple-input>
 
         <!-- Perfil -->
-        <app-select [placeholder]="'Perfil'" [data]="perfil" (formReady)="formInitialized('perfilControl', $event)">
+        <app-select [placeholder]="'Perfil'" [data]="perfil" (formReady)="formInitialized('Perfil', $event)">
         </app-select>
 
         <!-- Contraseña -->
@@ -96,6 +96,6 @@
 
     <div class="buttons">
         <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
-        <button type="submit" mat-raised-button color="primary" [disabled]="newUser.invalid || passwd.invalid">Guardar</button>
+        <button (click)="sendData()" mat-raised-button color="primary" [disabled]="newUser.invalid || passwd.invalid">Guardar</button>
     </div>
 </form>

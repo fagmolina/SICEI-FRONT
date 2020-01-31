@@ -13,6 +13,7 @@ export class NewInvestigadoresComponent implements OnInit {
   public constantes = constantes;
   public new = false;
   public fakeTableData = fakeTableData;
+  public tableData = [];
 
   constructor(private formService: FormularioNuevoUsuarioInvestigadorService) {}
 
@@ -21,5 +22,9 @@ export class NewInvestigadoresComponent implements OnInit {
   closeTheForm() {
     this.formService.newInvestigadorForm.next(null);
     this.new = !this.new;
+  }
+
+  addTableData(data) {
+    this.tableData = [...this.tableData, data];
   }
 }

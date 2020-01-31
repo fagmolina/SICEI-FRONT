@@ -6,14 +6,14 @@
                 placeholder: 'Cédula de Ciudadanía',
                 data: null,
                 icon: null
-            }" [type]="'number'" (formReady)="formInitialized('numDocControl', $event)">
+            }" [type]="'number'" (formReady)="formInitialized('Documento', $event)">
         </app-simple-input>
         <!-- Nombres -->
         <app-simple-input [data]="{
                 placeholder: 'Nombres',
                 data: null,
                 icon: null
-            }" (formReady)="formInitialized('nombreControl', $event)">
+            }" (formReady)="formInitialized('Nombres', $event)">
         </app-simple-input>
 
         <!-- Apellidos -->
@@ -21,7 +21,7 @@
                 placeholder: 'Apellidos',
                 data: null,
                 icon: null
-            }" (formReady)="formInitialized('apellidoControl', $event)">
+            }" (formReady)="formInitialized('Apellidos', $event)">
         </app-simple-input>
     </div>
 
@@ -31,12 +31,12 @@
                 placeholder: 'Teléono',
                 data: null,
                 icon: 'local_phone'
-            }" (formReady)="formInitialized('telefonoControl', $event)">
+            }" (formReady)="formInitialized('Tlf', $event)">
         </app-simple-input>
 
         <!-- Dirección -->
         <mat-form-field class="full-width">
-            <textarea matInput placeholder="Dirección" formControlName="direccionControl"></textarea>
+            <textarea matInput placeholder="Dirección" formControlName="Dir"></textarea>
         </mat-form-field>
 
         <!-- Email -->
@@ -44,26 +44,26 @@
                 placeholder: 'Email',
                 data: null,
                 icon: 'local_post_office'
-            }" (formReady)="formInitialized('emailControl', $event)" [type]="'email'">
+            }" (formReady)="formInitialized('Email', $event)" [type]="'email'">
         </app-simple-input>
     </div>
 
     <div class="group">
         <!-- Grado -->
-        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('gradoControl', $event)">
+        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('Grado', $event)">
         </app-select>
 
         <!-- Estudios -->
         <mat-form-field>
             <mat-label>Estudios Academicos</mat-label>
-            <mat-select formControlName="estudiosControl" multiple>
+            <mat-select formControlName="Estudios" multiple>
                 <mat-option *ngFor="let estudio of estudios" [value]="estudio">{{estudio}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <!-- Otros estudios -->
         <mat-form-field *ngIf="!checkOthers()">
-            <input matInput placeholder="Otros estudios" formControlName="otrosEstudiosControls">
+            <input matInput placeholder="Otros estudios" formControlName="Otros">
         </mat-form-field>
     </div>
 
@@ -72,7 +72,7 @@
         <div class="sub-group">
             <div>
                 <mat-label>Categorización Colciencias?</mat-label>
-                <mat-radio-group (change)="enableTipo($event.value)" formControlName="categorizacionControl"
+                <mat-radio-group (change)="enableTipo($event.value)" formControlName="Categ"
                     class="sub-group__radio-group" aria-labelledby="example-radio-group-label">
                     <mat-radio-button [value]="true">
                         Si
@@ -85,7 +85,7 @@
             <span class="separator"></span>
             <div>
                 <mat-label>Tipo</mat-label>
-                <mat-radio-group formControlName="tipoControl" class="sub-group__radio-group"
+                <mat-radio-group formControlName="Tipo" class="sub-group__radio-group"
                     aria-labelledby="example-radio-group-label">
                     <mat-radio-button *ngFor="let tipo of tipoCategorizacion" [value]="tipo">
                         {{tipo}}
@@ -100,7 +100,7 @@
             <div>
                 <!-- Profesor Investigador -->
                 <mat-label>Profesor Investigador?</mat-label>
-                <mat-radio-group formControlName="profInvesControl" class="sub-group__radio-group"
+                <mat-radio-group formControlName="Investigador" class="sub-group__radio-group"
                     aria-labelledby="example-radio-group-label">
                     <mat-radio-button [value]="true">
                         Si
@@ -114,7 +114,7 @@
             <div>
                 <!-- Estudiante -->
                 <mat-label>Estudiante?</mat-label>
-                <mat-radio-group formControlName="estudianteControl" class="sub-group__radio-group"
+                <mat-radio-group formControlName="Estudiante" class="sub-group__radio-group"
                     aria-labelledby="example-radio-group-label">
                     <mat-radio-button [value]="true">
                         Si
@@ -132,6 +132,6 @@
 
     <div class="buttons">
         <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
-        <button type="submit" mat-raised-button color="primary" [disabled]="newInvestigator.invalid">Guardar</button>
+        <button (click)="sendData()" mat-raised-button color="primary" [disabled]="newInvestigator.invalid">Guardar</button>
     </div>
 </form>

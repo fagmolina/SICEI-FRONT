@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormularioNuevoUsuarioInvestigadorService } from 'src/app/services/formulario-nuevo-usuario-investigador.service';
+import { NewInvestigador } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-nuevo-investigador',
@@ -9,14 +10,15 @@ import { FormularioNuevoUsuarioInvestigadorService } from 'src/app/services/form
 })
 export class NuevoInvestigadorComponent implements OnInit {
   @Output() closeForm = new EventEmitter<any>();
+  @Output() createdInvest = new EventEmitter<NewInvestigador>();
   newInvestigator = new FormGroup({
-    direccionControl: new FormControl('', [Validators.required]),
-    estudiosControl: new FormControl('', [Validators.required]),
-    otrosEstudiosControls: new FormControl('', [Validators.required]),
-    categorizacionControl: new FormControl('', [Validators.required]),
-    tipoControl: new FormControl({ value: '', disabled: true }, [Validators.required]),
-    profInvesControl: new FormControl('', [Validators.required]),
-    estudianteControl: new FormControl('', [Validators.required])
+    Dir: new FormControl('', [Validators.required]),
+    Estudios: new FormControl('', [Validators.required]),
+    Otros: new FormControl('', [Validators.required]),
+    Categ: new FormControl('', [Validators.required]),
+    Tipo: new FormControl({ value: '', disabled: true }, [Validators.required]),
+    Investigador: new FormControl('', [Validators.required]),
+    Estudiante: new FormControl('', [Validators.required])
   });
   passwd = new FormControl();
   tipoDoc = ['Cédula de Ciudadanía', 'Cédula de Extrangería', 'Pasaporte'];
@@ -37,16 +39,16 @@ export class NuevoInvestigadorComponent implements OnInit {
       }
       this.formService.newInvestigadorForm.next({
         ...this.formService.newInvestigadorForm.value,
-        ...changes
+        ...changes,
       });
     });
   }
 
   enableTipo(event) {
     if (event) {
-      this.newInvestigator.controls.tipoControl.enable();
+      this.newInvestigator.controls.Tipo.enable();
     } else {
-      this.newInvestigator.controls.tipoControl.disable();
+      this.newInvestigator.controls.Tipo.disable();
     }
   }
 
@@ -68,16 +70,22 @@ export class NuevoInvestigadorComponent implements OnInit {
   closeTheForm() {
     this.formService.newInvestigadorForm.next(null);
     this.closeForm.emit();
+    this.newInvestigator.reset();
   }
 
   checkOthers() {
-    const other = this.newInvestigator.controls.estudiosControl.value;
+    const other = this.newInvestigator.controls.Estudios.value;
     const result = other.indexOf('Otros') === -1;
     if (result) {
-      this.newInvestigator.controls.otrosEstudiosControls.disable();
+      this.newInvestigator.controls.Otros.disable();
     } else {
-      this.newInvestigator.controls.otrosEstudiosControls.enable();
+      this.newInvestigator.controls.Otros.enable();
     }
     return result;
+  }
+
+  sendData() {
+    this.createdInvest.emit(this.newInvestigator.value);
+    this.closeTheForm();
   }
 }

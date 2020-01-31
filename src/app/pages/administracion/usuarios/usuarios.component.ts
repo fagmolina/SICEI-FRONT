@@ -13,6 +13,7 @@ export class UsuariosComponent implements OnInit {
   public constantes = constantes;
   public new = false;
   public fakeTableData = fakeTableData;
+  public tableData = [];
 
   constructor(private formService: FormularioNuevoUsuarioInvestigadorService) {}
 
@@ -21,5 +22,9 @@ export class UsuariosComponent implements OnInit {
   closeTheForm() {
     this.formService.newUsuarioForm.next(null);
     this.new = !this.new;
+  }
+
+  addTableData(data) {
+    this.tableData = [...this.tableData, data];
   }
 }

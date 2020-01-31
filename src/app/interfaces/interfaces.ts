@@ -209,30 +209,31 @@ export interface Colombia {
 }
 
 export interface NewUser {
-  tipoDocControl: string;
-  numDocControl: string;
-  nombreControl: string;
-  apellidoControl: string;
-  telefonoControl: string;
-  gradoControl: string;
-  unidadControl: string;
-  emailControl: string;
-  perfilControl: string;
+  Tipo_Doc: string;
+  Documento: string;
+  Nombres: string;
+  Apellido: string;
+  Tlf: string;
+  Grado: string;
+  Unidad: string;
+  Email: string;
+  Perfil: string;
+  PSI: string;
   passwdControl: string;
-  passwd2Control: string;
 }
 
 export interface NewInvestigador {
-  direccionControl: string;
-  estudiosControl: string[];
-  otrosEstudiosControls: string;
-  categorizacionControl: boolean;
-  profInvesControl: boolean;
-  estudianteControl: boolean;
-  numDocControl: string;
-  nombreControl: string;
-  apellidoControl: string;
-  telefonoControl: string;
-  emailControl: string;
-  gradoControl: string;
+  Apellidos: string;
+  Categ: boolean;
+  Dir: string;
+  Documento: string;
+  Email: string;
+  Estudiante: boolean;
+  Estudios: string[];
+  Otros: string;
+  Grado: string;
+  Investigador: boolean;
+  Nombres: string;
+  Tlf: string;
 }
+

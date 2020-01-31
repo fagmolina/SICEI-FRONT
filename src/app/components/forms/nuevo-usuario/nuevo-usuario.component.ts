@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormularioNuevoUsuarioInvestigadorService } from 'src/app/services/formulario-nuevo-usuario-investigador.service';
+import { NewUser } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-nuevo-usuario',
@@ -9,6 +10,7 @@ import { FormularioNuevoUsuarioInvestigadorService } from 'src/app/services/form
 })
 export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
   @Output() closeForm = new EventEmitter<any>();
+  @Output() createdUser = new EventEmitter<NewUser>();
   newUser = new FormGroup({});
   passwd = new FormControl();
   tipoDoc = ['Cédula de Ciudadanía', 'Cédula de Extrangería', 'Pasaporte'];
@@ -34,8 +36,8 @@ export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
       if (this.newUser.contains('passwdControl')) {
         this.passwdConfirm();
       }
-      if (this.newUser.contains('emailControl')) {
-        this.newUser.controls.emailControl.setValidators([Validators.email]);
+      if (this.newUser.contains('Email')) {
+        this.newUser.controls.Email.setValidators([Validators.email]);
       }
       this.formService.newUsuarioForm.next({
         ...this.formService.newUsuarioForm.value,
@@ -75,5 +77,13 @@ export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
   closeTheForm() {
     this.formService.newInvestigadorForm.next(null);
     this.closeForm.emit();
+    this.newUser.reset();
+  }
+
+  sendData() {
+    const { Tipo_Doc, Documento, Nombres, Apellido, Tlf, Grado, Unidad, Email, Perfil, PSI } = this.newUser.value;
+    const t = { Tipo_Doc, Documento, Nombres, Apellido, Tlf, Grado, Unidad, Email, Perfil, PSI };
+    this.createdUser.emit(t);
+    this.closeTheForm();
   }
 }
