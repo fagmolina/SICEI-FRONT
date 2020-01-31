@@ -53,10 +53,6 @@
         <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('gradoControl', $event)">
         </app-select>
 
-        <!-- Unidad -->
-        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('unidadControl', $event)">
-        </app-select>
-
         <!-- Estudios -->
         <mat-form-field>
             <mat-label>Estudios Academicos</mat-label>
@@ -69,6 +65,68 @@
         <mat-form-field *ngIf="!checkOthers()">
             <input matInput placeholder="Otros estudios" formControlName="otrosEstudiosControls">
         </mat-form-field>
+    </div>
+
+    <div class="group">
+        <!-- Categorización Colciencias -->
+        <div class="sub-group">
+            <div>
+                <mat-label>Categorización Colciencias?</mat-label>
+                <mat-radio-group (change)="enableTipo($event.value)" formControlName="categorizacionControl"
+                    class="sub-group__radio-group" aria-labelledby="example-radio-group-label">
+                    <mat-radio-button [value]="true">
+                        Si
+                    </mat-radio-button>
+                    <mat-radio-button [value]="false">
+                        No
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <span class="separator"></span>
+            <div>
+                <mat-label>Tipo</mat-label>
+                <mat-radio-group formControlName="tipoControl" class="sub-group__radio-group"
+                    aria-labelledby="example-radio-group-label">
+                    <mat-radio-button *ngFor="let tipo of tipoCategorizacion" [value]="tipo">
+                        {{tipo}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+    </div>
+    <div class="group">
+        <div class="sub-group">
+            <div>
+                <!-- Profesor Investigador -->
+                <mat-label>Profesor Investigador?</mat-label>
+                <mat-radio-group formControlName="profInvesControl" class="sub-group__radio-group"
+                    aria-labelledby="example-radio-group-label">
+                    <mat-radio-button [value]="true">
+                        Si
+                    </mat-radio-button>
+                    <mat-radio-button [value]="false">
+                        No
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <span class="separator"></span>
+            <div>
+                <!-- Estudiante -->
+                <mat-label>Estudiante?</mat-label>
+                <mat-radio-group formControlName="estudianteControl" class="sub-group__radio-group"
+                    aria-labelledby="example-radio-group-label">
+                    <mat-radio-button [value]="true">
+                        Si
+                    </mat-radio-button>
+                    <mat-radio-button [value]="false">
+                        No
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+
 
     </div>
 

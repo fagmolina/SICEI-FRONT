@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as constantes from '../../../constantes';
 import { FormControl, FormGroup } from '@angular/forms';
 @Component({
-  selector: "app-investigadores-dialog",
-  templateUrl: "./investigadores-dialog.component.html",
-  styleUrls: ["./investigadores-dialog.component.scss"]
+  selector: 'app-investigadores-dialog',
+  templateUrl: './investigadores-dialog.component.html',
+  styleUrls: ['./investigadores-dialog.component.scss']
 })
 export class InvestigadoresDialogComponent implements OnInit {
   constantes = constantes;

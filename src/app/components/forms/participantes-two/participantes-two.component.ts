@@ -12,7 +12,11 @@ import { fakeData } from '../../../mockData/mockData';
   styleUrls: ['./participantes-two.component.scss']
 })
 export class ParticipantesTwoComponent implements OnInit {
-  @Input() data: AutoCompleteData;
+  @Input() data: any;
+  @Input() placeholder1: string;
+  @Input() placeholder2: string;
+  @Input() argument: string;
+  @Input() icon: string;
   @Output() formReady = new EventEmitter<FormGroup>();
   constantes = constantes;
   fakeData = fakeData;
@@ -26,13 +30,12 @@ export class ParticipantesTwoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.placeholder = 'Participantes?';
     this.formReady.emit(this.form);
     this.form.controls.dataControl.disable();
     this.filteredData = this.form.valueChanges.pipe(
       startWith(''),
       map(value => (typeof value === 'string' ? value : value.name)),
-      map(name => (name ? this._filter(name) : this.data.data.slice()))
+      map(name => (name ? this._filter(name) : this.data.slice()))
     );
   }
   display(data): string | undefined {
@@ -41,7 +44,7 @@ export class ParticipantesTwoComponent implements OnInit {
   private _filter(name: string): any[] {
     const filterValue = name.toLowerCase();
 
-    return this.data.data.filter(
+    return this.data.filter(
       option => option.name.toLowerCase().indexOf(filterValue) >= 0
     );
   }
@@ -49,10 +52,8 @@ export class ParticipantesTwoComponent implements OnInit {
   checked(event) {
     if (event.checked) {
       this.form.controls.dataControl.enable();
-      this.data.placeholder = 'Cuales?';
     } else {
       this.form.controls.dataControl.disable();
-      this.data.placeholder = 'Participantes?';
     }
   }
 }

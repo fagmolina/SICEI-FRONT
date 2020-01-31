@@ -35,12 +35,11 @@
     </mat-form-field>
 
     <!-- Formulario de participación -->
-    <app-participantes-two [data]="{
-      placeholder: constantes.placeholders.escuelas,
-      data: fakeData,
-      icon: '',
-      argument: 'name'
-    }" (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two>
+    <app-participantes-two [data]="fakeData" 
+      [placeholder1]="'Participantes?'"
+      [placeholder2]="'Cuàles?'"
+      [argument]="'name'"
+      (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two>
   </div>
   <div>
     <!-- Formulario Areas y Lineas -->

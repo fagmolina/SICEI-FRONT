@@ -222,16 +222,17 @@ export interface NewUser {
   passwd2Control: string;
 }
 
-
 export interface NewInvestigador {
   direccionControl: string;
   estudiosControl: string[];
   otrosEstudiosControls: string;
+  categorizacionControl: boolean;
+  profInvesControl: boolean;
+  estudianteControl: boolean;
   numDocControl: string;
   nombreControl: string;
   apellidoControl: string;
   telefonoControl: string;
   emailControl: string;
   gradoControl: string;
-  unidadControl: string;
 }

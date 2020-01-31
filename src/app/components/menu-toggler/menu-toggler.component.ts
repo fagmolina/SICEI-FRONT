@@ -17,4 +17,4 @@ export class MenuTogglerComponent implements OnInit {
     this.toggle = !this.toggle;
     this.componentService.toggleMainMenu.next(this.toggle);
   }
-} 
+}
