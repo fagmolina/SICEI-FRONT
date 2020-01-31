@@ -221,3 +221,17 @@ export interface NewUser {
   passwdControl: string;
   passwd2Control: string;
 }
+
+
+export interface NewInvestigador {
+  direccionControl: string;
+  estudiosControl: string[];
+  otrosEstudiosControls: string;
+  numDocControl: string;
+  nombreControl: string;
+  apellidoControl: string;
+  telefonoControl: string;
+  emailControl: string;
+  gradoControl: string;
+  unidadControl: string;
+}

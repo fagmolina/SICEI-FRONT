@@ -12,7 +12,7 @@ export class NuevoInvestigadorComponent implements OnInit, AfterViewInit {
   newInvestigator = new FormGroup({
     direccionControl: new FormControl('', [Validators.required]),
     estudiosControl: new FormControl('', [Validators.required]),
-    otrosEstudiosControls: new FormControl('')
+    otrosEstudiosControls: new FormControl('', [Validators.required])
   });
   passwd = new FormControl();
   tipoDoc = ['Cédula de Ciudadanía', 'Cédula de Extrangería', 'Pasaporte'];
@@ -35,6 +35,9 @@ export class NuevoInvestigadorComponent implements OnInit, AfterViewInit {
 
   formChanges() {
     this.newInvestigator.valueChanges.subscribe(changes => {
+      if (this.newInvestigator.contains('emailControl')) {
+        this.newInvestigator.controls.emailControl.setValidators([Validators.email]);
+      }
       this.formService.newInvestigadorForm.next({
         ...this.formService.newInvestigadorForm.value,
         ...changes
@@ -64,7 +67,12 @@ export class NuevoInvestigadorComponent implements OnInit, AfterViewInit {
 
   checkOthers() {
     const other = this.newInvestigator.controls.estudiosControl.value;
-    console.log(other.indexOf('Otros') === -1);
-    return other.indexOf('Otros') === -1;
+    const result = other.indexOf('Otros') === -1;
+    if (result) {
+      this.newInvestigator.controls.otrosEstudiosControls.disable();
+    } else {
+      this.newInvestigator.controls.otrosEstudiosControls.enable();
+    }
+    return result;
   }
 }
