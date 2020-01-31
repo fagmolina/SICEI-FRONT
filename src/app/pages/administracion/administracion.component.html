@@ -1,1 +1,25 @@
-<p>administracion works!</p>
+<app-page-title [title]="'Administración'"></app-page-title>
+<p class="administracion-p">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea vitae, repudiandae architecto provident deserunt
+    dolor optio quisquam minima totam culpa porro odio dolorum eos? Modi deserunt nesciunt nobis nulla?
+</p>
+<div class="administracion-wrapper">
+    <button mat-stroked-button color="primary" class="admin-button" routerLink="/usuarios">
+        <mat-icon>
+            perm_identity
+        </mat-icon>
+        <span>Usuarios</span>
+    </button>
+    <button mat-stroked-button color="primary" class="admin-button" routerLink="/newinvestigadores">
+        <mat-icon>
+            school
+        </mat-icon>
+        <span>Investigadores</span>
+    </button>
+    <button mat-stroked-button color="primary" class="admin-button" routerLink="/unidades">
+        <mat-icon>
+            extension
+        </mat-icon>
+        <span>Unidades</span>
+    </button>
+</div>

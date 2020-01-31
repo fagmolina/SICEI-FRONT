@@ -77,6 +77,10 @@ import { SelectComponent } from './components/commons/select/select.component';
 import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asignado/presupuesto-asignado.component';
 import { GriftFormConfirmComponent } from './components/grift-form-confirm/grift-form-confirm.component';
 import { GriftSaveCancelComponent } from './components/dialogs/grift-save-cancel/grift-save-cancel.component';
+import { UsuariosComponent } from './pages/administracion/usuarios/usuarios.component';
+import { NuevoUsuarioComponent } from './components/forms/nuevo-usuario/nuevo-usuario.component';
+import { UnidadesComponent } from './pages/administracion/unidades/unidades.component';
+import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
 //#endregion Components imports
 
 @NgModule({
@@ -125,7 +129,11 @@ import { GriftSaveCancelComponent } from './components/dialogs/grift-save-cancel
     SelectComponent,
     PresupuestoAsignadoComponent,
     GriftFormConfirmComponent,
-    GriftSaveCancelComponent
+    GriftSaveCancelComponent,
+    UsuariosComponent,
+    NuevoUsuarioComponent,
+    UnidadesComponent,
+    NewInvestigadoresComponent
   ],
   imports: [
     BrowserModule,

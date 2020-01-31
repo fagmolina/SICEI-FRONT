@@ -1,0 +1,101 @@
+<form [formGroup]="newUser">
+    <h3>Nuevo Usuario</h3>
+    <div class="group">
+        <div class="doc-group">
+            <!-- Tipo documento -->
+            <app-select [placeholder]="'Tipo Doc.'" [data]="tipoDoc"
+                (formReady)="formInitialized('tipoDocControl', $event)">
+            </app-select>
+
+            <!-- Número documento -->
+            <app-simple-input [data]="{
+                    placeholder: 'Número de documento',
+                    data: null,
+                    icon: null
+                }" [type]="newUser.controls.tipoDocControl.value !== 'Pasaporte' ? 'number' : 'text'"
+                (formReady)="formInitialized('numDocControl', $event)">
+            </app-simple-input>
+        </div>
+        <!-- Nombres -->
+        <app-simple-input [data]="{
+                placeholder: 'Nombres',
+                data: null,
+                icon: null
+            }" (formReady)="formInitialized('nombreControl', $event)">
+        </app-simple-input>
+
+        <!-- Apellidos -->
+        <app-simple-input [data]="{
+                placeholder: 'Apellidos',
+                data: null,
+                icon: null
+            }" (formReady)="formInitialized('apellidoControl', $event)">
+        </app-simple-input>
+    </div>
+
+    <div class="group">
+        <!-- Teléfono -->
+        <app-simple-input [data]="{
+                placeholder: 'Teléono',
+                data: null,
+                icon: 'local_phone'
+            }" (formReady)="formInitialized('telefonoControl', $event)">
+        </app-simple-input>
+
+        <!-- Email -->
+        <app-simple-input [data]="{
+                placeholder: 'Email',
+                data: null,
+                icon: 'local_post_office'
+            }" (formReady)="formInitialized('emailControl', $event)" [type]="'email'">
+        </app-simple-input>
+    </div>
+
+    <div class="group">
+        <!-- Grado -->
+        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('gradoControl', $event)">
+        </app-select>
+
+        <!-- Unidad -->
+        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('unidadControl', $event)">
+        </app-select>
+    </div>
+
+    <div class="group">
+        <!-- Usuario PSI -->
+        <app-simple-input [data]="{
+                placeholder: 'Usuario (PSI)',
+                data: null,
+                icon: 'account_box'
+            }" (formReady)="formInitialized('emailControl', $event)">
+        </app-simple-input>
+
+        <!-- Perfil -->
+        <app-select [placeholder]="'Perfil'" [data]="perfil" (formReady)="formInitialized('perfilControl', $event)">
+        </app-select>
+
+        <!-- Contraseña -->
+        <app-simple-input [data]="{
+                placeholder: 'Contraseña',
+                data: null,
+                icon: 'vpn_key'
+            }" [type]="'password'" (formReady)="formInitialized('passwdControl', $event)">
+        </app-simple-input>
+
+        <!-- Confirmar Contraseña -->
+        <div>
+            <app-simple-input [data]="{
+                placeholder: 'Confirme contraseña',
+                data: null,
+                icon: 'vpn_key'
+            }" [type]="'password'" (formReady)="formInitialized('passwd2Control', $event, true)">
+            </app-simple-input>
+            <mat-error *ngIf="passwd.errors && passwd.errors.confirmPasswd">Las contraseñas no coinciden</mat-error>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="newUser.invalid || passwd.invalid">Guardar</button>
+    </div>
+</form>

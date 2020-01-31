@@ -207,3 +207,17 @@ export interface Colombia {
   departamento: string;
   ciudades: string[];
 }
+
+export interface NewUser {
+  tipoDocControl: string;
+  numDocControl: string;
+  nombreControl: string;
+  apellidoControl: string;
+  telefonoControl: string;
+  gradoControl: string;
+  unidadControl: string;
+  emailControl: string;
+  perfilControl: string;
+  passwdControl: string;
+  passwd2Control: string;
+}

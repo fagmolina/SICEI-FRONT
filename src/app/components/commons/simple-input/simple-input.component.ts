@@ -10,6 +10,7 @@ import * as constantes from '../../../constantes';
 })
 export class SimpleInputComponent implements OnInit {
   @Input() data: InputData;
+  @Input() type;
   @Output() formReady = new EventEmitter<FormControl>();
   constantes = constantes;
   formControl = new FormControl('', Validators.required);

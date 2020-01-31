@@ -3,6 +3,7 @@
     matInput
     placeholder="{{ data.placeholder }}"
     [formControl]="formControl"
+    [type]="type || 'text'"
   />
   <mat-icon matSuffix *ngIf="data.icon">
     {{ data.icon }}
