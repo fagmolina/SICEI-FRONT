@@ -7,6 +7,7 @@ import { GriftStepper, TheForm } from '../interfaces/interfaces';
 })
 export class FormularioGRIFTService {
   theForm = new BehaviorSubject<TheForm>(null);
+  resetTheForm = new BehaviorSubject<boolean>(null);
   griftStepper = new BehaviorSubject<GriftStepper>(null);
 
   constructor() {}

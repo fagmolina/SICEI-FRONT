@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as constantes from '../../constantes';
 import { fakeTableData } from '../../mockData/mockData';
 import { FormGroup } from '@angular/forms';
@@ -10,7 +10,7 @@ import { GriftStepper } from 'src/app/interfaces/interfaces';
   templateUrl: './grift-investigacion-institucional.component.html',
   styleUrls: ['./grift-investigacion-institucional.component.scss']
 })
-export class GriftInvestigacionInstitucionalComponent implements OnInit {
+export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterViewInit {
   public constantes = constantes;
   public new = false;
   public formularioGRIFT: FormGroup;
@@ -22,7 +22,17 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formService.theForm.subscribe(x => console.log(JSON.stringify(x)));
-    this.formService.griftStepper.subscribe((steps: GriftStepper) => this.griftStepper = {...steps});
+    this.formService.resetTheForm.subscribe(value => {
+      if (value) {
+        this.new = false;
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    // this.formService.theForm.subscribe(x => console.log(JSON.stringify(x)));
+    this.formService.griftStepper.subscribe((steps: GriftStepper) => {
+      this.griftStepper = { ...steps };
+    });
   }
 }

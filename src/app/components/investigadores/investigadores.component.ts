@@ -28,6 +28,11 @@ export class InvestigadoresComponent implements OnInit {
   ngOnInit() {
     this.investigadores = investigadores;
     this.dataSource = new MatTableDataSource();
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.investigadores = [];
+      }
+    });
   }
 
   checkDataValid(data) {

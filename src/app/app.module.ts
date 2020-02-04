@@ -28,7 +28,8 @@ import { MatCardModule,
          MatDividerModule,
          MatExpansionModule,
          MatSelectModule,
-         MatSlideToggleModule} from '@angular/material';
+         MatSlideToggleModule,
+         MatSnackBarModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -84,6 +85,7 @@ import { UnidadesComponent } from './pages/administracion/unidades/unidades.comp
 import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
 import { NuevoInvestigadorComponent } from './components/forms/nuevo-investigador/nuevo-investigador.component';
 import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unidad.component';
+import { ShowFormComponent } from './components/dialogs/show-form/show-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -138,7 +140,8 @@ import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unid
     UnidadesComponent,
     NewInvestigadoresComponent,
     NuevoInvestigadorComponent,
-    NuevaUnidadComponent
+    NuevaUnidadComponent,
+    ShowFormComponent
   ],
   imports: [
     BrowserModule,
@@ -168,13 +171,14 @@ import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unid
     MatStepperModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
 
     ReactiveFormsModule,
     FormsModule,
 
     AppRoutingModule
   ],
-  entryComponents: [InvestigadoresDialogComponent, GriftSaveCancelComponent],
+  entryComponents: [InvestigadoresDialogComponent, GriftSaveCancelComponent, ShowFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

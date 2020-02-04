@@ -17,16 +17,19 @@ export class DetallesFormComponent implements OnInit, AfterViewInit {
   constructor(private formService: FormularioGRIFTService) {}
 
   ngOnInit() {
+    this.formChanges();
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.detallesForm.reset();
+      }
+    });
+  }
+
+  ngAfterViewInit() {
     this.formValid();
     this.formService.theForm.subscribe((details: TheForm) => {
       this.detalles = details && details.producInves ? { ...details.producInves } : null;
     });
-
-    this.detallesForm.valueChanges.subscribe(() => console.log(this.detallesForm));
-  }
-
-  ngAfterViewInit() {
-    this.formChanges();
   }
 
   formValid() {

@@ -25,6 +25,11 @@ export class ProductoInvesFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.formChanges();
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.productoInvesForm.reset();
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -35,7 +40,8 @@ export class ProductoInvesFormComponent implements OnInit, AfterViewInit {
     this.productoInvesForm.statusChanges.subscribe(valid => {
       this.formService.griftStepper.next({
         ...this.formService.griftStepper.value,
-        stepThree: valid === 'VALID'
+        stepThree: valid === 'VALID',
+        stepFour: false
       });
     });
   }

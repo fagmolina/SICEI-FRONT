@@ -29,9 +29,14 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
       fechaControl: new FormControl('', Validators.required),
       tipoControl: new FormControl('', Validators.required),
       participacionControl: new FormControl('', Validators.required),
-      nationalControl: new FormControl('')
+      nationalControl: new FormControl(false)
     });
     this.formChanges();
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.eventosForm.reset();
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -49,21 +54,23 @@ export class EventosFormComponent implements OnInit, AfterViewInit {
 
   formChanges() {
     this.eventosForm.valueChanges.subscribe(changes => {
-      this.departamento = changes.departamentosControl.ciudades;
-      const form = this.eventosForm.controls;
-      // Guardar datos en el form
-      this.formService.theForm.next({
-        ...this.formService.theForm.value,
-        eventos: {
-          tipo: form.tipoControl.value,
-          participacion: form.participacionControl.value,
-          departamento: this.national ? null : form.departamentosControl.value.departamento,
-          pais: this.national ? form.paisesControl.value.nombre : null,
-          ciudad: form.ciudadControl.value,
-          fecha: form.fechaControl.value,
-          lugar: form.nationalControl.value ? 'Internacional' : 'Nacional'
-        }
-      });
+      if (changes && changes.departamentosControl) {
+        this.departamento = changes.departamentosControl.ciudades;
+        const form = this.eventosForm.controls;
+        // Guardar datos en el form
+        this.formService.theForm.next({
+          ...this.formService.theForm.value,
+          eventos: {
+            tipo: form.tipoControl.value,
+            participacion: form.participacionControl.value,
+            departamento: this.national ? null : form.departamentosControl.value.departamento,
+            pais: this.national ? form.paisesControl.value.nombre : null,
+            ciudad: form.ciudadControl.value,
+            fecha: form.fechaControl.value,
+            lugar: form.nationalControl.value ? 'Internacional' : 'Nacional'
+          }
+        });
+      }
     });
   }
 

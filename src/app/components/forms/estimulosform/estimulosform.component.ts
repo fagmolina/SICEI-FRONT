@@ -23,6 +23,11 @@ export class EstimulosformComponent implements OnInit {
   constructor(private formService: FormularioGRIFTService) {}
 
   ngOnInit() {
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.estimulosForm.reset();
+      }
+    });
     this.formValid();
   }
 

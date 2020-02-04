@@ -30,13 +30,15 @@ export class FormularioAreasLineasComponent implements OnInit {
     this.formReady.emit(this.areasLineasForm);
     this.areasLineasForm.valueChanges.subscribe(changes => {
       this.selectedLineas = [];
-      changes.areasControl.forEach(area => {
-        area.lineas.forEach(linea => {
-          const temp: Linea[] = this.lineas.filter(el => el.id === linea);
-          this.selectedLineas.push(temp);
-          this.selectedLineas = this.selectedLineas.flat(1);
+      if (changes && changes.areasControl) {
+        changes.areasControl.forEach(area => {
+          area.lineas.forEach(linea => {
+            const temp: Linea[] = this.lineas.filter(el => el.id === linea);
+            this.selectedLineas.push(temp);
+            this.selectedLineas = this.selectedLineas.flat(1);
+          });
         });
-      });
+      }
     });
   }
 }
