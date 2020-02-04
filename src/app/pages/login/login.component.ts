@@ -1,4 +1,9 @@
+import { User } from './../../models/user.class';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/models/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  myForm: FormGroup;
+  user = new Usuario();
+  usuariologin = new User();
+  constructor(public fb: FormBuilder,private _userservice: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.reactiveForm();
+  }
+
+  reactiveForm() {
+    this.myForm = this.fb.group({
+      usuario: [undefined,Validators.required],
+      contraseña: [undefined, Validators.required]      
+    })
+  }
+
+  submitForm = () => {
+    if (this.myForm.valid) {
+      this.user.user = this.myForm.controls.usuario.value;
+      this.user.password = this.myForm.controls.contraseña.value;
+        this._userservice.login(this.user).subscribe( (data: any) => {
+          if (data) {
+            this.usuariologin = data;
+            sessionStorage.setItem('user',JSON.stringify(this.usuariologin));
+            this.router.navigateByUrl('/home');
+          }
+        })
+    } else {
+      alert('Ingrese todos los campos');
+    }
   }
 
 }

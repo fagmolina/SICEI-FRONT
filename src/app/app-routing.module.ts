@@ -14,11 +14,12 @@ import { GreitInvestigacionImplementadaComponent } from './pages/greit-investiga
 import { GrindRLCTComponent } from './pages/grind-rlct/grind-rlct.component';
 import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'investigacion-institucional', component: GriftInvestigacionInstitucionalComponent },
   { path: 'investigacion-implementada', component: GriftInvestigacionImplementadaComponent },
   { path: 'caso-emblematico', component: GriftCasoEmblematicoComponent },

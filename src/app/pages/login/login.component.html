@@ -4,15 +4,15 @@
       <img src="../../../assets/images/Logos/escudo-policia_0.png" alt="Logo Policia Nacional">
     </div>
     <div class="title">Login</div>
-    <form>
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
       <mat-form-field color="accent" appearance="outline">
         <mat-label>Usuario</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput formControlName="usuario"  placeholder="Placeholder">
         <mat-icon matSuffix>person</mat-icon>        
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">
         <mat-label>Contraseña</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput formControlName="contraseña" placeholder="Placeholder">
         <mat-icon matSuffix>vpn_key</mat-icon>
       </mat-form-field>
       <button mat-raised-button color="primary">Ingresar</button>

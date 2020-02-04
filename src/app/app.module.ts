@@ -65,6 +65,7 @@ import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageTitleComponent } from './components/commons/page-title/page-title.component';
+import { HttpClientModule} from "@angular/common/http";
 //#endregion Components imports
 
 @NgModule({
@@ -107,6 +108,7 @@ import { PageTitleComponent } from './components/commons/page-title/page-title.c
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
 
     // Angular Material
