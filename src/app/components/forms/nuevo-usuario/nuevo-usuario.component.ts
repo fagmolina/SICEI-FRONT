@@ -81,9 +81,7 @@ export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
   }
 
   sendData() {
-    const { Tipo_Doc, Documento, Nombres, Apellido, Tlf, Grado, Unidad, Email, Perfil, PSI } = this.newUser.value;
-    const t = { Tipo_Doc, Documento, Nombres, Apellido, Tlf, Grado, Unidad, Email, Perfil, PSI };
-    this.createdUser.emit(t);
+    this.createdUser.emit(this.newUser.value);
     this.closeTheForm();
   }
 }

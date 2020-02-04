@@ -3,7 +3,9 @@
         <input matInput formControlName="Sigla" placeholder="Sigla" type="text">
     </mat-form-field>
     <mat-form-field class="unidad-field__descripcion">
-        <textarea matInput formControlName="Descripción" placeholder="Descripción" rows="1">
+        <textarea matInput formControlName="Descripción" placeholder="Descripción" cdkTextareaAutosize
+        cdkAutosizeMinRows="0"
+        cdkAutosizeMaxRows="5">
         </textarea>
     </mat-form-field>
     <mat-form-field class="unidad-field__tipo">
