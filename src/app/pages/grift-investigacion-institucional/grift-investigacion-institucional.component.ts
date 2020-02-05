@@ -3,7 +3,8 @@ import * as constantes from '../../constantes';
 import { fakeTableData } from '../../mockData/mockData';
 import { FormGroup } from '@angular/forms';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
-import { GriftStepper } from 'src/app/interfaces/interfaces';
+import { GriftStepper, TheForm } from 'src/app/interfaces/interfaces';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-grift-investigacion-institucional',
@@ -16,6 +17,7 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
   public formularioGRIFT: FormGroup;
   public griftStepper: GriftStepper;
   public fakeTableData = fakeTableData;
+  public tableData = [];
 
   constructor(private formService: FormularioGRIFTService) {
     this.formularioGRIFT = new FormGroup({});
@@ -25,6 +27,22 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
     this.formService.resetTheForm.subscribe(value => {
       if (value) {
         this.new = false;
+      }
+    });
+    this.formService.forms.subscribe((data) => {
+      if (data.length > 0) {
+        const el = data.map((x: TheForm) => {
+          return {
+            // tslint:disable-next-line: no-string-literal
+            formId: x['formId'],
+            Titulo: x.tituloControl,
+            Año: moment(x.yearControl, 'LLL'),
+            Escuela: x.escuelasControl.name,
+            Investigadores: [...x.investigadores],
+            Ver: ''
+          };
+        });
+        this.tableData = [...el];
       }
     });
   }

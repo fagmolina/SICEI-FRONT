@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GriftSaveCancelComponent } from '../dialogs/grift-save-cancel/grift-save-cancel.component';
 import { ShowFormComponent } from '../dialogs/show-form/show-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grift-form-confirm',
@@ -15,7 +16,12 @@ export class GriftFormConfirmComponent implements OnInit {
   saveData: boolean;
   message: string;
   content;
-  constructor(private formService: FormularioGRIFTService, public dialog: MatDialog, private snackBar: MatSnackBar) {}
+  constructor(
+    private formService: FormularioGRIFTService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -41,13 +47,13 @@ export class GriftFormConfirmComponent implements OnInit {
       switch (result) {
         case true:
           if (this.saveData) {
+            const form = this.formService.theForm.getValue();
+            this.formService.addForm(form);
             this.openSnackBar('Datos guardados', 'Cerrar');
             this.showFormAbstract();
             break;
           }
-          this.formService.theForm.next(null);
-          this.formService.resetTheForm.next(true);
-          this.formService.griftStepper.next(null);
+          this.close();
           this.openSnackBar('Datos eliminados', 'Cerrar');
           break;
         default:
@@ -69,8 +75,14 @@ export class GriftFormConfirmComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(value => {
-      console.log(value, 'Navegación');
+    dialogRef.afterClosed().subscribe(() => {
+      this.close();
+      this.router.navigate(['/investigacion-institucional']);
     });
+  }
+  close() {
+    this.formService.theForm.next(null);
+    this.formService.resetTheForm.next(true);
+    this.formService.griftStepper.next(null);
   }
 }

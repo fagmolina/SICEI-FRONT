@@ -1,4 +1,271 @@
-<div class="wrapper">
-    <h1>Título: {{content.tituloControl | titlecase}}</h1>
-    
-</div>
+<mat-dialog-content>
+    <div class="wrapper">
+
+        <div class="form-group">
+            <div class="form-group__basics">
+                <div>
+                    <h1>Título:</h1>
+                    <span>
+                        {{content.tituloControl | titlecase}}
+                    </span>
+                </div>
+                <div>
+                    <h3>Fecha:</h3>
+                    <span>
+                        {{content.yearControl | date}}
+                    </span>
+                </div>
+                <div>
+                    <h3>Dirección:</h3>
+                    <span>
+                        {{content.direccionControl.name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__escuelas-participantes-lineas">
+                <div>
+                    <h3>Escuelas:</h3>
+                    <span>
+                        {{content.escuelasControl.name}}
+                    </span>
+                </div>
+                <div>
+                    <h3>
+                        Participantes:
+                    </h3>
+                    <ng-container
+                        *ngIf="content.participantesControl.dataControl === ''; then none; else participantes">
+                    </ng-container>
+                    <ng-template #none>
+                        <span>Ningúno</span>
+                    </ng-template>
+                    <ng-template #participantes>
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let item of content.participantesControl.dataControl">
+                                {{item.name}}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </ng-template>
+                </div>
+                <div>
+                    <h3>Lineas:</h3>
+                    <mat-chip-list>
+                        <mat-chip color="primary" *ngFor="let linea of content.areasLineasform.lineasControl">
+                            {{linea.name}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+                <div>
+                    <h3>Áreas:</h3>
+                    <div>
+                        <h6 color="primary" *ngFor="let area of content.areasLineasform.areasControl">
+                            {{area.name}}
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let item of area.lineas">
+                                    {{item}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__investigadores">
+                <h3>Investigadores:</h3>
+                <mat-chip-list>
+                    <mat-chip *ngFor="let inv of content.investigadores">
+                        {{inv.name}}({{inv.grade}})
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__detalles">
+                <div *ngIf="content.detalles.guiaInputControl !== ''">
+                    <h3>Guía: </h3><span>{{content.detalles.guiaInputControl}}</span>
+                </div>
+                <div *ngIf="content.detalles.manualesInputControl !== ''">
+                    <h3>Manual: </h3><span>{{content.detalles.manualesInputControl}}</span>
+                </div>
+                <div *ngIf="content.detalles.cartillaInputControl !== ''">
+                    <h3>Cartilla: </h3><span>{{content.detalles.cartillaInputControl}}</span>
+                </div>
+                <div *ngIf="content.detalles.procedimientoInputControl !== ''">
+                    <h3>Procedimiento: </h3><span>{{content.detalles.procedimientoInputControl}}</span>
+                </div>
+                <div *ngIf="content.detalles.prototipoInputControl !== ''">
+                    <h3>Prototipo: </h3><span>{{content.detalles.prototipoInputControl}}</span>
+                </div>
+                <div *ngIf="content.detalles.instructivoInputControl !== ''">
+                    <h3>Instructivo: </h3><span>{{content.detalles.instructivoInputControl}}</span>
+                </div>
+                <div
+                    *ngIf="content.detalles?.articuloFormGroupControl && content.detalles.articuloFormGroupControl !== ''">
+                    <h3>Artículo:</h3>
+                    <ul>
+                        <li>
+                            <span>Fecha publicación: </span>
+                            <span>
+                                {{content.detalles.articuloFormGroupControl.yearControl | date}}
+                            </span>
+                        </li>
+                        <li>
+                            <span>Publicado por: </span>
+                            <span>
+                                {{content.detalles.articuloFormGroupControl.publishedMagazineNameControl | titlecase}}
+                            </span>
+                        </li>
+                        <li>
+                            <span>Título: </span>
+                            <span>
+                                {{content.detalles.articuloFormGroupControl.articleNameControl | titlecase}}</span>
+                        </li>
+                        <li>
+                            <span>Código ISSN: </span>
+                            <span>
+                                {{content.detalles.articuloFormGroupControl.issnCodeControl}}
+                            </span>
+                        </li>
+                        <li>
+                            <span>Autor: </span>
+                            <span>
+                                {{content.detalles.articuloFormGroupControl.authorControl | titlecase}}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="content.detalles?.libroFormGroupControl && content.detalles.libroFormGroupControl !== ''">
+                    <h3>Libro:</h3>
+                    <ul>
+                        <li>
+                            <span>Fecha publicación:</span>
+                            <span>
+                                {{content.detalles.libroFormGroupControl.yearControl | date}}
+                            </span>
+                        </li>
+                        <li><span>Publicado por:</span><span>
+                                {{content.detalles.libroFormGroupControl.editorialControl | titlecase}}
+                            </span></li>
+                        <li><span>Título:</span><span>
+                                {{content.detalles.libroFormGroupControl.bookNameControl | titlecase}}</span></li>
+                        <li><span>Código ISBN:</span><span>
+                                {{content.detalles.libroFormGroupControl.isbnCodeControl}}</span></li>
+                        <li><span>Autor:</span><span>
+                                {{content.detalles.libroFormGroupControl.authorControl | titlecase}}</span></li>
+                        <li><span>Pág. inicio:</span><span>
+                                {{content.detalles.libroFormGroupControl.startPageControl}}</span></li>
+                        <li><span>Pág. fin:</span><span>
+                                {{content.detalles.libroFormGroupControl.endPageControl}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__eventos">
+                <h3>Evento:</h3>
+                <div>
+                    <span>Tipo: </span><span>{{content.eventos.tipo | titlecase}}</span>
+                    <span>Participación:</span><span> {{content.eventos.participacion | titlecase}}</span>
+                    <span>País:
+                    </span><span>{{content.eventos.pais === null ? 'Colombia' : content.eventos.pais | titlecase}}</span>
+                    <span>Ciudad: </span><span>{{content.eventos.ciudad | titlecase}}</span>
+                    <span>Fecha: </span><span>{{content.eventos.fecha | date}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group__presupuesto">
+                <h3>Presupuesto asignado:</h3>
+                <div>
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.colcienciasCheck">
+                        <h6>Convocatoria Colciencias:</h6>
+                        <ul>
+                            <li><span>Descripción:</span><span>{{content.presupuestoAsignado.colcienciasDescripcionControl}}</span>
+                            </li>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.colcienciasAporteControl}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.ministeriosCheck">
+                        <h6>Ministerios:</h6>
+                        <ul>
+                            <li><span>Descripción:</span><span>{{content.presupuestoAsignado.ministerioDescripcionControl}}</span>
+                            </li>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.ministerioAporteControl}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.eIntCheck">
+                        <h6>Entes internacionales:</h6>
+                        <ul>
+                            <li><span>Descripción:</span><span>{{content.presupuestoAsignado.eIntDescripcionControl}}</span>
+                            </li>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.eIntAporteControl}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.oInstCheck">
+                        <h6>Otras instituciones:</h6>
+                        <ul>
+                            <li><span>Descripción:</span><span>{{content.presupuestoAsignado.oInstDescripcionControl}}</span>
+                            </li>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.oInstAporteControl}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="sub-total">
+                        <span>Total externo:</span>
+                        <span>
+                            {{content.presupuestoAsignado.totalExterno}}
+                        </span>
+                    </div>
+
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.OFPLACheck">
+                        <h6>Rubro Presupuestal (OFPLA):</h6>
+                        <ul>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.OFPLAControl}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.DINAECheck">
+                        <h6>Convocatoria Interna (DINAE):</h6>
+                        <ul>
+                            <li><span>Aporte:</span><span>{{content.presupuestoAsignado.DINAEControl}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="sub-total">
+                        <span>Total interno:</span>
+                        <span>
+                            {{content.presupuestoAsignado.totalInterno}}
+                        </span>
+                    </div>
+
+                    <div class="sub-group" *ngIf="content.presupuestoAsignado.convExtCheck">
+                        <h6>Convenios externos:</h6>
+                        <ul>
+                            <li>Descripción: {{content.presupuestoAsignado.convenioExDescControl}}</li>
+                            <li>Aporte: {{content.presupuestoAsignado.convenioExAporteControl}}</li>
+                        </ul>
+                    </div>
+
+                    <div class="total">
+                        <span>Total:</span>
+                        <span>
+                            {{content.presupuestoAsignado.totalGeneral}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" matDialogClose>Cerrar</button>
+</mat-dialog-actions>

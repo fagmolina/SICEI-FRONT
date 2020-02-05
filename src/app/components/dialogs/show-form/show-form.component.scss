@@ -1,0 +1,101 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+.form-group {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  &__basics {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    & div {
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-columns: min-content 1fr;
+      align-items: center;
+      &:last-child {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+    }
+  }
+  &__escuelas-participantes-lineas {
+    & div {
+      &:nth-child(4) {
+        & h3 + div {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+        }
+      }
+    }
+  }
+  &__detalles {
+    & div {
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      &:nth-child(7),
+      &:nth-child(8) {
+        & ul {
+          & li {
+            margin: 0.5rem 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+  &__eventos {
+    & div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      & span {
+        &:nth-child(even) {
+          grid-column: 1;
+        }
+        &:nth-child(odd) {
+          text-align: right;
+          grid-column: 2;
+        }
+      }
+    }
+  }
+  &__presupuesto {
+    & .sub-group {
+      & ul {
+        & li {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+.sub-total,
+.total {
+  border-top: 1px solid rgba(100, 100, 100, 0.2);
+  margin: 1rem 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.total {
+  font-size: 120%;
+}

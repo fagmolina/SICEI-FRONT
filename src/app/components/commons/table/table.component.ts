@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import _ from 'lodash';
+import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
+import { MatDialog } from '@angular/material';
+import { ShowFormComponent } from '../../dialogs/show-form/show-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -12,7 +16,7 @@ export class TableComponent implements OnInit, OnChanges {
   displayedColumns;
   dataSource;
 
-  constructor() {}
+  constructor(private formService: FormularioGRIFTService, public dialog: MatDialog, private router: Router) {}
 
   ngOnInit() {}
 
@@ -30,5 +34,21 @@ export class TableComponent implements OnInit, OnChanges {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getData(element) {
+    // tslint:disable-next-line: no-string-literal
+    const form = this.formService.forms.value.filter(x => x['formId'] === element.formId);
+    this.openDialog(form[0]);
+  }
+
+  openDialog(form): void {
+    const dialogRef = this.dialog.open(ShowFormComponent, {
+      data: {
+        message: form
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(() => {});
   }
 }

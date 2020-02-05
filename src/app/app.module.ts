@@ -29,7 +29,8 @@ import { MatCardModule,
          MatExpansionModule,
          MatSelectModule,
          MatSlideToggleModule,
-         MatSnackBarModule} from '@angular/material';
+         MatSnackBarModule,
+         MatDialogModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -172,6 +173,7 @@ import { ShowFormComponent } from './components/dialogs/show-form/show-form.comp
     MatSelectModule,
     MatSlideToggleModule,
     MatSnackBarModule,
+    MatDialogModule,
 
     ReactiveFormsModule,
     FormsModule,
