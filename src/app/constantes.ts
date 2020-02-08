@@ -16,6 +16,9 @@ export const placeholders = {
   editorial: 'Editorial',
   publishingDate: 'Fecha de publicación',
   isbnCode: 'Código ISBN',
+  date: 'Fecha',
+  country: 'País',
+  city: 'Ciudad'
 };
 
 export const strings = {
@@ -34,7 +37,21 @@ export const strings = {
   close: 'Cerrar',
   book: 'Libro',
   instructivos: 'Instructivos',
-  productInvestigation: 'Producto Investigación'
+  productInvestigation: 'Producto Investigación',
+  details: 'Detalles',
+  encouragement: 'Estímulos',
+  condecorations: 'Condecoraciones',
+  congratulations: 'Felicitaciones',
+  personOfTheMonth: 'Personaje del mes',
+  permiso: 'Permiso',
+  statues: 'Estatuillas',
+  coin: 'Monedas',
+  trainings: 'Capacitaciones',
+  departments: 'Departamentos',
+  cities: 'Ciudades',
+  countries: 'Países',
+  type: 'Tipo',
+  participation: 'Participación'
 };
 
 export const tooltips = {
@@ -42,8 +59,13 @@ export const tooltips = {
   publishedMagazineName: 'Nombre de la revista en la que fue publicado.',
   userMenu: 'Menu de usuario',
   logout: 'Cerrar sesión',
-}
+  investigatorsAtLeastOne: 'Debe agregar minimo un investigador.'
+};
 
 export const titles = {
-  instInvestigation: 'Investigación Institucional',
-}
+  instInvestigation: 'Investigación Institucional'
+};
+
+export const errors = {
+  requiredField: 'Campo requerido'
+};

@@ -1,0 +1,11 @@
+<div class="unidades-wrapper">
+    <app-page-title [title]="'Unidades'" class="unidades-titulo"></app-page-title>
+    <p class="main-text unidades-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+        asperiores saepe quo culpa, veniam facilis at quae omnis laudantium
+        debitis aperiam, pariatur aliquam odio tenetur ad officia magni quisquam
+        quod.
+    </p>
+    <app-nueva-unidad class="unidades-form" (sigla)="addTableData($event)"></app-nueva-unidad>
+    <app-table [data]="tableData" class="unidades-table"></app-table>
+</div>

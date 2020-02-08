@@ -8,16 +8,18 @@ import * as constantes from '../../constantes';
   styleUrls: ['./participacion-form.component.scss']
 })
 export class ParticipacionFormComponent implements OnInit {
-  @Output() participan = new EventEmitter<boolean>();
+  @Output()
+  participan = new EventEmitter<boolean>();
   constantes = constantes;
   participacionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.participacionForm = this.fb.group({
-      participacionControl: new FormControl(0, Validators.required),
+      participacionControl: new FormControl(0, Validators.required)
     });
+    this.participacionForm.statusChanges.subscribe(x => console.log(x));
   }
 
   formGroupInitialized(name: string, form: FormGroup, disabled?: boolean) {

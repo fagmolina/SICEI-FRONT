@@ -1,0 +1,96 @@
+<h1>{{constantes.strings.details}}</h1>
+<form class="detalles-wrapper" [formGroup]="detallesForm">
+  <div class="detalles-wrapper__short-forms">
+    <!-- Guía -->
+    <div *ngIf="detalles?.guiaControl" class="detalles-field">
+      <h2>{{ constantes.strings.guide }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('guiaInputControl', $event)"
+      ></app-simple-input>
+    </div>
+
+    <!-- Cartilla -->
+    <div *ngIf="detalles?.cartillaControl" class="detalles-field">
+      <h2>{{ constantes.strings.cartilla }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('cartillaInputControl', $event)"
+      ></app-simple-input>
+    </div>
+
+    <!-- Prototipo -->
+    <div *ngIf="detalles?.prototipoControl" class="detalles-field">
+      <h2>{{ constantes.strings.prototype }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('prototipoInputControl', $event)"
+      ></app-simple-input>
+    </div>
+
+    <!-- Manuales -->
+    <div *ngIf="detalles?.manualesControl" class="detalles-field">
+      <h2>{{ constantes.strings.manuals }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('manualesInputControl', $event)"
+      ></app-simple-input>
+    </div>
+
+    <!-- Procedimientos -->
+    <div *ngIf="detalles?.procedimientoControl" class="detalles-field">
+      <h2>{{ constantes.strings.procedures }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('procedimientoInputControl', $event)"
+      ></app-simple-input>
+    </div>
+
+    <!-- Instructivos -->
+    <div *ngIf="detalles?.instructivoControl" class="detalles-field">
+      <h2>{{ constantes.strings.instructivos }}</h2>
+      <app-simple-input
+        [data]="{
+          placeholder: constantes.placeholders.author,
+          data: [],
+          icon: ''
+        }"
+        (formReady)="formInitialized('instructivoInputControl', $event)"
+      ></app-simple-input>
+    </div>
+  </div>
+
+  <div class="detalles-wrapper__long-forms">
+    <!-- Artículo -->
+    <div *ngIf="detalles?.articuloControl" class="detalles-field">
+      <h2>{{ constantes.strings.article }}</h2>
+      <app-articulo-form (formReady)="formGroupInitialized('articuloFormGroupControl', $event)"></app-articulo-form>
+    </div>
+
+    <!-- Libro -->
+    <div *ngIf="detalles?.libroControl || detalles?.capituloControl" class="detalles-field">
+      <h2>{{ constantes.strings.book }}/{{ constantes.strings.bookChapter }}</h2>
+      <app-libro-form (formReady)="formGroupInitialized('libroFormGroupControl', $event)"></app-libro-form>
+    </div>
+  </div>
+</form>

@@ -1,3 +1,4 @@
+// tslint:disable: max-line-length
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,11 @@ import { MatCardModule,
          MatCheckboxModule,
          MatTooltipModule,
          MatDividerModule,
-         MatExpansionModule} from '@angular/material';
+         MatExpansionModule,
+         MatSelectModule,
+         MatSlideToggleModule,
+         MatSnackBarModule,
+         MatDialogModule} from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -66,6 +71,23 @@ import { AdministracionComponent } from './pages/administracion/administracion.c
 import { HomeComponent } from './pages/home/home.component';
 import { PageTitleComponent } from './components/commons/page-title/page-title.component';
 import { HttpClientModule} from "@angular/common/http";
+import { TableComponent } from './components/commons/table/table.component';
+import { FormularioAreasLineasComponent } from './components/forms/formulario-areas-lineas/formulario-areas-lineas.component';
+import { ParticipantesTwoComponent } from './components/forms/participantes-two/participantes-two.component';
+import { DetallesFormComponent } from './components/forms/detalles-form/detalles-form.component';
+import { EstimulosformComponent } from './components/forms/estimulosform/estimulosform.component';
+import { EventosFormComponent } from './components/forms/eventos-form/eventos-form.component';
+import { SelectComponent } from './components/commons/select/select.component';
+import { PresupuestoAsignadoComponent } from './components/forms/presupuesto-asignado/presupuesto-asignado.component';
+import { GriftFormConfirmComponent } from './components/grift-form-confirm/grift-form-confirm.component';
+import { GriftSaveCancelComponent } from './components/dialogs/grift-save-cancel/grift-save-cancel.component';
+import { UsuariosComponent } from './pages/administracion/usuarios/usuarios.component';
+import { NuevoUsuarioComponent } from './components/forms/nuevo-usuario/nuevo-usuario.component';
+import { UnidadesComponent } from './pages/administracion/unidades/unidades.component';
+import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
+import { NuevoInvestigadorComponent } from './components/forms/nuevo-investigador/nuevo-investigador.component';
+import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unidad.component';
+import { ShowFormComponent } from './components/dialogs/show-form/show-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -104,7 +126,24 @@ import { HttpClientModule} from "@angular/common/http";
     GrindLRIComponent,
     AdministracionComponent,
     HomeComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    TableComponent,
+    FormularioAreasLineasComponent,
+    ParticipantesTwoComponent,
+    DetallesFormComponent,
+    EstimulosformComponent,
+    EventosFormComponent,
+    SelectComponent,
+    PresupuestoAsignadoComponent,
+    GriftFormConfirmComponent,
+    GriftSaveCancelComponent,
+    UsuariosComponent,
+    NuevoUsuarioComponent,
+    UnidadesComponent,
+    NewInvestigadoresComponent,
+    NuevoInvestigadorComponent,
+    NuevaUnidadComponent,
+    ShowFormComponent
   ],
   imports: [
     BrowserModule,
@@ -133,14 +172,18 @@ import { HttpClientModule} from "@angular/common/http";
     MatDividerModule,
     MatExpansionModule,
     MatStepperModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatDialogModule,
 
     ReactiveFormsModule,
     FormsModule,
 
     AppRoutingModule
   ],
-  entryComponents: [InvestigadoresDialogComponent],
+  entryComponents: [InvestigadoresDialogComponent, GriftSaveCancelComponent, ShowFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -98,4 +98,4 @@ export const REAL_MENU_ITEMS: MenuItem[] = [
         width: 24,
         link: 'administracion'
     }
-]
+];

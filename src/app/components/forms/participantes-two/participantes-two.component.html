@@ -1,0 +1,14 @@
+<mat-form-field [formGroup]="form">
+  <mat-select
+    formControlName="dataControl"
+    placeholder="{{ check.checked ? placeholder2 : placeholder1 }}"
+    multiple
+  >
+    <mat-option *ngFor="let x of data" [value]="x">{{
+      x[argument]
+    }}</mat-option>
+  </mat-select>
+
+  <mat-checkbox matSuffix #check (change)="checked($event)" (click)="$event.stopPropagation();"> </mat-checkbox>
+  <mat-error>{{ constantes.errors.requiredField }}</mat-error>
+</mat-form-field>

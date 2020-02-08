@@ -1,0 +1,27 @@
+.main-text {
+    padding: 1rem;
+    text-align: justify;
+    max-width: 600px;
+}
+
+.unidades {
+  &-wrapper {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas:  'titulo text'
+                          'form form'
+                          'table table';
+  }
+  &-titulo {
+    grid-area: titulo;
+  }
+  &-text {
+    grid-area: text;
+  }
+  &-form {
+    grid-area: form;
+  }
+  &-table {
+    grid-area: table;
+  }
+}

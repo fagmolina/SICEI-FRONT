@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  & .grid-form,
+  & .lugar {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  & .grid-form {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .lugar {
+      margin-top: 2rem;
+    grid-template-columns: 1fr;
+  }
+}

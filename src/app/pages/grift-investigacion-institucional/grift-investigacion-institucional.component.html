@@ -1,9 +1,120 @@
-<app-page-title [title]="constantes.titles.instInvestigation"></app-page-title>
-<mat-horizontal-stepper #stepper>
-    <mat-step>
-        <app-primer-formulario></app-primer-formulario>
+<div class="title-wrapper">
+  <app-page-title
+    [title]="constantes.titles.instInvestigation"
+  ></app-page-title>
+  <button
+    mat-raised-button
+    [color]="new ? 'warn' : 'primary'"
+    (click)="new = !new"
+  >
+    <mat-icon>{{ new ? 'close' : 'add' }}</mat-icon
+    >{{ new ? 'Cancelar' : 'Nueva investigación' }}
+  </button>
+</div>
+<ng-container *ngIf="new; then form; else table"></ng-container>
+<ng-template #table>
+  <div>
+    <p class="main-text">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+      asperiores saepe quo culpa, veniam facilis at quae omnis laudantium
+      debitis aperiam, pariatur aliquam odio tenetur ad officia magni quisquam
+      quod.
+    </p>
+  </div>
+  <app-table [data]="tableData"></app-table>
+</ng-template>
+<ng-template #form>
+  <mat-horizontal-stepper #stepper linear labelPosition='bottom'>
+    <!-- <mat-step [completed]="griftStepper.stepOne"> -->
+    <mat-step [completed]="griftStepper.stepOne">
+      <ng-template matStepLabel>Información Base</ng-template>
+      <app-primer-formulario></app-primer-formulario>
+      <div class="stepper-buttons__first">
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
-    <mat-step>
-        <app-producto-inves-form></app-producto-inves-form>
+    <mat-step [completed]="griftStepper.stepTwo">
+      <ng-template matStepLabel>Investigadores</ng-template>
+      <app-investigadores></app-investigadores>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </mat-step>
-</mat-horizontal-stepper>
+    <mat-step [completed]="griftStepper.stepThree">
+      <ng-template matStepLabel>Producto Investigación</ng-template>
+      <app-producto-inves-form></app-producto-inves-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="griftStepper.stepFour">
+      <ng-template matStepLabel>Detalles</ng-template>
+      <app-detalles-form></app-detalles-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="griftStepper.stepFive">
+      <ng-template matStepLabel>Estímulos</ng-template>
+      <app-estimulosform></app-estimulosform>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="griftStepper.stepSix">
+      <ng-template matStepLabel>Eventos</ng-template>
+      <app-eventos-form></app-eventos-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="griftStepper.stepSeven">
+      <ng-template matStepLabel>Presupuesto Asignado</ng-template>
+      <app-presupuesto-asignado></app-presupuesto-asignado>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="true">
+      <ng-template matStepLabel>Confirmación</ng-template>
+      <app-grift-form-confirm></app-grift-form-confirm>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</ng-template>

@@ -1,0 +1,221 @@
+{
+  "yearControl": "2020-02-13T05:00:00.000Z",
+  "tituloControl": "Titulo",
+  "direccionControl": {
+    "postId": 1,
+    "id": 1,
+    "name": "id labore ex et quam laborum",
+    "email": "Eliseo@gardner.biz",
+    "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+  },
+  "escuelasControl": {
+    "postId": 1,
+    "id": 1,
+    "name": "id labore ex et quam laborum",
+    "email": "Eliseo@gardner.biz",
+    "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+  },
+  "participantesControl": {
+    "dataControl": [
+      {
+        "postId": 1,
+        "id": 1,
+        "name": "id labore ex et quam laborum",
+        "email": "Eliseo@gardner.biz",
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+      },
+      {
+        "postId": 1,
+        "id": 2,
+        "name": "quo vero reiciendis velit similique earum",
+        "email": "Jayne_Kuhic@sydney.com",
+        "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+      },
+      {
+        "postId": 1,
+        "id": 3,
+        "name": "odio adipisci rerum aut animi",
+        "email": "Nikita@garfield.biz",
+        "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
+      },
+      {
+        "postId": 1,
+        "id": 4,
+        "name": "alias odio sit",
+        "email": "Lew@alysha.tv",
+        "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+      },
+      {
+        "postId": 1,
+        "id": 5,
+        "name": "vero eaque aliquid doloribus et culpa",
+        "email": "Hayden@althea.biz",
+        "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
+      }
+    ]
+  },
+  "areasLineasform": {
+    "lineasControl": [
+      {
+        "id": 0,
+        "name": "Linea 0"
+      },
+      {
+        "id": 1,
+        "name": "Linea 1"
+      },
+      {
+        "id": 2,
+        "name": "Linea 2"
+      },
+      {
+        "id": 3,
+        "name": "Linea 3"
+      },
+      {
+        "id": 4,
+        "name": "Linea 4"
+      },
+      {
+        "id": 5,
+        "name": "Linea 5"
+      },
+      {
+        "id": 6,
+        "name": "Linea 6"
+      },
+      {
+        "id": 7,
+        "name": "Linea 7"
+      },
+      {
+        "id": 8,
+        "name": "Linea 8"
+      }
+    ],
+    "areasControl": [
+      {
+        "id": 0,
+        "name": "Area 0",
+        "lineas": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Area 1",
+        "lineas": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Area 2",
+        "lineas": [
+          6,
+          7,
+          8
+        ]
+      }
+    ]
+  },
+  "investigadores": [
+    {
+      "grade": "P+",
+      "id": 123,
+      "name": "Diego Ortiz"
+    },
+    {
+      "grade": "P+",
+      "id": 456,
+      "name": "Fabian Gomez"
+    },
+    {
+      "grade": "P+",
+      "id": 789,
+      "name": "Henry Corredor"
+    },
+    {
+      "grade": "P+",
+      "id": 101112,
+      "name": "Jhonny Zapata"
+    },
+    {
+      "grade": "P+",
+      "id": 131415,
+      "name": "Francisco Arleo"
+    }
+  ],
+  "producInves": {
+    "guiaControl": true,
+    "cartillaControl": true,
+    "prototipoControl": true,
+    "articuloControl": true,
+    "libroControl": true,
+    "capituloControl": true,
+    "manualesControl": true,
+    "procedimientoControl": true,
+    "instructivoControl": true
+  },
+  "detalles": {
+    "guiaInputControl": "qwe",
+    "articuloFormGroupControl": {
+      "yearControl": "2020-02-21T05:00:00.000Z",
+      "publishedMagazineNameControl": "qwe",
+      "articleNameControl": "qwe",
+      "issnCodeControl": "123123",
+      "authorControl": "qweqwe"
+    },
+    "manualesInputControl": "qwe",
+    "cartillaInputControl": "qwe",
+    "libroFormGroupControl": {
+      "yearControl": "2020-02-28T05:00:00.000Z",
+      "bookNameControl": "qew",
+      "startPageControl": "2",
+      "endPageControl": "3",
+      "editorialControl": "qweqwe",
+      "isbnCodeControl": "123",
+      "authorControl": "qwe"
+    },
+    "procedimientoInputControl": "qwe",
+    "prototipoInputControl": "qwe",
+    "instructivoInputControl": "qwe"
+  },
+  "eventos": {
+    "tipo": "Seminario",
+    "participacion": "Ponente",
+    "departamento": "Bolívar",
+    "pais": null,
+    "ciudad": "Altos del Rosario",
+    "fecha": "2020-02-07T05:00:00.000Z",
+    "lugar": "Nacional"
+  },
+  "presupuestoAsignado": {
+    "colcienciasCheck": true,
+    "colcienciasDescripcionControl": "werewr",
+    "colcienciasAporteControl": 234324234,
+    "ministeriosCheck": true,
+    "ministerioDescripcionControl": "qeqwe",
+    "ministerioAporteControl": 3243,
+    "eIntCheck": true,
+    "eIntDescripcionControl": "eqwrwerew",
+    "eIntAporteControl": 222,
+    "oInstCheck": true,
+    "oInstDescripcionControl": "ertretr",
+    "oInstAporteControl": 555,
+    "OFPLACheck": true,
+    "OFPLAControl": 455,
+    "DINAECheck": true,
+    "DINAEControl": 565634,
+    "convExtCheck": true,
+    "convenioExDescControl": "ertert",
+    "convenioExAporteControl": 777,
+    "totalExterno": 234328254,
+    "totalInterno": 566089,
+    "totalGeneral": 234895120
+  }
+}

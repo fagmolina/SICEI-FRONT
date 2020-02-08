@@ -1,3 +1,4 @@
+// tslint:disable: max-line-length
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { LoginComponent } from './pages/login/login.component';
@@ -14,8 +15,11 @@ import { GreitInvestigacionImplementadaComponent } from './pages/greit-investiga
 import { GrindRLCTComponent } from './pages/grind-rlct/grind-rlct.component';
 import { GrindLRIComponent } from './pages/grind-lri/grind-lri.component';
 import { AdministracionComponent } from './pages/administracion/administracion.component';
+import { UsuariosComponent } from './pages/administracion/usuarios/usuarios.component';
 import { LoginComponent } from './pages/login/login.component';
 
+import { UnidadesComponent } from './pages/administracion/unidades/unidades.component';
+import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
@@ -32,6 +36,9 @@ const routes: Routes = [
   { path: 'rlct', component: GrindRLCTComponent },
   { path: 'lri', component: GrindLRIComponent },
   { path: 'administracion', component: AdministracionComponent },
+  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'newinvestigadores', component: NewInvestigadoresComponent },
+  { path: 'unidades', component: UnidadesComponent },
   { path: '**', redirectTo: '/home' }
 ];
 
@@ -39,4 +46,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

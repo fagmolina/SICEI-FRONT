@@ -1,10 +1,10 @@
-import { Injectable, Inject } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { InvestigadoresDialogComponent } from "../components/dialogs/investigadores-dialog/investigadores-dialog.component";
+import { Injectable, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { InvestigadoresDialogComponent } from '../components/dialogs/investigadores-dialog/investigadores-dialog.component';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class DialogService {
   constructor(public dialog: MatDialog) {}

@@ -1,0 +1,17 @@
+.table-wrapper {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 1fr;
+  & .filter {
+    padding: 1rem;
+  }
+  & table {
+    width: 100%;
+    & tr:not(.mat-header-cell) {
+      &:hover {
+        transition: all 0.2s ease-out;
+        background: rgba(100, 100, 100, 0.1);
+      }
+    }
+  }
+}
