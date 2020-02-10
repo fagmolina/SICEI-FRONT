@@ -14,12 +14,7 @@
 <ng-container *ngIf="new; then form; else table"></ng-container>
 <ng-template #table>
   <div>
-    <p class="main-text">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
-      asperiores saepe quo culpa, veniam facilis at quae omnis laudantium
-      debitis aperiam, pariatur aliquam odio tenetur ad officia magni quisquam
-      quod.
-    </p>
+    <!-- <app-table [data]="tableData"></app-table>  -->
   </div>
   <app-table [data]="tableData"></app-table>
 </ng-template>
@@ -30,7 +25,7 @@
       <ng-template matStepLabel>Información Base</ng-template>
       <app-primer-formulario></app-primer-formulario>
       <div class="stepper-buttons__first">
-        <button mat-mini-fab color="primary" matStepperNext>
+        <button mat-mini-fab color="primary" matStepperNext (click)="guardar(1)">
           <mat-icon>chevron_right</mat-icon>
         </button>
       </div>

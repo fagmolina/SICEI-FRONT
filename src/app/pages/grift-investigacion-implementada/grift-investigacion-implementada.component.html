@@ -1,1 +1,19 @@
 <p>grift-investigacion-implementada works!</p>
+<button (click)="sendNotification()">Click here to test message</button> <br><br>
+
+<div class="title-wrapper">
+    <app-page-title
+      [title]="constantes.titles.impleInvestigation"
+    ></app-page-title>
+  </div>
+  <div>
+    <div>
+      <p class="main-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+        asperiores saepe quo culpa, veniam facilis at quae omnis laudantium
+        debitis aperiam, pariatur aliquam odio tenetur ad officia magni quisquam
+        quod.
+      </p>
+    </div>
+    <app-table [data]="tableData"></app-table>
+</div>

@@ -1,5 +1,5 @@
 <div class="table-wrapper">
-  <mat-form-field class="filter" *ngIf="dataSource.length">
+  <mat-form-field class="filter" *ngIf="this.dataSource.data?.length > 0">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
   <table mat-table [dataSource]="dataSource">

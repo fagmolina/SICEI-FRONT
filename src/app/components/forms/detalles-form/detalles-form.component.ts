@@ -32,6 +32,13 @@ export class DetallesFormComponent implements OnInit, AfterViewInit {
     });
   }
 
+  ngOnChanges() {
+    this.formValid();
+    this.formService.theForm.subscribe((details: TheForm) => {
+      this.detalles = details && details.producInves ? { ...details.producInves } : null;
+    });
+  }
+
   formValid() {
     this.detallesForm.statusChanges.subscribe(valid => {
       this.formService.griftStepper.next({

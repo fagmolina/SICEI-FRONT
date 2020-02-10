@@ -88,6 +88,8 @@ import { NewInvestigadoresComponent } from './pages/administracion/new-investiga
 import { NuevoInvestigadorComponent } from './components/forms/nuevo-investigador/nuevo-investigador.component';
 import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unidad.component';
 import { ShowFormComponent } from './components/dialogs/show-form/show-form.component';
+import { NgxNotificationComponent } from 'ngx-notification';
+import { NuevoCasoEmblematicoComponent } from './components/nuevo-caso-emblematico/nuevo-caso-emblematico.component';
 //#endregion Components imports
 
 @NgModule({
@@ -143,7 +145,9 @@ import { ShowFormComponent } from './components/dialogs/show-form/show-form.comp
     NewInvestigadoresComponent,
     NuevoInvestigadorComponent,
     NuevaUnidadComponent,
-    ShowFormComponent
+    ShowFormComponent,
+    NgxNotificationComponent,
+    NuevoCasoEmblematicoComponent
   ],
   imports: [
     BrowserModule,

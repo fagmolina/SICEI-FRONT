@@ -30,10 +30,11 @@ export class LoginComponent implements OnInit {
 
   submitForm = () => {
     if (this.myForm.valid) {
-      this.user.user = this.myForm.controls.usuario.value;
-      this.user.password = this.myForm.controls.contraseña.value;
+      this.user.Username = this.myForm.controls.usuario.value;
+      this.user.Password = this.myForm.controls.contraseña.value;
         this._userservice.login(this.user).subscribe( (data: any) => {
           if (data) {
+            debugger;
             this.usuariologin = data;
             sessionStorage.setItem('user',JSON.stringify(this.usuariologin));
             this.router.navigateByUrl('/home');

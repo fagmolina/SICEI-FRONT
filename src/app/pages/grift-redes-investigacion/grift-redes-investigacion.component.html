@@ -1,1 +1,44 @@
 <p>grift-redes-investigacion works!</p>
+<div class="title-wrapper">
+  <app-page-title
+      [title]="constantes.titles.redInvestigacion"
+  ></app-page-title>
+  </div>
+  <form novalidate [formGroup]="form">
+      <div>
+        <!-- Nombre del caso -->
+        <app-simple-input [data]="{
+          placeholder: constantes.placeholders.nombreRed,
+          data: fakeData,
+          icon: ''
+        }" (formReady)="formInitialized('nombreRed', $event)"></app-simple-input>
+    
+        <!-- Integrantes -->
+        <app-autcomplete [data]="{
+          placeholder: constantes.placeholders.entidadConforma,
+          data: fakeData,
+          icon: '',
+          argument: 'name'
+        }" (formReady)="formInitialized('entidadConforma', $event)"></app-autcomplete>
+    
+        <!-- Año -->
+        <mat-form-field>
+          <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.creationYear }}"
+            formControlName="yearControl" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+        <!-- Formulario de participación -->
+        <!-- <app-participantes-two [data]="fakeData" 
+          [placeholder1]="'Participantes?'"
+          [placeholder2]="'Cuàles?'"
+          [argument]="'name'"
+          (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two> -->
+      </div>
+      <div>
+        <!-- Formulario Areas y Lineas -->
+        <!-- <app-formulario-areas-lineas (formReady)="formGroupInitialized('areasLineasform', $event, false)">
+        </app-formulario-areas-lineas> -->
+      </div>
+    </form>

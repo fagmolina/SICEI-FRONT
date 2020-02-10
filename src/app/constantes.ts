@@ -18,7 +18,14 @@ export const placeholders = {
   isbnCode: 'Código ISBN',
   date: 'Fecha',
   country: 'País',
-  city: 'Ciudad'
+  city: 'Ciudad',
+  nombreCaso: 'Nombre del caso',
+  lugarAfect: 'Lugar de Afectación',
+  actividades: 'Actividades',
+  nombreRed: 'Nombre de la RED',
+  entidadConforma: 'Entidad que la conforma',
+  creationYear: 'Año de creación',
+  sede: 'Sede de la RED'
 };
 
 export const strings = {
@@ -63,7 +70,10 @@ export const tooltips = {
 };
 
 export const titles = {
-  instInvestigation: 'Investigación Institucional'
+  instInvestigation: 'Investigación Institucional',
+  impleInvestigation: 'Investigación Implementada',
+  emblematico: 'Caso Emblemático',
+  redInvestigacion: 'Redes de investigación'
 };
 
 export const errors = {

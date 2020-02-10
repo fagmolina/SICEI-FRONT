@@ -1,0 +1,73 @@
+<form novalidate [formGroup]="form">
+  <div>
+    <!-- Nombre del caso -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.nombreCaso,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('nombreCasoControl', $event)"></app-simple-input>
+
+    <!-- Lugar de afectación -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.lugarAfect,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('lugarAfectacionControl', $event)"></app-simple-input>
+
+    <!-- Lugar de afectación -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.actividades,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('actividades', $event)"></app-simple-input>
+
+    <!-- Formulario de participación -->
+    <!-- <app-participantes-two [data]="fakeData" 
+      [placeholder1]="'Participantes?'"
+      [placeholder2]="'Cuàles?'"
+      [argument]="'name'"
+      (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two> -->
+  </div>
+  <div>
+    <!-- Integrantes -->
+    <app-page-title [title]="'Investigadores'"></app-page-title>
+    <div class="wrapper">
+      <!-- <div> -->
+        <div>
+          <button (click)="newInvestigator()" mat-raised-button>
+            Agregar Investigador
+          </button>
+          <p *ngIf="dataSource.data?.length <= 0">{{ constantes.tooltips.investigatorsAtLeastOne }}</p>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsA; let x = index">
+            <th mat-header-cell *matHeaderCellDef>{{ displayedNames[x] }}</th>
+            <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+          </ng-container>
+      
+          <ng-container [matColumnDef]="acciones" *ngFor="let acciones of displayedColumnsB; let x = index">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              <button mat-icon-button color="warn" matTooltip="{{ constantes.tooltips.deleteInvestigator }}"
+                (click)="remove(element, i)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <div *ngIf="form.valid">
+          <button mat-flat-button (click)="clear()">Cancelar</button>
+          <button mat-raised-button color="primary" (click)="save()">Aceptar</button>
+        </div>
+      </div>
+  </div>
+
+  <p>
+    {{form.value | json}}
+    {{form.errors | json}}
+  </p>
+</form>

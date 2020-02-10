@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'newinvestigadores', component: NewInvestigadoresComponent },
   { path: 'unidades', component: UnidadesComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

@@ -1,0 +1,41 @@
+@import '../../../assets/css/variables';
+
+form {
+  padding: 1.5rem;
+  & div {
+      &:first-child {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          grid-gap: 1rem;
+      }
+      &:last-child {
+          margin-top: 10px;;
+          display: grid;
+          grid-gap: 1rem;
+          grid-template-columns: 1fr;
+      }
+  }
+  & mat-form-field {
+      width: 100%;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-gap: 1rem;   
+  & button {
+      &:first-of-type {
+          max-width: 200px;
+      }
+  }
+  & div {
+      &:first-child {
+          display: grid;
+          grid-template-columns: min-content auto;
+          grid-gap: 1rem;
+          font-weight: lighter;
+          color: $primario;
+      }
+  }
+ }

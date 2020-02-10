@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GriftSaveCancelComponent } from '../dialogs/grift-save-cancel/grift-save-cancel.component';
 import { ShowFormComponent } from '../dialogs/show-form/show-form.component';
 import { Router } from '@angular/router';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-grift-form-confirm',
@@ -20,7 +21,8 @@ export class GriftFormConfirmComponent implements OnInit {
     private formService: FormularioGRIFTService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private ngxNotificationService: NgxNotificationService
   ) {}
 
   ngOnInit() {}
@@ -49,12 +51,14 @@ export class GriftFormConfirmComponent implements OnInit {
           if (this.saveData) {
             const form = this.formService.theForm.getValue();
             this.formService.addForm(form);
-            this.openSnackBar('Datos guardados', 'Cerrar');
+            // this.openSnackBar('Datos guardados', 'Cerrar');
+            this.successMessage('Datos guardados');
             this.showFormAbstract();
             break;
           }
           this.close();
-          this.openSnackBar('Datos eliminados', 'Cerrar');
+          // this.openSnackBar('Datos eliminados', 'Cerrar');
+          this.errorMessage('Datos eliminados');
           break;
         default:
           return;
@@ -63,6 +67,7 @@ export class GriftFormConfirmComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
+    debugger;
     this.snackBar.open(message, action, {
       duration: 2000
     });
@@ -84,5 +89,13 @@ export class GriftFormConfirmComponent implements OnInit {
     this.formService.theForm.next(null);
     this.formService.resetTheForm.next(true);
     this.formService.griftStepper.next(null);
+  }
+
+  successMessage(message: string) {
+  	this.ngxNotificationService.sendMessage(message, 'success', 'bottom-right');
+  }
+
+  errorMessage(message: string) {
+  	this.ngxNotificationService.sendMessage(message, 'danger', 'top-right');
   }
 }

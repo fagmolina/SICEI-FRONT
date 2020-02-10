@@ -1,10 +1,12 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as constantes from '../../constantes';
-import { fakeTableData } from '../../mockData/mockData';
+import { fakeTableData, investigadores } from '../../mockData/mockData';
 import { FormGroup } from '@angular/forms';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 import { GriftStepper, TheForm } from 'src/app/interfaces/interfaces';
 import * as moment from 'moment';
+import { DataService } from 'src/app/services/data.service';
+import { Investigacion } from 'src/app/models/investigacion';
 
 @Component({
   selector: 'app-grift-investigacion-institucional',
@@ -19,7 +21,10 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
   public fakeTableData = fakeTableData;
   public tableData = [];
 
-  constructor(private formService: FormularioGRIFTService) {
+  constructor(
+    private formService: FormularioGRIFTService,
+    private dataService: DataService
+    ) {
     this.formularioGRIFT = new FormGroup({});
   }
 
@@ -45,6 +50,8 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
         this.tableData = [...el];
       }
     });
+
+    this.GetInvestigaciones();
   }
 
   ngAfterViewInit() {
@@ -52,5 +59,42 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
     this.formService.griftStepper.subscribe((steps: GriftStepper) => {
       this.griftStepper = { ...steps };
     });
+  }
+
+  GetInvestigaciones(){
+    this.dataService.consultarInvestigaciones().subscribe((data: any) => {
+      debugger;
+      if(data){
+        this.tableData = <Array<Investigacion>>data;
+      }
+    });
+        
+  }
+
+  guardar(idStep: number){
+    switch(idStep){
+      case 1: 
+      let investigacion = new Investigacion();
+      investigacion.ANO = '2020';
+      investigacion.DIRECCION = 1;
+      investigacion.ESCUELA = 1;
+      investigacion.ESTADO = 1;
+      investigacion.EXP_PARTICIPA = 'ex';
+      investigacion.ID_INVESTIGACION = '';
+      investigacion.PARTICIPACION = 'no';
+      investigacion.TITULO = 'prueba desde front';
+      let formValue = this.formService.theForm.value;
+      // investigacion.ANO = formValue.yearControl;
+      // investigacion.DIRECCION = formValue.direccionControl;
+      // investigacion.ESCUELA = formValue.escuelasControl;
+      debugger;
+      this.dataService.mergeInvestigacion(investigacion).subscribe((data: any) =>{
+        debugger;
+        if(data){
+          console.log(data);
+        }
+      });
+      break;
+    }
   }
 }
