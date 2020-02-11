@@ -13,5 +13,7 @@ export class User {
     ID_UNIDAD: number;
     EMAIL: string;
     CONTRASENA: string;
-    ADMINISTRADOR: number;
+    TELEFONO: number;
+    USUARIO: string;
+    PERFIL: number;
 }

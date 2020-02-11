@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/user.class';
 import { Router } from '@angular/router';
+import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit {
   myForm: FormGroup;
   user = new Usuario();
   usuariologin = new User();
-  constructor(public fb: FormBuilder,private _userservice: UserService, private router: Router) { }
+  constructor(
+    public fb: FormBuilder,
+    private _userservice: UserService, 
+    private router: Router,
+    private _componentservice: ComponentsService
+    ) { }
 
   ngOnInit() {
     this.reactiveForm();
@@ -37,6 +43,7 @@ export class LoginComponent implements OnInit {
             debugger;
             this.usuariologin = data;
             sessionStorage.setItem('user',JSON.stringify(this.usuariologin));
+            this._componentservice.user.next(this.usuariologin);
             this.router.navigateByUrl('/home');
           }
         })

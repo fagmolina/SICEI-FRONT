@@ -83,6 +83,7 @@ export class GriftInvestigacionInstitucionalComponent implements OnInit, AfterVi
       investigacion.ID_INVESTIGACION = '';
       investigacion.PARTICIPACION = 'no';
       investigacion.TITULO = 'prueba desde front';
+      investigacion.ID_INVESTIGACION = '';
       let formValue = this.formService.theForm.value;
       // investigacion.ANO = formValue.yearControl;
       // investigacion.DIRECCION = formValue.direccionControl;
