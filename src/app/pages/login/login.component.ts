@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   usuariologin = new User();
   constructor(
     public fb: FormBuilder,
-    private _userservice: UserService, 
+    private _userservice: UserService,
     private router: Router,
     private _componentservice: ComponentsService
     ) { }

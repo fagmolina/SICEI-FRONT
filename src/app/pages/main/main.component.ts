@@ -12,7 +12,9 @@ import { REAL_MENU_ITEMS } from '../../menuItems';
 export class MainComponent implements OnInit {
   toggle = false;
 
-  constructor(private componentService: ComponentsService) {}
+  constructor(
+    private componentService: ComponentsService
+    ) {}
 
   ngOnInit() {
     this.componentService.menuItems.next(REAL_MENU_ITEMS);
