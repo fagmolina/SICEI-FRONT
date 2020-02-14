@@ -6,6 +6,7 @@ import { fakeData } from '../../mockData/mockData';
 import { DialogService } from 'src/app/services/dialog.service';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 import { MatTableDataSource } from '@angular/material';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-nuevo-caso-emblematico',
@@ -27,7 +28,8 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
     this.form = this.fb.group({
       investigadores: new FormControl({ value: this.tableData, disabled: false}, Validators.required)
     });
+    this.getInvestigadores();
   }
 
   formInitialized(name: string, form: FormControl) {
@@ -54,6 +57,11 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
   //     });
   //   }
   // }
+  getInvestigadores(){
+    this.dataService.consultarInvestigadores().subscribe((data: any) => {
+      console.log(data);
+    });
+  }
 
   newInvestigator() {
     const data = {

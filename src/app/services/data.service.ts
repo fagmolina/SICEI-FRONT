@@ -10,6 +10,7 @@ export class DataService {
   public pathapi = 'http://localhost:60406/api/';
   public serviceConsultaInvestigaciones = 'Investigacion/ConsultarInvestigaciones';
   public serviceMergeInvestigacion = 'Investigacion/MergeInvestigacion';
+  public serviceConsultarInvestigadores = 'Investigacion/ConsultarInvestigadores';
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,12 @@ export class DataService {
 
   public mergeInvestigacion(investigacion: Investigacion){
     return this.http.post(this.pathapi + this.serviceMergeInvestigacion, investigacion, {
+      headers: this.generateBasicHeaders()
+    });
+  }
+
+  public consultarInvestigadores(){
+    return this.http.get(this.pathapi + this.serviceConsultarInvestigadores, {
       headers: this.generateBasicHeaders()
     });
   }

@@ -13,6 +13,8 @@ export class GriftCasoEmblematicoComponent implements OnInit {
   public fakeData = fakeData;
   public new = false;
 
+  public tableData = [{Nombre: 'A', valor: 25},{Nombre: 'b', valor: 35}];
+
   constructor() { }
 
   ngOnInit() {
