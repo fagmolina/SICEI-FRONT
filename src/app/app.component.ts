@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit{
   isLogged: boolean;
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService,
+    private router: Router,
   ){
     _userService.isLogged.next(false);
     this.isLogged = false;
@@ -19,7 +21,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this._userService.isLogged.subscribe( data => {
-      this.isLogged = <boolean>data;
+
+      this.isLogged = true //<boolean>data;
+      //this.router.navigateByUrl('/home');
+      //this.isLogged = true;
     });
   }
 }

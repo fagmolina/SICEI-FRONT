@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ComponentsService } from 'src/app/services/components.service';
 
 import { carouselItems } from '../../mockData/mockData';
@@ -10,7 +10,10 @@ import { REAL_MENU_ITEMS } from '../../menuItems';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+
+  @Input() isLogged: any;
   toggle = false;
+
 
   constructor(
     private componentService: ComponentsService
