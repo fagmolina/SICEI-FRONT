@@ -1,0 +1,32 @@
+<app-page-title [title]="'Red de investigación'"></app-page-title>
+<form novalidate [formGroup]="redForm">
+  <div>
+    <!-- Si o No -->
+
+    <!-- Nombre de la red -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.nombreRed,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('nombreControl', $event)"></app-simple-input>
+
+    <!-- Escuelas -->
+    <app-autcomplete [data]="{
+      placeholder: constantes.placeholders.entidadConforma,
+      data: fakeData,
+      icon: '',
+      argument: 'name'
+    }" (formReady)="formInitialized('entidadControl', $event)"></app-autcomplete>
+
+    <!-- Año -->
+    <mat-form-field>
+      <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.year }}"
+        formControlName="yearControl" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  </div>
+
+  {{redForm.value | json}}
+</form>

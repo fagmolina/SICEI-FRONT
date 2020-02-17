@@ -8,8 +8,9 @@ import { FormularioGRIFTService } from 'src/app/services/formulario-grift.servic
 import { MatTableDataSource } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
-import { CasosEmblematico } from 'src/app/models/caso-emblematico';
+import { CasosEmblematicoSet } from 'src/app/models/caso-emblematico';
 import { ComponentsService } from 'src/app/services/components.service';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-nuevo-caso-emblematico',
@@ -34,13 +35,14 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
     private fb: FormBuilder,
     private dialogService: DialogService,
     private dataService: DataService,
-    private _componentService: ComponentsService
+    private _componentService: ComponentsService,
+    private ngxNotificationService: NgxNotificationService
   ) { 
     this.hasInvestigadores = false;
   }
 
   ngOnInit() {
-    this.investigadores = investigadores;
+    // this.investigadores = investigadores;
     this.dataSource = new MatTableDataSource();
     this.form = this.fb.group({
       investigadores: new FormControl({ value: this.tableData, disabled: false}, )
@@ -52,21 +54,14 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
     this.form.setControl(name, form);
   }
 
-  // checkDataValid(data) {
-  //   if (data) {
-  //     this.formService.griftStepper.next({
-  //       ...this.formService.griftStepper.value,
-  //       stepTwo: data.length > 0
-  //     });
-  //     this.formService.theForm.next({
-  //       ...this.formService.theForm.value,
-  //       investigadores: data.length > 0 ? this.dataSource.data : null
-  //     });
-  //   }
-  // }
   getInvestigadores(){
     this.dataService.consultarInvestigadores().subscribe((data: any) => {
-      console.log(data);
+      this.investigadores = data.map(item => {
+        return {
+          id: item.ID_INVESTIGADOR,
+          name: item.NOMBRES + ' ' + item.APELLIDOS
+        }
+      });
     });
   }
 
@@ -108,13 +103,28 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
   }
 
   save(){
-    let nuevoCaso = new CasosEmblematico();
-    nuevoCaso.actividades = this.form.get("actividades").value;
-    nuevoCaso.lugarAtencion = this.form.get("lugarAfectacionControl").value;
-    nuevoCaso.nombreCaso = this.form.get("nombreCasoControl").value;
-    nuevoCaso.investigadores = <number[]>[...new Set(this.form.get("investigadores").value.map(item => item.id))];
+    let nuevoCaso = new CasosEmblematicoSet();
+    nuevoCaso.ACTIVIDADES = this.form.get("actividades").value;
+    nuevoCaso.LUGAR_AFECTACION = this.form.get("lugarAfectacionControl").value;
+    nuevoCaso.NOMBRE_CASO = this.form.get("nombreCasoControl").value;
+    nuevoCaso.INVESTIGADORES = <[]>[...new Set(this.form.get("investigadores").value.map(item => item.id))];
     console.log(nuevoCaso);
-    
-    this._componentService.newCasoEmblematico.next(false);
+
+    this.dataService.mergeCasoEmblematico(nuevoCaso).subscribe(data => {
+      this.successMessage("Caso guardado con éxito");
+      this._componentService.newCasoEmblematico.next(false);
+    },
+    error => {
+      this.errorMessage("Error al guardar el caso");
+      this._componentService.newCasoEmblematico.next(false);
+    });
+  }
+
+  successMessage(message: string) {
+  	this.ngxNotificationService.sendMessage(message, 'success', 'top-right');
+  }
+
+  errorMessage(message: string) {
+  	this.ngxNotificationService.sendMessage(message, 'danger', 'top-right');
   }
 }

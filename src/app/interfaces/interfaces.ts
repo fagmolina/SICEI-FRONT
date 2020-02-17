@@ -86,20 +86,18 @@ export interface TheForm {
 }
 
 export interface FormSemillero {
-  // grupoSemillero: GrupoSemillero;
-  nombreSemillero: string;
+  nombreControl: string;
   escuelasControl: Control;
+  areasLineasform: AreasLineasform;
   investigadores: Investigadore[];
   eventos: Eventos;
   estimulos: Estimulos;
-  //acá voy
+  redInvestigacion: RedSemillero;
 }
 
-export interface GrupoSemillero {
-  nombreSemillero: string;
-  unidadEscuela: any;
-  area: any;
-  linea: any;
+export interface RedSemillero {
+  nombreRed: string;
+  entidad: string;
 }
 
 export interface Eventos {

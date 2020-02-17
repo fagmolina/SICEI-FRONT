@@ -15,4 +15,10 @@ export class FormularioSemilleroService {
   formId = 0;
 
   constructor() { }
+
+  addForm(data) {
+    const formId = this.formId;
+    data = {formId, ...data};
+    this.forms.next([...this.forms.value, data]);
+  }
 }

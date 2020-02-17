@@ -1,0 +1,14 @@
+.confirm-card {
+  max-width: 600px;
+  margin: auto;
+  &__header {
+      margin: 1rem 0;
+      &-title, &-sub-title {
+          text-align: center;
+      }
+  }
+  &__actions {
+      display: flex;
+      justify-content: center;
+  }
+}

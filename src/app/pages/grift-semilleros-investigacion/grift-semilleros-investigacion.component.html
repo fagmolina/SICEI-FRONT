@@ -68,7 +68,7 @@
     </mat-step>
     <mat-step [completed]="semilleroStepper.stepFive">
       <ng-template matStepLabel>Red de investigación</ng-template>
-      Cosa
+      <app-semillero-red></app-semillero-red>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
           <mat-icon>chevron_left</mat-icon>
@@ -80,7 +80,7 @@
     </mat-step>
     <mat-step [completed]="true">
       <ng-template matStepLabel>Confirmación</ng-template>
-      <app-grift-form-confirm></app-grift-form-confirm>
+      <app-semillero-confirm></app-semillero-confirm>
       <div class="stepper-buttons">
         <button mat-mini-fab color="primary" matStepperPrevious>
           <mat-icon>chevron_left</mat-icon>

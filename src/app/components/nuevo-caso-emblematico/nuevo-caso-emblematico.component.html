@@ -20,13 +20,6 @@
       data: fakeData,
       icon: ''
     }" (formReady)="formInitialized('actividades', $event)"></app-simple-input>
-
-    <!-- Formulario de participación -->
-    <!-- <app-participantes-two [data]="fakeData" 
-      [placeholder1]="'Participantes?'"
-      [placeholder2]="'Cuàles?'"
-      [argument]="'name'"
-      (formReady)="formGroupInitialized('participantesControl', $event, false)"></app-participantes-two> -->
   </div>
   <div>
     <!-- Integrantes -->
@@ -64,5 +57,4 @@
         </div>
       </div>
   </div>
-  <p>{{form.value | json}}</p>
 </form>

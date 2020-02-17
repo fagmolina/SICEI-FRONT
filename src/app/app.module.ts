@@ -30,7 +30,9 @@ import { MatCardModule,
          MatSelectModule,
          MatSlideToggleModule,
          MatSnackBarModule,
-         MatDialogModule} from '@angular/material';
+         MatDialogModule,
+         MatPaginatorModule
+        } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatTableModule} from '@angular/material/table';
 //#endregion Material
@@ -95,6 +97,8 @@ import { SemilleroBasicoComponent } from './components/forms/forms-semillero/sem
 import { SemilleroInvestigadoresComponent } from './components/forms/forms-semillero/semillero-investigadores/semillero-investigadores.component';
 import { SemilleroEstimulosFormComponent } from './components/forms/forms-semillero/semillero-estimulos-form/semillero-estimulos-form.component';
 import { SemilleroEventosFormComponent } from './components/forms/forms-semillero/semillero-eventos-form/semillero-eventos-form.component';
+import { SemilleroRedComponent } from './components/forms/forms-semillero/semillero-red/semillero-red.component';
+import { SemilleroConfirmComponent } from './components/forms/forms-semillero/semillero-confirm/semillero-confirm.component';
 //#endregion Components imports
 
 @NgModule({
@@ -157,7 +161,9 @@ import { SemilleroEventosFormComponent } from './components/forms/forms-semiller
     SemilleroBasicoComponent,
     SemilleroInvestigadoresComponent,
     SemilleroEstimulosFormComponent,
-    SemilleroEventosFormComponent
+    SemilleroEventosFormComponent,
+    SemilleroRedComponent,
+    SemilleroConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -190,6 +196,7 @@ import { SemilleroEventosFormComponent } from './components/forms/forms-semiller
     MatSlideToggleModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatPaginatorModule,
 
     ReactiveFormsModule,
     FormsModule,

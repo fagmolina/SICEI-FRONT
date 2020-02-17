@@ -39,7 +39,7 @@ export class GriftSemillerosInvestigacionComponent implements OnInit {
         const el = data.map((x: FormSemillero) => {
           return {
             formId: x['formId'],
-            NombreSemillero: x.nombreSemillero,
+            NombreSemillero: x.nombreControl,
             Escuela: x.escuelasControl.name,
             Investigadores: [...x.investigadores],
             Ver: ''
@@ -57,7 +57,7 @@ export class GriftSemillerosInvestigacionComponent implements OnInit {
   }
 
   guardar(){
-    
+
   }
 
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import _ from 'lodash';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatPaginator } from '@angular/material';
 import { ShowFormComponent } from '../../dialogs/show-form/show-form.component';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,8 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() data: any[];
   displayedColumns;
   dataSource;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private formService: FormularioGRIFTService, public dialog: MatDialog, private router: Router) {}
 
@@ -30,6 +32,10 @@ export class TableComponent implements OnInit, OnChanges {
     this.dataSource = new MatTableDataSource();
     this.displayedColumns = newData.length > 0 ? Object.keys(newData[0]) : null;
     this.dataSource.data = newData;
+
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+    }, 0);
   }
 
   applyFilter(filterValue: string) {

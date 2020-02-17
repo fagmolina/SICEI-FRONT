@@ -2,32 +2,32 @@ import { Component, OnInit } from '@angular/core';
 
 import { fakeData } from '../../../../mockData/mockData';
 import * as constantes from '../../../../constantes';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormularioSemilleroService } from 'src/app/services/formulario-semillero.service';
 
 @Component({
-  selector: 'app-semillero-basico',
-  templateUrl: './semillero-basico.component.html',
-  styleUrls: ['./semillero-basico.component.scss']
+  selector: 'app-semillero-red',
+  templateUrl: './semillero-red.component.html',
+  styleUrls: ['./semillero-red.component.scss']
 })
-export class SemilleroBasicoComponent implements OnInit {
+export class SemilleroRedComponent implements OnInit {
   constantes = constantes;
-  primerForm: FormGroup;
+  redForm: FormGroup;
   fakeData = fakeData;
 
   constructor(
     private fb: FormBuilder,
     private formService: FormularioSemilleroService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.formService.resetTheForm.subscribe(reset => {
       if (reset) {
-        this.primerForm.reset();
+        this.redForm.reset();
       }
     });
-    this.primerForm = this.fb.group({
-      
+    this.redForm = this.fb.group({
+      yearControl: new FormControl({ value: '', disabled: false }, Validators.required)
     });
     this.formChanges();
   }
@@ -37,17 +37,16 @@ export class SemilleroBasicoComponent implements OnInit {
   }
 
   formValid() {
-    this.primerForm.statusChanges.subscribe(valid => {
+    this.redForm.statusChanges.subscribe(valid => {
       this.formService.semilleroStepper.next({
         ...this.formService.semilleroStepper.value,
-        stepOne: valid === 'VALID'
+        stepFive: valid === 'VALID'
       });
     });
   }
 
   formChanges() {
-    this.primerForm.valueChanges.subscribe(changes => {
-      debugger;
+    this.redForm.valueChanges.subscribe(changes => {
       this.formService.theForm.next({
         ...this.formService.theForm.value,
         ...changes
@@ -56,13 +55,13 @@ export class SemilleroBasicoComponent implements OnInit {
   }
 
   formInitialized(name: string, form: FormControl) {
-    this.primerForm.setControl(name, form);
+    this.redForm.setControl(name, form);
   }
 
   formGroupInitialized(name: string, form: FormGroup, disabled?: boolean) {
-    this.primerForm.setControl(name, form);
+    this.redForm.setControl(name, form);
     if (disabled) {
-      this.primerForm.get(name).disable();
+      this.redForm.get(name).disable();
     }
   }
 }

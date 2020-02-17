@@ -1,0 +1,12 @@
+<mat-card class="confirm-card">
+  <mat-card-header class="confirm-card__header">
+      <mat-card-title class="confirm-card__header-title">Recolección de datos completa</mat-card-title>
+      <mat-card-subtitle class="confirm-card__header-sub-title">Para guardar los cambios haga clic en aceptar, de lo
+          contrario haga clic en cancelar para
+          descartar los cambios.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions class="confirm-card__actions">
+      <button mat-flat-button (click)="clear()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="save()">Aceptar</button>
+  </mat-card-actions>
+</mat-card>
