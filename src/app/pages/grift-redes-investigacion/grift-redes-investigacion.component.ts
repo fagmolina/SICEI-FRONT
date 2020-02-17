@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as constantes from '../../constantes';
 import { fakeData } from 'src/app/mockData/mockData';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-grift-redes-investigacion',
@@ -12,15 +13,25 @@ export class GriftRedesInvestigacionComponent implements OnInit {
   public constantes = constantes;
   public fakeData = fakeData;
   public form: FormGroup;
+  public new = false;
+
+  public tableData = [{Nombre: 'A', valor: 25},{Nombre: 'b', valor: 35}];
 
   constructor(
-    private fb: FormBuilder
+    private _componentService: ComponentsService
   ) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      yearControl: new FormControl({ value: '', disabled: false }, Validators.required)
-    });
+    this._componentService.newRedInvestigacion.subscribe(
+      data => {
+        this.new = <boolean>data;
+      }
+    );
+  }
+
+  setNew(){
+    this.new = !this.new;
+    this._componentService.newRedInvestigacion.next(this.new);
   }
 
   formInitialized(name: string, form: FormControl) {

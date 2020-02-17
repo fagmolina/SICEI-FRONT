@@ -1,1 +1,91 @@
-<p>grift-semilleros-investigacion works!</p>
+<div class="title-wrapper">
+  <app-page-title
+    [title]="constantes.titles.semilleroInvestigacion"
+  ></app-page-title>
+  <button
+    mat-raised-button
+    [color]="new ? 'warn' : 'primary'"
+    (click)="new = !new"
+  >
+    <mat-icon>{{ new ? 'close' : 'add' }}</mat-icon
+    >{{ new ? 'Cancelar' : 'Nueva investigación' }}
+  </button>
+</div>
+<ng-container *ngIf="new; then form; else table"></ng-container>
+<ng-template #table>
+  <div>
+    <!-- <app-table [data]="tableData"></app-table>  -->
+  </div>
+  <app-table [data]="tableData"></app-table>
+</ng-template>
+<ng-template #form>
+  <mat-horizontal-stepper #stepper linear labelPosition='bottom'>
+    <!-- <mat-step [completed]="semilleroStepper.stepOne"> -->
+    <mat-step [completed]="semilleroStepper.stepOne">
+      <ng-template matStepLabel>Información Base</ng-template>
+      <app-semillero-basico></app-semillero-basico>
+      <div class="stepper-buttons__first">
+        <button mat-mini-fab color="primary" matStepperNext (click)="guardar(1)">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="semilleroStepper.stepTwo">
+      <ng-template matStepLabel>Investigadores</ng-template>
+      <app-semillero-investigadores></app-semillero-investigadores>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="semilleroStepper.stepThree">
+      <ng-template matStepLabel>Eventos</ng-template>
+      <app-semillero-eventos-form></app-semillero-eventos-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="semilleroStepper.stepFour">
+      <ng-template matStepLabel>Estímulos</ng-template>
+      <app-semillero-estimulos-form></app-semillero-estimulos-form>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="semilleroStepper.stepFive">
+      <ng-template matStepLabel>Red de investigación</ng-template>
+      Cosa
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" matStepperNext>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="true">
+      <ng-template matStepLabel>Confirmación</ng-template>
+      <app-grift-form-confirm></app-grift-form-confirm>
+      <div class="stepper-buttons">
+        <button mat-mini-fab color="primary" matStepperPrevious>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</ng-template>

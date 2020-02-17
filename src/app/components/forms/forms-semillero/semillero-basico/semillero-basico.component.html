@@ -1,0 +1,26 @@
+<app-page-title [title]="'Información Base'"></app-page-title>
+<form novalidate [formGroup]="primerForm">
+  <div>
+    <!-- Nombre del semillero -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.nombreSemillero,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('nombreControl', $event)"></app-simple-input>
+
+    <!-- Escuelas -->
+    <app-autcomplete [data]="{
+      placeholder: constantes.placeholders.escuelas,
+      data: fakeData,
+      icon: '',
+      argument: 'name'
+    }" (formReady)="formInitialized('escuelasControl', $event)"></app-autcomplete>
+  </div>
+  <div>
+    <!-- Formulario Areas y Lineas -->
+    <app-formulario-areas-lineas (formReady)="formGroupInitialized('areasLineasform', $event, false)">
+    </app-formulario-areas-lineas>
+  </div>
+
+  {{primerForm.value | json}}
+</form>

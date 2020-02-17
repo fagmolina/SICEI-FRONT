@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as constantes from '../../constantes';
 import { fakeData } from 'src/app/mockData/mockData';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-grift-caso-emblematico',
@@ -15,8 +16,15 @@ export class GriftCasoEmblematicoComponent implements OnInit {
 
   public tableData = [{Nombre: 'A', valor: 25},{Nombre: 'b', valor: 35}];
 
-  constructor() { }
+  constructor(
+    private _componentService: ComponentsService
+  ) { }
 
   ngOnInit() {
+    this._componentService.newCasoEmblematico.subscribe(
+      data => {
+        this.new = <boolean>data;
+      }
+    );
   }
 }

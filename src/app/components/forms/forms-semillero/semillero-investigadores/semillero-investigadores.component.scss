@@ -1,0 +1,21 @@
+@import '../../../../../assets/css/variables';
+
+.wrapper {
+ display: grid;
+ grid-template-rows: min-content 1fr;
+ grid-gap: 1rem;   
+ & button {
+     &:first-of-type {
+         max-width: 200px;
+     }
+ }
+ & div {
+     &:first-child {
+         display: grid;
+         grid-template-columns: min-content auto;
+         grid-gap: 1rem;
+         font-weight: lighter;
+         color: $primario;
+     }
+ }
+}

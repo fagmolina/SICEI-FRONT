@@ -13,7 +13,7 @@ export const REAL_MENU_ITEMS: MenuItem[] = [
         heigth: 24,
         icon: 'home',
         width: 24,
-        link: '/'
+        link: 'home'
     },
     {
         title: 'GRIFT',

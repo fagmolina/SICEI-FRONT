@@ -44,11 +44,15 @@ export class LoginComponent implements OnInit {
             this.usuariologin = data;
             sessionStorage.setItem('user',JSON.stringify(this.usuariologin));
             this._componentservice.user.next(this.usuariologin);
+            this._userservice.isLogged.next(true);
             this.router.navigateByUrl('/home');
+          }else{
+            alert('Datos inválidos');      
           }
         })
     } else {
       alert('Ingrese todos los campos');
+      this._userservice.isLogged.next(false);
     }
   }
 

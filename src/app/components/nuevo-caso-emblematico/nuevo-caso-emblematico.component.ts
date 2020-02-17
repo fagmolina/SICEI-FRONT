@@ -7,6 +7,9 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { FormularioGRIFTService } from 'src/app/services/formulario-grift.service';
 import { MatTableDataSource } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
+import { CasosEmblematico } from 'src/app/models/caso-emblematico';
+import { ComponentsService } from 'src/app/services/components.service';
 
 @Component({
   selector: 'app-nuevo-caso-emblematico',
@@ -17,6 +20,7 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
   public constantes = constantes;
   public form: FormGroup;
   fakeData = fakeData;
+  public hasInvestigadores: boolean;
 
   investigadores;
   displayedNames: string[] = ['Grado', 'C.C.', 'Nombres', 'Acciones'];
@@ -29,14 +33,17 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialogService: DialogService,
-    private dataService: DataService
-  ) { }
+    private dataService: DataService,
+    private _componentService: ComponentsService
+  ) { 
+    this.hasInvestigadores = false;
+  }
 
   ngOnInit() {
     this.investigadores = investigadores;
     this.dataSource = new MatTableDataSource();
     this.form = this.fb.group({
-      investigadores: new FormControl({ value: this.tableData, disabled: false}, Validators.required)
+      investigadores: new FormControl({ value: this.tableData, disabled: false}, )
     });
     this.getInvestigadores();
   }
@@ -74,6 +81,8 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
       if (dialogResponse) {
         this.tableData.push(dialogResponse);
         this.dataSource.data = this.tableData;
+        console.log(this.form);
+        this.haveInvestigadores();
         // this.checkDataValid(this.dataSource.data);
       }
     });
@@ -87,6 +96,25 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
     ];
     this.dataSource.data = tempArray;
     this.tableData = tempArray;
+    this.form.get("investigadores").setValue(tempArray);
+    this.haveInvestigadores();
     // this.checkDataValid(this.dataSource.data);
+  }
+
+  haveInvestigadores(){
+    this.hasInvestigadores = this.form.get("investigadores").value.length > 0 ? true : false;
+    console.log(this.form.get("investigadores").value);
+    console.log(this.tableData);
+  }
+
+  save(){
+    let nuevoCaso = new CasosEmblematico();
+    nuevoCaso.actividades = this.form.get("actividades").value;
+    nuevoCaso.lugarAtencion = this.form.get("lugarAfectacionControl").value;
+    nuevoCaso.nombreCaso = this.form.get("nombreCasoControl").value;
+    nuevoCaso.investigadores = <number[]>[...new Set(this.form.get("investigadores").value.map(item => item.id))];
+    console.log(nuevoCaso);
+    
+    this._componentService.newCasoEmblematico.next(false);
   }
 }

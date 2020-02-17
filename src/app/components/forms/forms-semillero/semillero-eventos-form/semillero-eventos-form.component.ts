@@ -1,0 +1,87 @@
+import { Component, OnInit } from '@angular/core';
+import * as constantes from '../../../../constantes';
+import { colombia } from '../../../../jsonColombia/colombia';
+import { paises } from '../../../../paises/paises';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormularioSemilleroService } from 'src/app/services/formulario-semillero.service';
+
+@Component({
+  selector: 'app-semillero-eventos-form',
+  templateUrl: './semillero-eventos-form.component.html',
+  styleUrls: ['./semillero-eventos-form.component.scss']
+})
+export class SemilleroEventosFormComponent implements OnInit {
+  constantes = constantes;
+  colombia = colombia;
+  paises = paises;
+  eventosForm: FormGroup;
+  departamento: string[];
+  tipo: string[] = ['Seminario', 'Simposio', 'Foro', 'Panel', 'Conversatorio', 'Encuentro'];
+  participacion: string[] = ['Asistente', 'Ponente', 'Organizador'];
+  national = false;
+
+  constructor(
+    private formService: FormularioSemilleroService
+  ) { }
+
+  ngOnInit() {
+    this.eventosForm = new FormGroup({
+      departamentosControl: new FormControl('', Validators.required),
+      ciudadControl: new FormControl('', Validators.required),
+      fechaControl: new FormControl('', Validators.required),
+      tipoControl: new FormControl('', Validators.required),
+      participacionControl: new FormControl('', Validators.required),
+      nationalControl: new FormControl(false)
+    });
+    this.formChanges();
+    this.formService.resetTheForm.subscribe(reset => {
+      if (reset) {
+        this.eventosForm.reset();
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.formValid();
+  }
+
+  formValid() {
+    this.eventosForm.statusChanges.subscribe(valid => {
+      this.formService.semilleroStepper.next({
+        ...this.formService.semilleroStepper.value,
+        stepThree: valid === 'VALID'
+      });
+    });
+  }
+
+  formChanges() {
+    this.eventosForm.valueChanges.subscribe(changes => {
+      if (changes && changes.departamentosControl) {
+        this.departamento = changes.departamentosControl.ciudades;
+        const form = this.eventosForm.controls;
+        // Guardar datos en el form
+        this.formService.theForm.next({
+          ...this.formService.theForm.value,
+          eventos: {
+            tipo: form.tipoControl.value,
+            participacion: form.participacionControl.value,
+            departamento: this.national ? null : form.departamentosControl.value.departamento,
+            pais: this.national ? form.paisesControl.value.nombre : null,
+            ciudad: form.ciudadControl.value,
+            fecha: form.fechaControl.value,
+            lugar: form.nationalControl.value ? 'Internacional' : 'Nacional'
+          }
+        });
+      }
+    });
+  }
+
+  formInitialized(name: string, form: FormControl) {
+    this.eventosForm.setControl(name, form);
+  }
+
+  test(event) {
+    console.log(event);
+  }
+
+}

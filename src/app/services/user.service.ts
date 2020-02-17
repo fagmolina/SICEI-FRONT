@@ -1,6 +1,7 @@
 import { Usuario } from './../models/user.class';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
  
 
 @Injectable({
@@ -9,6 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
 
   public pathapi = 'http://localhost:60406/api/usuario/login';
+  public isLogged = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) { }
 

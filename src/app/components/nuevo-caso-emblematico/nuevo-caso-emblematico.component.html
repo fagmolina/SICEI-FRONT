@@ -59,15 +59,10 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
 
-        <div *ngIf="form.valid">
-          <button mat-flat-button (click)="clear()">Cancelar</button>
-          <button mat-raised-button color="primary" (click)="save()">Aceptar</button>
+        <div>
+          <button mat-raised-button color="primary" (click)="save()" *ngIf="form.valid && hasInvestigadores">Aceptar</button>
         </div>
       </div>
   </div>
-
-  <p>
-    {{form.value | json}}
-    {{form.errors | json}}
-  </p>
+  <p>{{form.value | json}}</p>
 </form>

@@ -90,6 +90,11 @@ import { NuevaUnidadComponent } from './components/forms/nueva-unidad/nueva-unid
 import { ShowFormComponent } from './components/dialogs/show-form/show-form.component';
 import { NgxNotificationComponent } from 'ngx-notification';
 import { NuevoCasoEmblematicoComponent } from './components/nuevo-caso-emblematico/nuevo-caso-emblematico.component';
+import { NuevaRedInvestigacionComponent } from './components/nueva-red-investigacion/nueva-red-investigacion.component';
+import { SemilleroBasicoComponent } from './components/forms/forms-semillero/semillero-basico/semillero-basico.component';
+import { SemilleroInvestigadoresComponent } from './components/forms/forms-semillero/semillero-investigadores/semillero-investigadores.component';
+import { SemilleroEstimulosFormComponent } from './components/forms/forms-semillero/semillero-estimulos-form/semillero-estimulos-form.component';
+import { SemilleroEventosFormComponent } from './components/forms/forms-semillero/semillero-eventos-form/semillero-eventos-form.component';
 //#endregion Components imports
 
 @NgModule({
@@ -147,7 +152,12 @@ import { NuevoCasoEmblematicoComponent } from './components/nuevo-caso-emblemati
     NuevaUnidadComponent,
     ShowFormComponent,
     NgxNotificationComponent,
-    NuevoCasoEmblematicoComponent
+    NuevoCasoEmblematicoComponent,
+    NuevaRedInvestigacionComponent,
+    SemilleroBasicoComponent,
+    SemilleroInvestigadoresComponent,
+    SemilleroEstimulosFormComponent,
+    SemilleroEventosFormComponent
   ],
   imports: [
     BrowserModule,

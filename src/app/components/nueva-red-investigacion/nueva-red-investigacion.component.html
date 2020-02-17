@@ -1,0 +1,53 @@
+<form novalidate [formGroup]="form">
+  <div>
+    <!-- Nombre de la red -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.nombreRed,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('nombreRedControl', $event)"></app-simple-input>
+
+    <!-- Entidad que la conforma -->
+    <app-simple-input [data]="{
+      placeholder: constantes.placeholders.entidadConforma,
+      data: fakeData,
+      icon: ''
+    }" (formReady)="formInitialized('entidadConformaControl', $event)"></app-simple-input>
+
+    <!-- Año de creación -->
+    <mat-form-field>
+      <input readonly matInput [matDatepicker]="picker" placeholder="{{ constantes.placeholders.year }}"
+        formControlName="fechaControl" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <!-- Lugar -->
+  <div class="lugar">
+    <!-- Nacional -->
+    <mat-slide-toggle formControlName="nationalControl" (change)="national = !national">
+        {{national ? 'Internacional' : 'Nacional'}}</mat-slide-toggle>
+    <app-autcomplete *ngIf="!national" [data]="{placeholder: constantes.strings.departments,
+    data: colombia,
+    icon: 'string',
+    argument: 'departamento'}" (formReady)="formInitialized('departamentosControl', $event)"></app-autcomplete>
+
+    <app-select *ngIf="!national" [placeholder]="constantes.placeholders.city" [data]="departamento"
+        (formReady)="formInitialized('ciudadControl', $event)"></app-select>
+
+    <!-- Internacional -->
+    <app-autcomplete *ngIf="national" [data]="{placeholder: constantes.placeholders.country,
+    data: paises,
+    icon: 'string',
+    argument: 'nombre'}" (formReady)="formInitialized('paisesControl', $event)"></app-autcomplete>
+
+    <app-simple-input *ngIf="national" [data]="{
+    placeholder: constantes.placeholders.city
+}" (formReady)="formInitialized('ciudadControl', $event)"></app-simple-input>
+</div>
+  <div>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="form.valid">Aceptar</button>
+  </div>
+  <p>{{form.value | json}}</p>
+  <p>{{form.valid | json}}</p>
+</form>

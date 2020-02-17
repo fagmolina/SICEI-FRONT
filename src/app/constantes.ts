@@ -25,7 +25,8 @@ export const placeholders = {
   nombreRed: 'Nombre de la RED',
   entidadConforma: 'Entidad que la conforma',
   creationYear: 'Año de creación',
-  sede: 'Sede de la RED'
+  sede: 'Sede de la RED',
+  nombreSemillero: 'Nombre del semillero'
 };
 
 export const strings = {
@@ -73,7 +74,8 @@ export const titles = {
   instInvestigation: 'Investigación Institucional',
   impleInvestigation: 'Investigación Implementada',
   emblematico: 'Caso Emblemático',
-  redInvestigacion: 'Redes de investigación'
+  redInvestigacion: 'Redes de investigación',
+  semilleroInvestigacion: 'Semillero de Investigacion'
 };
 
 export const errors = {

@@ -11,5 +11,7 @@ export class ComponentsService {
   menuItems = new BehaviorSubject<MenuItem[]>([]);
   carouselItems = new BehaviorSubject<CarouselItem[]>([]);
   user = new BehaviorSubject<User>(null);
+  newRedInvestigacion = new BehaviorSubject<boolean>(false);
+  newCasoEmblematico = new BehaviorSubject<boolean>(false);
   constructor() { }
 }

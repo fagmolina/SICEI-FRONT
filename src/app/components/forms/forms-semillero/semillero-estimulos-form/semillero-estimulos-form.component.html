@@ -1,0 +1,24 @@
+<h1>{{ constantes.strings.encouragement }}</h1>
+<form [formGroup]="estimulosForm" class="estimulos-wrapper">
+  <div class="cell">
+    <mat-checkbox formControlName="condecoracionesControl">{{ constantes.strings.condecorations }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="felicitacionesControl">{{ constantes.strings.congratulations }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="personajeMesControl">{{ constantes.strings.personOfTheMonth }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="permisosControl">{{ constantes.strings.permiso }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="estatuillasControl">{{ constantes.strings.statues }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="monedasControl">{{ constantes.strings.coin }}</mat-checkbox>
+  </div>
+  <div class="cell">
+    <mat-checkbox formControlName="capacitacionesControl">{{ constantes.strings.trainings }}</mat-checkbox>
+  </div>
+</form>
