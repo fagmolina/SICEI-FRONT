@@ -11,14 +11,12 @@ import {
 import Chart from "chart.js";
 import { Array } from 'core-js';
 
-
 @Component({
-  selector: 'app-grafica',
-  templateUrl: './grafica.component.html',
-  styleUrls: ['./grafica.component.scss']
+  selector: 'app-grafica-productos',
+  templateUrl: './grafica-productos.component.html',
+  styleUrls: ['./grafica-productos.component.scss']
 })
-export class GraficaComponent implements OnInit {
-
+export class GraficaProductosComponent implements OnInit {
   graficas: any;
   tipo: any[];
   datos: any[];
@@ -38,7 +36,7 @@ export class GraficaComponent implements OnInit {
   graficarInvestigacionesInstitucionales(){
     this.cd.detectChanges();
     this.graficas[0] = new ChartDTO();
-    this.graficas[0].canvas = document.getElementById("investigacionesInstitucionalesChart");
+    this.graficas[0].canvas = document.getElementById("investigacionesProductosChart");
     this.graficas[0].ctx = this.graficas[0].canvas.getContext("2d");
     this.graficas[0].type = "bar";
     this.graficas[0].data = this.generarDataSetInvestigaciones();
@@ -53,9 +51,10 @@ export class GraficaComponent implements OnInit {
     data.labels = this.generarLabels();
     let dataSet = new DataSet();
 
-    dataSet.label = "Cantidad de Investigaciones";
+    dataSet.label = "Producto de la Investigación";
     dataSet.data = this.generarDataSetsData();
-    dataSet.backgroundColor = ["green","green","green","green","green","green","green","green","green","green","green","green"];
+    dataSet.backgroundColor = ["green","green","green","green","green",
+    "green","green","green","green","green"];
     data.datasets = [];
     data.datasets.push(dataSet);
     return data;
@@ -66,10 +65,10 @@ export class GraficaComponent implements OnInit {
     data.labels = this.generarLabels();
     let dataSet = new DataSet();
 
-    dataSet.label = "Cantidad de Investigaciones";
+    dataSet.label = "Producto de la Investigación";
     dataSet.data = this.datos;
     dataSet.backgroundColor = ["green","blue","red","yellow","orange","black","white",
-    "pink","purple","gold","brown","lime"];
+    "pink","purple","gold"];
     data.datasets = [];
     data.datasets.push(dataSet);
     return data;
@@ -82,7 +81,8 @@ export class GraficaComponent implements OnInit {
 
     dataSet.label = "Cantidad de Investigaciones";
     dataSet.data = this.datos;
-    dataSet.backgroundColor =  ["green","green","green","green","green","green","green","green","green","green","green","green"];
+    dataSet.backgroundColor =  ["green","green","green","green","green",
+    "green","green","green","green","green"];
     data.datasets = [];
     data.datasets.push(dataSet);
     return data;
@@ -98,9 +98,7 @@ export class GraficaComponent implements OnInit {
       Math.floor(Math.random() * 4) + 1  ,
       Math.floor(Math.random() * 9) + 1  ,
       Math.floor(Math.random() * 15) + 1  ,
-      Math.floor(Math.random() * 10) + 1  ,
-      Math.floor(Math.random() * 5) + 1  ,
-      Math.floor(Math.random() * 60) + 1  ];
+      Math.floor(Math.random() * 10) + 1 ];
       this.datos = data;
     return data;
   }
@@ -108,18 +106,16 @@ export class GraficaComponent implements OnInit {
 
   generarLabels() {
     let labels = [
-      "ESTIC",
-      "ESJIM",
-      "ESSUM",
-      "ESCAR",
-      "ESCIN",
-      "ECSAM",
-      "ESECU",
-      "ESPOL",
-      "ESMEB",
-      "ESPRO",
-      "ESREY",
-      "ESBOL"
+      "GUIA",
+      "CARTILLA",
+      "PROTOTIPO",
+      "LIBRO",
+      "ARTICULO",
+      "LIBRO",
+      "CAPITULO DEL LIBRO",
+      "MANUALES",
+      "PROCEDIMIENTOS",
+      "INSTRUCTIVOS"
     ];
     return labels;
   }
@@ -153,7 +149,7 @@ export class GraficaComponent implements OnInit {
     if(tipo === 'Barras'){
       this.cd.detectChanges();
       this.graficas[0] = new ChartDTO();
-      this.graficas[0].canvas = document.getElementById("investigacionesInstitucionalesChart");
+      this.graficas[0].canvas = document.getElementById("investigacionesProductosChart");
       this.graficas[0].ctx = this.graficas[0].canvas.getContext("2d");
       this.graficas[0].type = "bar";
       this.graficas[0].data = this.generarDataSetInvestigacionesBarras();
@@ -164,7 +160,7 @@ export class GraficaComponent implements OnInit {
     } else{
       this.cd.detectChanges();
       this.graficas[0] = new ChartDTO();
-      this.graficas[0].canvas = document.getElementById("investigacionesInstitucionalesChart");
+      this.graficas[0].canvas = document.getElementById("investigacionesProductosChart");
       this.graficas[0].ctx = this.graficas[0].canvas.getContext("2d");
       this.graficas[0].type = "pie";
       this.graficas[0].data = this.generarDataSetInvestigacionesTorta();
