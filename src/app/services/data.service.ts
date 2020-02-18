@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Investigacion } from '../models/investigacion';
 import { CasosEmblematicoSet } from '../models/caso-emblematico';
+import { RedInvestigacion } from '../models/red-investigacion';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,9 @@ export class DataService {
 
   public serviceMergeCasoEmblematico = 'casoEmblem/MergeCasoEmblematico';
   public serviceGetCasosEmblematicos = 'casoEmblem/ConsultarCasosEmblem';
+
+  public serviceMergeRedInvestigacion = 'redInves/MergeRedInvestigacion';
+  public serviceGetRedInvestigacion = 'redInves/ConsultarRedInvestigacion';
 
   constructor(private http: HttpClient) { }
 
@@ -54,6 +58,19 @@ export class DataService {
 
   public mergeCasoEmblematico(caso: CasosEmblematicoSet){
     return this.http.post(this.pathapi + this.serviceMergeCasoEmblematico, caso, {
+      headers: this.generateBasicHeaders()
+    });
+  }
+
+  //Red Investigación
+  public getRedInvestigacion(){
+    return this.http.get(this.pathapi + this.serviceGetRedInvestigacion, {
+      headers: this.generateBasicHeaders()
+    })
+  }
+
+  public mergeRedInvestigacion(red: RedInvestigacion){
+    return this.http.post(this.pathapi + this.serviceMergeRedInvestigacion, red, {
       headers: this.generateBasicHeaders()
     });
   }

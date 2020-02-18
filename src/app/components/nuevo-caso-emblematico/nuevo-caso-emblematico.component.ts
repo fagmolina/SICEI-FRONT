@@ -98,8 +98,6 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
 
   haveInvestigadores(){
     this.hasInvestigadores = this.form.get("investigadores").value.length > 0 ? true : false;
-    console.log(this.form.get("investigadores").value);
-    console.log(this.tableData);
   }
 
   save(){
@@ -108,7 +106,6 @@ export class NuevoCasoEmblematicoComponent implements OnInit {
     nuevoCaso.LUGAR_AFECTACION = this.form.get("lugarAfectacionControl").value;
     nuevoCaso.NOMBRE_CASO = this.form.get("nombreCasoControl").value;
     nuevoCaso.INVESTIGADORES = <[]>[...new Set(this.form.get("investigadores").value.map(item => item.id))];
-    console.log(nuevoCaso);
 
     this.dataService.mergeCasoEmblematico(nuevoCaso).subscribe(data => {
       this.successMessage("Caso guardado con éxito");

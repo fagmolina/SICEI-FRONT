@@ -39,7 +39,7 @@
     <app-autcomplete *ngIf="national" [data]="{placeholder: constantes.placeholders.country,
     data: paises,
     icon: 'string',
-    argument: 'nombre'}" (formReady)="formInitialized('paisesControl', $event)"></app-autcomplete>
+    argument: 'nombre'}" (formReady)="formInitialized('departamentosControl', $event)"></app-autcomplete>
 
     <app-simple-input *ngIf="national" [data]="{
     placeholder: constantes.placeholders.city
