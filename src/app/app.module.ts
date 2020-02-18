@@ -99,6 +99,7 @@ import { SemilleroEstimulosFormComponent } from './components/forms/forms-semill
 import { SemilleroEventosFormComponent } from './components/forms/forms-semillero/semillero-eventos-form/semillero-eventos-form.component';
 import { SemilleroRedComponent } from './components/forms/forms-semillero/semillero-red/semillero-red.component';
 import { SemilleroConfirmComponent } from './components/forms/forms-semillero/semillero-confirm/semillero-confirm.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
 //#endregion Components imports
 
 @NgModule({
@@ -163,7 +164,8 @@ import { SemilleroConfirmComponent } from './components/forms/forms-semillero/se
     SemilleroEstimulosFormComponent,
     SemilleroEventosFormComponent,
     SemilleroRedComponent,
-    SemilleroConfirmComponent
+    SemilleroConfirmComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
