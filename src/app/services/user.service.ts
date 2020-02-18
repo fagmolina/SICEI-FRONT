@@ -1,7 +1,7 @@
 import { Usuario } from './../models/user.class';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
  
 
 @Injectable({
@@ -21,8 +21,9 @@ export class UserService {
   }
 
   public login(user: Usuario) {
-    return this.http.post(this.pathapi, user, {
-      headers: this.generateBasicHeaders()
-    });
+    return of(true);
+    // return this.http.post(this.pathapi, user, {
+    //   headers: this.generateBasicHeaders()
+    // });
   }
 }

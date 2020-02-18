@@ -24,8 +24,8 @@ import { GraficaProductosComponent } from './components/grafica-productos/grafic
 import { GraficaComponent } from './components/grafica/grafica.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'investigacion-institucional', component: GriftInvestigacionInstitucionalComponent },
   { path: 'investigacion-implementada', component: GriftInvestigacionImplementadaComponent },
   { path: 'caso-emblematico', component: GriftCasoEmblematicoComponent },
@@ -41,13 +41,14 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'newinvestigadores', component: NewInvestigadoresComponent },
   { path: 'unidades', component: UnidadesComponent },
-  { path: 'grafica-productos', component: GraficaProductosComponent},
-  { path: 'grafica-investigaciones', component: GraficaComponent},
-  { path: '**', redirectTo: '/login' }
+  { path: 'grafica-productos', component: GraficaProductosComponent },
+  { path: 'grafica-investigaciones', component: GraficaComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

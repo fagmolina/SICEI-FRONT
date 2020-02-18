@@ -22,7 +22,11 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this._userService.isLogged.subscribe( data => {
 
-      this.isLogged = <boolean>data;
+      if (data) {
+        this.isLogged = <boolean>data;
+      } else {
+        this.isLogged = localStorage.getItem('isLogged') === 'true';
+      }
       //this.router.navigateByUrl('/home');
       //this.isLogged = true;
     });
