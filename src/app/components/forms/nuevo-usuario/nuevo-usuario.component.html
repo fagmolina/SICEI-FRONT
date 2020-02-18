@@ -98,5 +98,4 @@
         <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
         <button (click)="sendData()" mat-raised-button color="primary" [disabled]="newUser.invalid || passwd.invalid">Guardar</button>
     </div>
-    <p>{{newUser.value | json}}</p>
 </form>

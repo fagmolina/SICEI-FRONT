@@ -4,6 +4,15 @@
     max-width: 600px;
 }
 
+.title-wrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  & button {
+      height: 50px;
+      align-self: center;
+      margin-right: 1rem;
+  }
+}
 .unidades {
   &-wrapper {
     display: grid;

@@ -1,3 +1,23 @@
+<div class="title-wrapper">
+    <app-page-title [title]="'Unidades'"></app-page-title>
+    <button
+    mat-raised-button
+    [color]="new ? 'warn' : 'primary'"
+    (click)="new = !new"
+  >
+    <mat-icon>{{ new ? 'close' : 'add' }}</mat-icon
+    >{{ new ? 'Cancelar' : 'Nueva unidad' }}
+  </button>
+</div>
+<ng-container *ngIf="new; then form; else table"></ng-container>
+<ng-template #table>
+    <app-table [data]="tableData"></app-table>
+</ng-template>
+<ng-template #form>
+    <!-- <app-nuevo-usuario (closeForm)="new = false" (sigla)="addTableData($event)"></app-nuevo-usuario> -->
+    <app-nueva-unidad (sigla)="addTableData($event)"></app-nueva-unidad>
+</ng-template>
+<!-- 
 <div class="unidades-wrapper">
     <app-page-title [title]="'Unidades'" class="unidades-titulo"></app-page-title>
     <p class="main-text unidades-text">
@@ -8,4 +28,4 @@
     </p>
     <app-nueva-unidad class="unidades-form" (sigla)="addTableData($event)"></app-nueva-unidad>
     <app-table [data]="tableData" class="unidades-table"></app-table>
-</div>
+</div> -->
