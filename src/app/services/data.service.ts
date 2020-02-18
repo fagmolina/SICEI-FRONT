@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Investigacion } from '../models/investigacion';
 import { CasosEmblematicoSet } from '../models/caso-emblematico';
 import { RedInvestigacion } from '../models/red-investigacion';
+import { User } from '../models/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,12 @@ export class DataService {
 
   public serviceMergeRedInvestigacion = 'redInves/MergeRedInvestigacion';
   public serviceGetRedInvestigacion = 'redInves/ConsultarRedInvestigacion';
+
+  public serviceCrearModificarUsuario = 'Usuario/CrearModificarUsuario';
+  public serviceConsultaUsuarios = 'Usuario/ConsultaUsuarios';
+
+  public serviceConsultaGrados = 'Grado/ConsultaGrados';
+  public serviceConsultaUnidades = 'Unidad/ConsultaUnidades';
 
   constructor(private http: HttpClient) { }
 
@@ -73,5 +80,32 @@ export class DataService {
     return this.http.post(this.pathapi + this.serviceMergeRedInvestigacion, red, {
       headers: this.generateBasicHeaders()
     });
+  }
+
+  //Usuarios
+  public getConsultaUsuarios(){
+    return this.http.get(this.pathapi + this.serviceConsultaUsuarios, {
+      headers: this.generateBasicHeaders()
+    });
+  }
+
+  public crearModificarUsuario(user: User){
+    return this.http.post(this.pathapi + this.serviceCrearModificarUsuario, user, {
+      headers: this.generateBasicHeaders()
+    });
+  }
+
+  //Grado
+  public getConsultaGrados(){
+    return this.http.get(this.pathapi + this.serviceConsultaGrados, {
+      headers: this.generateBasicHeaders()
+    })
+  }
+
+  //Unidad
+  public getConsultaUnidades(){
+    return this.http.get(this.pathapi + this.serviceConsultaUnidades, {
+      headers: this.generateBasicHeaders()
+    })
   }
 }

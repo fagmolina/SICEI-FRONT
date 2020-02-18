@@ -3,7 +3,7 @@
     <div class="group">
         <div class="doc-group">
             <!-- Tipo documento -->
-            <app-select [placeholder]="'Tipo Doc.'" [data]="tipoDoc"
+            <app-select [placeholder]="'Tipo Doc.'" [data]="tipoDoc" [argument]="'DESCRIPCION'"
                 (formReady)="formInitialized('Tipo_Doc', $event)">
             </app-select>
 
@@ -53,11 +53,11 @@
 
     <div class="group">
         <!-- Grado -->
-        <app-select [placeholder]="'Grado'" [data]="grado" (formReady)="formInitialized('Grado', $event)">
+        <app-select [placeholder]="'Grado'" [data]="grado" [argument]="'DESCRIPCION'" (formReady)="formInitialized('Grado', $event)">
         </app-select>
 
         <!-- Unidad -->
-        <app-select [placeholder]="'Unidad'" [data]="grado" (formReady)="formInitialized('Unidad', $event)">
+        <app-select [placeholder]="'Unidad'" [data]="unidades" [argument]="'DESCRIPCION'" (formReady)="formInitialized('Unidad', $event)">
         </app-select>
     </div>
 
@@ -98,4 +98,5 @@
         <button mat-flat-button (click)="closeTheForm()">Cancelar</button>
         <button (click)="sendData()" mat-raised-button color="primary" [disabled]="newUser.invalid || passwd.invalid">Guardar</button>
     </div>
+    <p>{{newUser.value | json}}</p>
 </form>
