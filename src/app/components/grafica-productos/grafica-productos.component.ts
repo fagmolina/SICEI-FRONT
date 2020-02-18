@@ -21,6 +21,7 @@ export class GraficaProductosComponent implements OnInit {
   tipo: any[];
   datos: any[];
 
+
   constructor(
     private cd: ChangeDetectorRef
   ) { }
@@ -39,7 +40,7 @@ export class GraficaProductosComponent implements OnInit {
     this.graficas[0].canvas = document.getElementById("investigacionesProductosChart");
     this.graficas[0].ctx = this.graficas[0].canvas.getContext("2d");
     this.graficas[0].type = "pie";
-    this.graficas[0].data = this.generarDataSetInvestigacionesTorta();
+    this.graficas[0].data = this.generarDataSetInvestigaciones();
     this.graficas[0].options = this.generarOpciones();
 
     let myChart = new Chart(this.graficas[0].ctx, this.graficas[0]);
@@ -53,8 +54,8 @@ export class GraficaProductosComponent implements OnInit {
 
     dataSet.label = "Producto de la Investigación";
     dataSet.data = this.generarDataSetsData();
-    dataSet.backgroundColor = ["green","green","green","green","green",
-    "green","green","green","green","green"];
+    dataSet.backgroundColor = ["green","blue","red","yellow","orange","black","white",
+    "pink","purple","gold"];
     data.datasets = [];
     data.datasets.push(dataSet);
     return data;
