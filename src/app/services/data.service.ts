@@ -4,6 +4,7 @@ import { Investigacion } from '../models/investigacion';
 import { CasosEmblematicoSet } from '../models/caso-emblematico';
 import { RedInvestigacion } from '../models/red-investigacion';
 import { User } from '../models/user.class';
+import { Unidad } from '../models/unidad';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,8 @@ export class DataService {
 
   public serviceConsultaGrados = 'Grado/ConsultaGrados';
   public serviceConsultaUnidades = 'Unidad/ConsultaUnidades';
+  public serviceConsultaTipos = 'Unidad/ConsultaTipos';
+  public serviceMergeUnidad = 'Unidad/MergeUnidad';
 
   constructor(private http: HttpClient) { }
 
@@ -107,5 +110,17 @@ export class DataService {
     return this.http.get(this.pathapi + this.serviceConsultaUnidades, {
       headers: this.generateBasicHeaders()
     })
+  }
+
+  public getConsultaTipos(){
+    return this.http.get(this.pathapi + this.serviceConsultaTipos, {
+      headers: this.generateBasicHeaders()
+    });
+  }
+
+  public postMergeUnidad(unidad: Unidad){
+    return this.http.post(this.pathapi + this.serviceMergeUnidad, unidad, {
+      headers: this.generateBasicHeaders()
+    });
   }
 }

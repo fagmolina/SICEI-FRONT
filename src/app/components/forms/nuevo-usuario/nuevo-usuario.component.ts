@@ -68,7 +68,7 @@ export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
     },
     error => {
       console.log('Error');
-      console.log(error);
+      this.errorMessage('No ha sido posible consultar los grados');
     });
   }
 
@@ -78,7 +78,7 @@ export class NuevoUsuarioComponent implements OnInit, AfterViewInit {
     },
     error => {
       console.log('Error');
-      console.log(error);
+      this.errorMessage('No ha sido posible consultar las unidades');
     });
   }
 

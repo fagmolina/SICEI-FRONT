@@ -3,7 +3,7 @@
         <input matInput formControlName="Sigla" placeholder="Sigla" type="text">
     </mat-form-field>
     <mat-form-field class="unidad-field__descripcion">
-        <textarea matInput formControlName="Descripción" placeholder="Descripción" cdkTextareaAutosize
+        <textarea matInput formControlName="Descripcion" placeholder="Descripción" cdkTextareaAutosize
         cdkAutosizeMinRows="0"
         cdkAutosizeMaxRows="5">
         </textarea>
@@ -12,7 +12,7 @@
         <mat-label>Tipo</mat-label>
         <mat-select formControlName="Tipo">
             <mat-option *ngFor="let tipo of tipos" [value]="tipo">
-                {{tipo}}
+                {{tipo.DESCRIPCION}}
             </mat-option>
         </mat-select>
     </mat-form-field>

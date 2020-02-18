@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
     this._componentservice.user.subscribe(user => {
       if(user){
         this.user = user.NOMBRES + ' ' + user.APELLIDOS;
-        this.cargo = user.PERFIL.toString();
+        this.cargo = user.DESC_GRADO;
       }
     });
     let values = sessionStorage.getItem('user');
