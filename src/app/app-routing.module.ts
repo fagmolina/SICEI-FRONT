@@ -20,6 +20,8 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { UnidadesComponent } from './pages/administracion/unidades/unidades.component';
 import { NewInvestigadoresComponent } from './pages/administracion/new-investigadores/new-investigadores.component';
+import { GraficaProductosComponent } from './components/grafica-productos/grafica-productos.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'newinvestigadores', component: NewInvestigadoresComponent },
   { path: 'unidades', component: UnidadesComponent },
+  { path: 'grafica-productos', component: GraficaProductosComponent},
+  { path: 'grafica-investigaciones', component: GraficaComponent},
   { path: '**', redirectTo: '/login' }
 ];
 

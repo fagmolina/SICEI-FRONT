@@ -27,7 +27,7 @@ export class GraficaProductosComponent implements OnInit {
 
   ngOnInit() {
     this.graficas = new Array<ChartDTO>();
-    this.tipo = ["Barras", "Tortas"];
+    this.tipo = ["Tortas", "Barras"];
     this.graficarInvestigacionesInstitucionales();
 
   }
@@ -38,8 +38,8 @@ export class GraficaProductosComponent implements OnInit {
     this.graficas[0] = new ChartDTO();
     this.graficas[0].canvas = document.getElementById("investigacionesProductosChart");
     this.graficas[0].ctx = this.graficas[0].canvas.getContext("2d");
-    this.graficas[0].type = "bar";
-    this.graficas[0].data = this.generarDataSetInvestigaciones();
+    this.graficas[0].type = "pie";
+    this.graficas[0].data = this.generarDataSetInvestigacionesTorta();
     this.graficas[0].options = this.generarOpciones();
 
     let myChart = new Chart(this.graficas[0].ctx, this.graficas[0]);

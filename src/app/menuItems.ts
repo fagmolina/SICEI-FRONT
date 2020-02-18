@@ -46,6 +46,14 @@ export const REAL_MENU_ITEMS: MenuItem[] = [
                 link: 'categorizacion-colciencias',
                 title: 'Categorización Colciencias'
             },
+            {
+                link: 'grafica-productos',
+                title: 'Grafica Producto Investigacion'
+            },
+            {
+                link: 'grafica-investigaciones',
+                title: 'Grafica Investigaciones Institucionales'
+            },
         ]
     },
     {
